@@ -3,11 +3,12 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#4c1036" height="132.0" stroke="BLACK" strokeType="INSIDE" width="1440.0" />
       <TextField layoutX="339.0" layoutY="29.0" prefHeight="73.0" prefWidth="706.0" />
+      <Text layoutX="62.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="logo-text-normal" text="Text" />
    </children>
 </AnchorPane>
