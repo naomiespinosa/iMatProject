@@ -1,9 +1,55 @@
 
-.logo-text-normal{
+/*.logo-text-normal{
     font-family: Roboto;
     font-style: italic;
     font-weight: bold;
     font-size: 72px;
     line-height: 84px;
     text-align: center;
-   }
+   }*/
+
+
+.button{
+    -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
+    -fx-background-color: rgba(205,205,205,0.7);
+    -fx-background-radius: 15 15 15 15;
+    -fx-background-insets: 2 2 2 2 ;
+}
+.button:hover{
+    -fx-background-color:  #a7a6ba;
+}
+
+.button:pressed{
+    -fx-background-color: #ba96ba;
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
+
+
+
+/*.button:focused {
+    -fx-background-color: #a7a6ba;
+}*/
+
+
+#logo{
+
+    -fx-background-color: linear-gradient(#ba1fad, #4C1036);
+    -fx-background-radius: 30;
+    -fx-background-insets: 0;
+    -fx-text-fill: white;
+
+}
+#logo:hover
+{
+
+    -fx-background-color:
+            linear-gradient(from 0% 93% to 0% 100%,#ba1fad 0%,#4C1036 100)
+}
+
+#logo:pressed
+{
+    -fx-scale-y: 0.95;
+    -fx-scale-x: 0.95;
+}
+
