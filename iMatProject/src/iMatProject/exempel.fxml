@@ -1,42 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField layoutX="197.0" layoutY="7.0" prefHeight="26.0" prefWidth="205.0" promptText="SÖK....." AnchorPane.bottomAnchor="8.200000000000003" AnchorPane.rightAnchor="197.4" />
-                        <Button layoutX="534.0" layoutY="8.0" mnemonicParsing="false" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="16.4">
+                        <TextField fx:id="SearchTextField" layoutX="197.0" layoutY="7.0" prefHeight="26.0" prefWidth="205.0" promptText="SÖK....." AnchorPane.bottomAnchor="8.200000000000003" AnchorPane.rightAnchor="197.4" />
+                        <Button fx:id="helpButton" layoutX="534.0" layoutY="8.0" mnemonicParsing="false" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="16.4">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                        <Button id="logo" layoutY="1.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.6000000000000014" AnchorPane.leftAnchor="0.0">
+                        <Button id="logo" fx:id="logoButton" layoutY="1.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.6000000000000014" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>
-                        <Button layoutX="403.0" layoutY="7.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="28.0" text="Button" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="169.0" />
+                        <Button fx:id="searchButton" layoutX="403.0" layoutY="7.0" mnemonicParsing="false" prefHeight="21.0" prefWidth="28.0" text="Button" AnchorPane.bottomAnchor="9.0" AnchorPane.rightAnchor="169.0" />
                     </children>
                 </AnchorPane>
             </top>
             <bottom>
                 <AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button layoutX="501.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Till Kassan" textFill="#4c1036" AnchorPane.bottomAnchor="0.7999999999999972" AnchorPane.rightAnchor="0.6000000000000227" AnchorPane.topAnchor="0.0">
+                        <Button fx:id="toCartButton" layoutX="501.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Till Kassan" textFill="#4c1036" AnchorPane.bottomAnchor="0.7999999999999972" AnchorPane.rightAnchor="0.6000000000000227" AnchorPane.topAnchor="0.0">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                        <Button layoutX="319.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="181.0">
+                        <Button fx:id="favoritsButton" layoutX="319.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="181.0">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                        <Button layoutX="139.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Köphistorik" textFill="#4c1036" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="361.0">
+                        <Button fx:id="historyButton" layoutX="139.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Köphistorik" textFill="#4c1036" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="361.0">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
@@ -44,13 +46,24 @@
                 </AnchorPane>
             </bottom>
             <left>
-                <AnchorPane prefHeight="320.0" prefWidth="100.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
+                <AnchorPane fx:id="sortimentPane" prefHeight="320.0" prefWidth="100.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
             </left>
             <right>
-                <AnchorPane prefHeight="320.0" prefWidth="100.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
+                <AnchorPane fx:id="shoppingCartPane" prefHeight="320.0" prefWidth="100.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
             </right>
             <center>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="-1.0" prefHeight="480.0" prefWidth="518.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.19999999999998863" AnchorPane.leftAnchor="1.0" AnchorPane.rightAnchor="0.6000000000000227" AnchorPane.topAnchor="-1.0">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="479.0" prefWidth="520.0">
+                           <children>
+                              <FlowPane fx:id="productFlowPane" layoutX="188.0" layoutY="140.0" prefHeight="479.2" prefWidth="520.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </ScrollPane>
+               </children></AnchorPane>
             </center>
         </BorderPane>
     </children>
