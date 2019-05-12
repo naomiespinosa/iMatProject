@@ -1,5 +1,6 @@
 package iMatProject;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -16,11 +17,7 @@ import java.util.ResourceBundle;
 
 public class iMatMainWindowController implements Initializable, ShoppingCartListener {
     private final Model model = Model.getInstance();
-//test, denna fil ska inte ha en main
-    public static void main(String [ ] args)
-    {
-        System.out.print(System.getProperty("user.home"));
-    }
+
     @FXML
     private TextField SearchTextField;
 
@@ -50,7 +47,14 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     @FXML
     private FlowPane productFlowPane;
+    @FXML
+    private void handleSearchAction(ActionEvent event) {
 
+        List<Product> matches = model.findProducts(SearchTextField.getText());
+        updateProductList(matches);
+        System.out.println("# matching products: " + matches.size());
+
+    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         updateProductList(model.getProducts());

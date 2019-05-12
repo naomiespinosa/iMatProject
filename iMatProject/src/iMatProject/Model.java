@@ -35,7 +35,7 @@ public class Model {
     }
 
     /**
-     * Returns the single instance of the Model class.
+     * Retu2rns the single instance of the Model class.
      */
     public static Model getInstance() {
         if (instance == null) {
@@ -77,7 +77,7 @@ public class Model {
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
 
-        //shoppingCart.addProduct(p);
+        shoppingCart.addProduct(p);
     }
 
     public List<String> getCardTypes() {
