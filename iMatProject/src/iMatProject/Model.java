@@ -106,6 +106,14 @@ public class Model {
     public String getEmail() {
         return customer.getEmail();
     }
+    public String getFirstName() {
+        return customer.getFirstName();
+
+    }
+    public String getLastName() {
+        return customer.getLastName();
+
+    }
     public String getAddress() {
         return customer.getAddress();
 
