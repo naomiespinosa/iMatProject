@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="720.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="661.0" prefWidth="850.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -46,17 +48,23 @@
                 </AnchorPane>
             </bottom>
             <left>
-                <AnchorPane fx:id="sortimentPane" prefHeight="320.0" prefWidth="100.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
+                <AnchorPane fx:id="sortimentPane" prefHeight="581.0" prefWidth="122.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
+               <children>
+                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" prefHeight="580.8" prefWidth="122.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+               </children></AnchorPane>
             </left>
             <right>
                 <AnchorPane fx:id="shoppingCartPane" prefHeight="479.0" prefWidth="122.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
             </right>
             <center>
-                <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                <AnchorPane prefHeight="580.0" prefWidth="628.0" BorderPane.alignment="CENTER">
                <children>
-                  <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="-1.0" pannable="true" prefHeight="479.2" prefWidth="497.6" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="-1.0" pannable="true" prefHeight="580.8" prefWidth="628.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <FlowPane fx:id="productFlowPane" prefHeight="477.2" prefWidth="495.6" />
+                        <FlowPane fx:id="productFlowPane" hgap="6.0" prefHeight="580.0" prefWidth="628.0" vgap="12.0">
+                           <padding>
+                              <Insets bottom="2.0" left="6.0" right="2.0" top="6.0" />
+                           </padding></FlowPane>
                      </content></ScrollPane>
                </children></AnchorPane>
             </center>
