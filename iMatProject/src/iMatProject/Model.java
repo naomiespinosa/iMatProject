@@ -13,11 +13,6 @@ import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
-/**
- * Wrapper around the IMatDataHandler. The idea is that it might be useful to
- * add an extra layer that can provide special features
- *
- */
 public class Model {
 
     private static Model instance = null;
@@ -78,6 +73,13 @@ public class Model {
         Model.getInstance().getShoppingCart().addItem(item);
 
         shoppingCart.addProduct(p);
+    }
+    public void removeFromShoppingCart(Product p) {
+        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+
+        ShoppingItem item = new ShoppingItem(p);
+        Model.getInstance().getShoppingCart().removeItem(item);
+        // shoppingCart.removeItem(item);
     }
 
     public List<String> getCardTypes() {

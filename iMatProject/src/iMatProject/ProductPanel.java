@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package iMatProject;
 
 import java.io.IOException;
@@ -14,10 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
-/**
- *
- * @author oloft
- */
+
 public class ProductPanel extends AnchorPane {
 
     @FXML ImageView imageView;
@@ -52,10 +45,15 @@ public class ProductPanel extends AnchorPane {
             ecoLabel.setText("");
         }
     }
-    
+
     @FXML
     private void handleAddAction(ActionEvent event) {
         System.out.println("Add " + product.getName());
         model.addToShoppingCart(product);
+    }
+    @FXML
+    private void handleRemoveAction(ActionEvent event) {
+        System.out.println("Remove " + product.getName());
+        model.removeFromShoppingCart(product);
     }
 }
