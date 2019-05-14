@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
@@ -12,6 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="690.0" prefWidth="910.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
+      <FlowPane fx:id="wizardFlowPane" layoutY="42.0" prefHeight="649.0" prefWidth="910.0" />
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
@@ -54,7 +56,11 @@
                </children></AnchorPane>
             </left>
             <right>
-                <AnchorPane fx:id="shoppingCartPane" prefHeight="610.0" prefWidth="130.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER" />
+                <AnchorPane fx:id="shoppingCartPane" prefHeight="610.0" prefWidth="130.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="priceLabel" layoutX="14.0" layoutY="547.0" text="500kr" />
+                  <Label fx:id="ItemCountLabel" layoutX="14.0" layoutY="579.0" text="10varor" />
+               </children></AnchorPane>
             </right>
             <center>
                 <AnchorPane prefHeight="580.0" prefWidth="628.0" style="-fx-background-color: red;" BorderPane.alignment="CENTER">

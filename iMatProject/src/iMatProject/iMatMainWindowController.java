@@ -3,17 +3,12 @@ package iMatProject;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TreeItem;
-import javafx.scene.control.TreeView;
+import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.CartEvent;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ProductCategory;
-import se.chalmers.cse.dat216.project.ShoppingCartListener;
+import se.chalmers.cse.dat216.project.*;
+
 
 import java.net.URL;
 import java.util.List;
@@ -21,7 +16,17 @@ import java.util.ResourceBundle;
 
 public class iMatMainWindowController implements Initializable, ShoppingCartListener {
     private final Model model = Model.getInstance();
+
+
+
+
 public ProductCategory productCategory;
+
+
+    @FXML
+    private Label priceLabel;
+    @FXML
+    private Label ItemCountLabel;
     @FXML
     private TextField SearchTextField;
 
@@ -62,6 +67,7 @@ public ProductCategory productCategory;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
         root.setExpanded(true);
         TreeItem<String> cat1 = new TreeItem(ProductCategory.BERRY);
@@ -91,10 +97,11 @@ public ProductCategory productCategory;
 
         catTreeView.setRoot(root);
         updateProductList(model.getProducts());
+        updateShoppingCart();
     }
 
     @Override
-    public void shoppingCartChanged(CartEvent cartEvent) {
+    public void shoppingCartChanged(CartEvent evt) { updateShoppingCart();
 
     }
     private void updateProductList(List<Product> products) {
@@ -105,6 +112,14 @@ public ProductCategory productCategory;
 
             productFlowPane.getChildren().add(new ProductPanel(product));
         }
+    }
+    private void updateShoppingCart() {
+
+        ShoppingCart shoppingCart = model.getShoppingCart();
+
+        ItemCountLabel.setText("Antal varor: " + shoppingCart.getItems().size());
+        priceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+
 
     }
     @FXML

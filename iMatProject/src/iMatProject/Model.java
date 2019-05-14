@@ -67,15 +67,16 @@ public class Model {
 
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
-
-        shoppingCart.addProduct(p);
+        System.out.println(shoppingCart.getItems().size());
+       // shoppingCart.addProduct(p);
     }
     public void removeFromShoppingCart(Product p) {
         ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().removeItem(item);
+        System.out.println(shoppingCart.getItems().size());
         // shoppingCart.removeItem(item);
+
     }
 
     public List<String> getCardTypes() {
