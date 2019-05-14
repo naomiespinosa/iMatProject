@@ -6,8 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.ResourceBundle;
-
 import static javafx.application.Application.launch;
 
 public class iMat_App extends Application {

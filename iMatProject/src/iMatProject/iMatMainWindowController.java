@@ -29,7 +29,8 @@ public ProductCategory productCategory;
     private Label ItemCountLabel;
     @FXML
     private TextField SearchTextField;
-
+    @FXML
+    private Button wizardDemoButton;
     @FXML
     private Button helpButton;
 
@@ -50,6 +51,8 @@ public ProductCategory productCategory;
 
     @FXML
     private AnchorPane sortimentPane;
+    @FXML
+    private AnchorPane wizardAnchorPane;
 
     @FXML
     private AnchorPane shoppingCartPane;
@@ -57,6 +60,8 @@ public ProductCategory productCategory;
     private TreeView <String> catTreeView;
     @FXML
     private FlowPane productFlowPane;
+  //  @FXML
+ //   private FlowPane wizardFlowPane;
     @FXML
     private void handleSearchAction(ActionEvent event) {
 
@@ -122,9 +127,18 @@ public ProductCategory productCategory;
 
 
     }
+    private void wizardDemo(){
+       // wizardAnchorPane.getChildren().clear();
+        wizardAnchorPane.getChildren().add(new Wizard());
+        wizardAnchorPane.toFront();
+    }
     @FXML
 public void showCategoryOnClick(MouseEvent mouseEvent){
         TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
  //   model.getCategory();
+}
+@FXML
+    public void wizarDemoAction(ActionEvent event){
+        wizardDemo();
 }
 }
