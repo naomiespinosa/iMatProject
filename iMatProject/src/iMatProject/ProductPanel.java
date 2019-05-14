@@ -7,6 +7,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -47,12 +48,12 @@ public class ProductPanel extends AnchorPane {
     }
 
     @FXML
-    private void handleAddAction(ActionEvent event) {
+    private void handleAddAction(MouseEvent event) {
         System.out.println("Add " + product.getName());
         model.addToShoppingCart(product);
     }
     @FXML
-    private void handleRemoveAction(ActionEvent event) {
+    private void handleRemoveAction(MouseEvent event) {
         System.out.println("Remove " + product.getName());
         model.removeFromShoppingCart(product);
     }
