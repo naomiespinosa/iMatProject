@@ -6,20 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import static javafx.application.Application.launch;
 
 public class iMat_App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         Parent root = FXMLLoader.load(getClass().getResource("iMatMainWindow.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
-    //test
     }
 
     /**
@@ -27,7 +24,15 @@ public class iMat_App extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Model.getInstance().shutDown();
+            }
+        }));
     }
+
 
 }
 

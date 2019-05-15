@@ -124,32 +124,6 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
-               <children>
-                  <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
-                  <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <RadioButton fx:id="homeRadioButton" layoutX="363.0" layoutY="288.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hemleverans" />
-                  <RadioButton fx:id="takeRadioButton" layoutX="344.0" layoutY="384.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hämta ut" />
-                  <Label layoutX="337.0" layoutY="101.0" text="Leveranssätt">
-                     <font>
-                        <Font name="System Bold Italic" size="40.0" />
-                     </font>
-                  </Label>
-                  <ImageView fx:id="backArrow2" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack1Action" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/left-arrow.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="backArrow3" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront2Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
-                     <image>
-                        <Image url="@resources/left-arrow.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </AnchorPane>
             <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
@@ -198,12 +172,38 @@
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="backArrow32" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow32" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack1Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="backArrow31" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront1Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView fx:id="backArrow31" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront2Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                     <image>
+                        <Image url="@resources/left-arrow.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
+               <children>
+                  <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
+                  <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <RadioButton fx:id="homeRadioButton" layoutX="363.0" layoutY="288.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hemleverans" />
+                  <RadioButton fx:id="takeRadioButton" layoutX="344.0" layoutY="384.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hämta ut" />
+                  <Label layoutX="337.0" layoutY="101.0" text="Leveranssätt">
+                     <font>
+                        <Font name="System Bold Italic" size="40.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="backArrow2" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/left-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="backArrow3" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront1Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>

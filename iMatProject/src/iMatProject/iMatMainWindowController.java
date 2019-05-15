@@ -8,6 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
+import iMatProject.Wizard;
 
 
 import java.net.URL;
@@ -16,12 +17,7 @@ import java.util.ResourceBundle;
 
 public class iMatMainWindowController implements Initializable, ShoppingCartListener {
     private final Model model = Model.getInstance();
-
-
-
-
-public ProductCategory productCategory;
-
+    private Wizard wizard;
 
     @FXML
     private Label priceLabel;
@@ -72,6 +68,7 @@ public ProductCategory productCategory;
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        wizard = new Wizard();
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
         root.setExpanded(true);
@@ -131,6 +128,7 @@ public ProductCategory productCategory;
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(new Wizard());
         wizardAnchorPane.toFront();
+
     }
     private void helpNavigation(){
         wizardAnchorPane.getChildren().clear();
@@ -142,7 +140,26 @@ public ProductCategory productCategory;
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
     }
+  /*  private void updateCreditCard() {
 
+        CreditCard card = model.getCreditCard();
+
+        card.setCardNumber(wizard.cardNumberText.getText());
+        card.setHoldersName(wizard.cardNameText.getText());
+
+        String selectedValue = wizard.cardTypeCombo.getSelectionModel().getSelectedItem();
+        card.setCardType(selectedValue);
+
+        selectedValue = wizard.monthCombo.getSelectionModel().getSelectedItem();
+        card.setValidMonth(Integer.parseInt(selectedValue));
+
+        selectedValue = wizard.yearCombo.getSelectionModel().getSelectedItem();
+        card.setValidYear(Integer.parseInt(selectedValue));
+
+        card.setVerificationCode(Integer.parseInt(wizard.ccvText.getText()));
+
+    }
+*/
 
     @FXML
     public void logoButtonNavigationAction(ActionEvent event){
