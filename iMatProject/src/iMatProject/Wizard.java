@@ -10,7 +10,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
-import iMatProject.iMatMainWindowController;
 
 import java.io.IOException;
 
@@ -103,6 +102,12 @@ public class Wizard extends AnchorPane {
 
     @FXML
     private ImageView backArrow;
+    @FXML
+    public ProgressBar progressBar1;
+    @FXML
+    public ProgressBar progressBar2;
+    @FXML
+    public ProgressBar progressBar3;
 
 
 
@@ -110,6 +115,10 @@ public class Wizard extends AnchorPane {
     private iMatMainWindowController controller;
 
     public Wizard(){
+     //   ToggleGroup deliveryToggleGroup = new ToggleGroup();
+     //   homeRadioButton.setToggleGroup(deliveryToggleGroup);
+      //  takeRadioButton.setToggleGroup(deliveryToggleGroup);
+
         controller = new iMatMainWindowController();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Wizard.fxml"));
         fxmlLoader.setRoot(this);
@@ -123,25 +132,30 @@ public class Wizard extends AnchorPane {
     }
 
     public void navigateFront1(){
+        setValidCardInfo();
         updateWizardpane();
-    personalInfoPane.toFront();
+        progressBar1.setProgress(0.33);
+        personalInfoPane.toFront();
     }
     public void navigateFront2(){
+        progressBar2.setProgress(0.66);
         payPane.toFront();
     }
     public void navigateFront3(){
+        progressBar3.setProgress(0.99);
         updateWizard();
 
         confirmationPane.toFront();
     }
     public void navigateBack1(){
-
         deliveryPane.toFront();
     }
     public void navigateBack2(){
-        deliveryPane.toFront();
+        progressBar1.setProgress(0.33);
+        personalInfoPane.toFront();
     }
     public void navigateBack3(){
+        progressBar2.setProgress(0.66);
 
         payPane.toFront();
     }
@@ -236,6 +250,15 @@ public class Wizard extends AnchorPane {
         ccvText.setText(""+card.getVerificationCode());
 
       //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
+
+    }
+    private void setValidCardInfo() {
+
+        cardTypeCombo.getItems().addAll(model.getCardTypes());
+
+        monthCombo.getItems().addAll(model.getMonths());
+
+        yearCombo.getItems().addAll(model.getYears());
 
     }
 

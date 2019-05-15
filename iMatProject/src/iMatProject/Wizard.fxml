@@ -34,7 +34,7 @@
                </children></AnchorPane>
             <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
-                  <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
+                  <ProgressBar fx:id="progressBar3" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -54,7 +54,7 @@
             </AnchorPane>
             <AnchorPane fx:id="payPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
-                  <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
+                  <ProgressBar fx:id="progressBar2" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -101,7 +101,7 @@
                         <Tooltip text="en tresiffrig kod som är på kortets baksida" />
                      </tooltip>
                   </Label>
-                  <Label layoutX="651.0" layoutY="396.0" text="/">
+                  <Label layoutX="656.0" layoutY="396.0" text="/">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -109,9 +109,9 @@
                   <TextField fx:id="cardNameText" layoutX="148.0" layoutY="227.0" prefWidth="236.0" />
                   <TextField fx:id="ccvText" layoutX="415.0" layoutY="533.0" prefHeight="26.0" prefWidth="79.0" />
                   <TextField fx:id="cardNumberText" layoutX="148.0" layoutY="393.0" prefWidth="236.0" />
-                  <ComboBox fx:id="cardTypeCombo" layoutX="569.0" layoutY="227.0" prefWidth="150.0" />
-                  <ComboBox fx:id="yearCombo" layoutX="668.0" layoutY="393.0" prefWidth="35.0" />
-                  <ComboBox fx:id="monthCombo" layoutX="589.0" layoutY="393.0" prefWidth="35.0" />
+                  <ComboBox fx:id="cardTypeCombo" layoutX="569.0" layoutY="227.0" prefWidth="150.0" promptText="korttyp" />
+                  <ComboBox fx:id="yearCombo" layoutX="668.0" layoutY="393.0" prefHeight="26.0" prefWidth="58.0" />
+                  <ComboBox fx:id="monthCombo" layoutX="589.0" layoutY="393.0" prefHeight="26.0" prefWidth="58.0" />
                   <ImageView fx:id="backArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack2Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
@@ -126,10 +126,10 @@
             </AnchorPane>
             <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
-                  <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
-                  <Circle fill="WHITE" layoutX="53.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <ProgressBar fx:id="progressBar1" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" style="-fx-background-color: #802277;" />
+                  <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="WHITE" layoutX="589.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Label layoutX="45.0" layoutY="363.0" text="E-mail :">
                      <font>
