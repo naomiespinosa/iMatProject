@@ -31,7 +31,7 @@
                      </font>
                   </Label>
                   <Button fx:id="confirmButton" layoutX="422.0" layoutY="580.0" mnemonicParsing="false" scaleX="5.0" scaleY="2.5" text="Bekräfta Köpet" />
-                  <ImageView fx:id="backArrow" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow" fitHeight="84.0" fitWidth="150.0" layoutY="551.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
@@ -103,19 +103,19 @@
                   <ComboBox fx:id="cardTypeCombo" layoutX="569.0" layoutY="227.0" prefWidth="150.0" />
                   <ComboBox fx:id="yearCombo" layoutX="668.0" layoutY="393.0" prefWidth="35.0" />
                   <ComboBox fx:id="monthCombo" layoutX="589.0" layoutY="393.0" prefWidth="35.0" />
-                  <ImageView fx:id="backArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack2Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="frontArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView fx:id="frontArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront3Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: A7A6BA;">
+            <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: A7A6BA;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -129,19 +129,19 @@
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="backArrow2" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow2" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack1Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="backArrow3" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView fx:id="backArrow3" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront2Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="shippingPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: FF0000;">
+            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: FF0000;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="#6f1fff" layoutX="53.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -194,7 +194,7 @@
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="backArrow31" fitHeight="84.0" fitWidth="150.0" layoutX="779.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView fx:id="backArrow31" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" onMouseClicked="#navigateFront1Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
