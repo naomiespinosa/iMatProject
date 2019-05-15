@@ -128,10 +128,27 @@ public ProductCategory productCategory;
 
     }
     private void wizardDemo(){
-       // wizardAnchorPane.getChildren().clear();
+        wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(new Wizard());
         wizardAnchorPane.toFront();
     }
+    private void helpNavigation(){
+        wizardAnchorPane.getChildren().clear();
+        wizardAnchorPane.getChildren().add(new HelpView());
+        wizardAnchorPane.toFront();
+    }
+
+    public  void logoButtonNavigation(){
+        wizardAnchorPane.toBack();
+        productFlowPane.toFront();
+    }
+
+
+    @FXML
+    public void logoButtonNavigationAction(ActionEvent event){
+        logoButtonNavigation();
+    }
+
     @FXML
 public void showCategoryOnClick(MouseEvent mouseEvent){
         TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
@@ -141,4 +158,9 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     public void wizarDemoAction(ActionEvent event){
         wizardDemo();
 }
+
+    @FXML
+    public void helpNavigationAction(ActionEvent event){
+        helpNavigation();
+    }
 }

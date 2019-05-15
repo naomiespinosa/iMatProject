@@ -19,11 +19,11 @@
                 <AnchorPane prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
                         <TextField fx:id="SearchTextField" layoutX="197.0" layoutY="7.0" prefHeight="26.0" prefWidth="205.0" promptText="SÖK....." AnchorPane.bottomAnchor="8.200000000000003" AnchorPane.rightAnchor="197.4" />
-                        <Button fx:id="helpButton" layoutX="534.0" layoutY="8.0" mnemonicParsing="false" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="16.4">
+                        <Button fx:id="helpButton" layoutX="534.0" layoutY="8.0" mnemonicParsing="false" onAction="#helpNavigationAction" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="8.0" AnchorPane.rightAnchor="16.4">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                        <Button id="logo" fx:id="logoButton" layoutY="1.0" minHeight="40.0" mnemonicParsing="false" prefWidth="100.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.6000000000000014" AnchorPane.leftAnchor="0.0">
+                        <Button id="logo" fx:id="logoButton" layoutY="1.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefWidth="100.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.6000000000000014" AnchorPane.leftAnchor="0.0">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>

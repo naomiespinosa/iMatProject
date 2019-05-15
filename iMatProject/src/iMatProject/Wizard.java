@@ -145,8 +145,9 @@ public class Wizard extends AnchorPane {
         buyMessagePane.toFront();
     }
     public void navigateToMain(){
+
         controller.wizardAnchorPane.toBack();
-        controller.productFlowPane.toFront();
+       // controller.productFlowPane.toFront();
     }
     @FXML
     private void navigateFront1Action(MouseEvent event) {

@@ -18,7 +18,7 @@
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="buyMessagePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;">
+            <AnchorPane fx:id="buyMessagePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #7C8076;">
                <children>
                   <Label layoutX="233.0" layoutY="79.0" text="Tack För Ditt Köp!!">
                      <font>
@@ -32,7 +32,7 @@
                   </Label>
                   <Button fx:id="backToMainButton" layoutX="400.0" layoutY="547.0" mnemonicParsing="false" onAction="#navigateToMainAction" scaleX="4.0" scaleY="2.5" text="Förtsätta handla." />
                </children></AnchorPane>
-            <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #FF6700;">
+            <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -52,7 +52,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="payPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #1ED0FF;">
+            <AnchorPane fx:id="payPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -124,7 +124,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: A7A6BA;">
+            <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
@@ -150,7 +150,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: FF0000;">
+            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #7C8076;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="#6f1fff" layoutX="53.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
