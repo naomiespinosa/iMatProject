@@ -1,6 +1,7 @@
 package iMatProject;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -11,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import java.io.IOException;
 
 public class Wizard extends AnchorPane {
+
 
     @FXML
     private AnchorPane personalInfoPane;
@@ -26,6 +28,9 @@ public class Wizard extends AnchorPane {
 
     @FXML
     private ImageView backArrow3;
+
+    @FXML
+    private AnchorPane buyMessagePane;
 
     @FXML
     private AnchorPane deliveryPane;
@@ -88,16 +93,18 @@ public class Wizard extends AnchorPane {
     private AnchorPane confirmationPane;
 
     @FXML
+    private Button backToMainButton;
+
+    @FXML
     private Button confirmButton;
 
     @FXML
     private ImageView backArrow;
 
-    @FXML
-    private ImageView frontArrow;
 
 
     private Model model = Model.getInstance();
+    private iMatMainWindowController controller;
 
     public Wizard(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Wizard.fxml"));
@@ -133,7 +140,14 @@ public class Wizard extends AnchorPane {
 
         payPane.toFront();
     }
+    public void navigateToMessage(){
 
+        buyMessagePane.toFront();
+    }
+    public void navigateToMain(){
+        controller.wizardAnchorPane.toBack();
+        controller.productFlowPane.toFront();
+    }
     @FXML
     private void navigateFront1Action(MouseEvent event) {
         navigateFront1();
@@ -159,6 +173,15 @@ public class Wizard extends AnchorPane {
     @FXML
     private void navigateBack3Action(MouseEvent event) {
         navigateBack3();
+    }
+    @FXML
+
+    private void navigateToMessageAction(ActionEvent event) {
+        navigateToMessage();
+    }
+    @FXML
+    private void navigateToMainAction(ActionEvent event) {
+        navigateToMain();
     }
 
 

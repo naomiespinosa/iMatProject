@@ -18,6 +18,20 @@
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <AnchorPane fx:id="buyMessagePane" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: green;">
+               <children>
+                  <Label layoutX="233.0" layoutY="79.0" text="Tack För Ditt Köp!!">
+                     <font>
+                        <Font name="System Bold Italic" size="48.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="212.0" layoutY="268.0" text="maybe a thumps up icon to be placed here">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="backToMainButton" layoutX="400.0" layoutY="547.0" mnemonicParsing="false" onAction="#navigateToMainAction" scaleX="4.0" scaleY="2.5" text="Förtsätta handla." />
+               </children></AnchorPane>
             <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #FF6700;">
                <children>
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
@@ -30,13 +44,8 @@
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirmButton" layoutX="422.0" layoutY="580.0" mnemonicParsing="false" scaleX="5.0" scaleY="2.5" text="Bekräfta Köpet" />
+                  <Button fx:id="confirmButton" layoutX="422.0" layoutY="580.0" mnemonicParsing="false" onAction="#navigateToMessageAction" scaleX="5.0" scaleY="2.5" text="Bekräfta Köpet" />
                   <ImageView fx:id="backArrow" fitHeight="84.0" fitWidth="150.0" layoutY="551.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/left-arrow.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="frontArrow" fitHeight="84.0" fitWidth="150.0" layoutX="799.0" layoutY="551.0" pickOnBounds="true" preserveRatio="true" rotate="179.4">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>

@@ -52,14 +52,14 @@ public ProductCategory productCategory;
     @FXML
     private AnchorPane sortimentPane;
     @FXML
-    private AnchorPane wizardAnchorPane;
+    public AnchorPane wizardAnchorPane;
 
     @FXML
     private AnchorPane shoppingCartPane;
     @FXML
     private TreeView <String> catTreeView;
     @FXML
-    private FlowPane productFlowPane;
+    public FlowPane productFlowPane;
   //  @FXML
  //   private FlowPane wizardFlowPane;
     @FXML
