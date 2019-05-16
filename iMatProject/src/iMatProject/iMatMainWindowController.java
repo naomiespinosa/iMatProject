@@ -60,7 +60,6 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
  //   private FlowPane wizardFlowPane;
 
     public void doSearch(){
-        SearchTextField
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
         List<Product> matches = model.findProducts(SearchTextField.getText());
