@@ -71,7 +71,7 @@
                </children></AnchorPane>
             </left>
             <right>
-                <AnchorPane fx:id="shoppingCartPane" prefHeight="690.0" prefWidth="206.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="shoppingCartPane" prefHeight="690.0" prefWidth="206.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
                   <Label fx:id="priceLabel" layoutX="22.0" layoutY="583.0" text="500kr" />
                   <Label fx:id="ItemCountLabel" layoutX="17.0" layoutY="631.0" text="10varor" />
@@ -80,7 +80,7 @@
                       <AnchorPane fx:id="cartAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="195.0" />
                     </content>
                   </ScrollPane>
-                  <Button layoutX="90.0" layoutY="598.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="38.0" prefWidth="101.0" text="Töm" />
+                  <Button layoutX="139.0" layoutY="593.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="47.0" prefWidth="48.0" text="Töm" />
                </children></AnchorPane>
             </right>
             <center>
