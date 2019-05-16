@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class ProductPanel extends AnchorPane {
@@ -22,6 +23,7 @@ public class ProductPanel extends AnchorPane {
     private Model model = Model.getInstance();
 
     private Product product;
+    private ShoppingItem item;
     
     private final static double kImageWidth = 100.0;
     private final static double kImageRatio = 0.75;

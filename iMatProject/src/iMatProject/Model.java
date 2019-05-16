@@ -71,11 +71,19 @@ public class Model {
        // shoppingCart.addProduct(p);
     }
     public void removeFromShoppingCart(Product p) {
-        ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+
+        for(ShoppingItem item : Model.getInstance().getShoppingCart().getItems()){
+            if(item.getProduct() == p){
+                Model.getInstance().getShoppingCart().removeItem(item);
+            }
+        }
+
+        /*  ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
+
         ShoppingItem item = new ShoppingItem(p);
-        Model.getInstance().getShoppingCart().removeItem(item);
-        System.out.println(shoppingCart.getItems().size());
-        // shoppingCart.removeItem(item);
+        Model.getInstance().getShoppingCart().removeItem(item);*/
+
+       System.out.println(getShoppingCart().getItems().size());
 
     }
 
@@ -146,5 +154,7 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
-}
 
+
+
+}

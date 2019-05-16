@@ -210,3 +210,4 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         helpNavigation();
     }
 }
+
