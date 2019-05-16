@@ -38,14 +38,14 @@
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#6f1fff" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#4c1036" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Label layoutX="340.0" layoutY="102.0" text="Bekräftelse">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
                      </font>
                   </Label>
                   <Button fx:id="confirmButton" layoutX="422.0" layoutY="580.0" mnemonicParsing="false" onAction="#navigateToMessageAction" scaleX="5.0" scaleY="2.5" text="Bekräfta Köpet" />
-                  <ImageView fx:id="backArrow" fitHeight="84.0" fitWidth="150.0" layoutY="551.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
@@ -58,7 +58,7 @@
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#6f1fff" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#4c1036" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Label layoutX="295.0" layoutY="102.0" text="Betalningsmetod">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
@@ -107,11 +107,11 @@
                      </font>
                   </Label>
                   <TextField fx:id="cardNameText" layoutX="148.0" layoutY="227.0" prefWidth="236.0" />
-                  <TextField fx:id="ccvText" layoutX="415.0" layoutY="533.0" prefHeight="26.0" prefWidth="79.0" />
-                  <TextField fx:id="cardNumberText" layoutX="148.0" layoutY="393.0" prefWidth="236.0" />
                   <ComboBox fx:id="cardTypeCombo" layoutX="569.0" layoutY="227.0" prefWidth="150.0" promptText="korttyp" />
-                  <ComboBox fx:id="yearCombo" layoutX="668.0" layoutY="393.0" prefHeight="26.0" prefWidth="58.0" />
+                  <TextField fx:id="cardNumberText" layoutX="148.0" layoutY="393.0" prefWidth="236.0" />
                   <ComboBox fx:id="monthCombo" layoutX="589.0" layoutY="393.0" prefHeight="26.0" prefWidth="58.0" />
+                  <ComboBox fx:id="yearCombo" layoutX="668.0" layoutY="393.0" prefHeight="26.0" prefWidth="58.0" />
+                  <TextField fx:id="ccvText" layoutX="415.0" layoutY="533.0" prefHeight="26.0" prefWidth="79.0" />
                   <ImageView fx:id="backArrow1" fitHeight="84.0" fitWidth="150.0" layoutX="22.0" layoutY="551.0" onMouseClicked="#navigateBack2Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
@@ -130,7 +130,7 @@
                   <Circle fill="WHITE" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#6f1fff" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#4c1036" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Label layoutX="45.0" layoutY="363.0" text="E-mail :">
                      <font>
                         <Font name="System Bold" size="14.0" />
@@ -162,11 +162,11 @@
                      </font>
                   </Label>
                   <TextField fx:id="firstNameText" layoutX="110.0" layoutY="207.0" prefHeight="26.0" prefWidth="236.0" promptText="Ditt Förnamn" />
-                  <TextField fx:id="postCodeText" layoutX="524.0" layoutY="502.0" prefHeight="26.0" prefWidth="236.0" promptText="XXXXX" />
-                  <TextField fx:id="phoneText" layoutX="524.0" layoutY="360.0" prefHeight="26.0" prefWidth="236.0" promptText="07XXXXXXX" />
                   <TextField fx:id="lastNameTExt" layoutX="524.0" layoutY="207.0" prefHeight="26.0" prefWidth="236.0" promptText="Ditt Efternamn" />
-                  <TextField fx:id="addressText" layoutX="110.0" layoutY="502.0" prefHeight="26.0" prefWidth="236.0" promptText="Gatunummer, lgh nummer" />
                   <TextField fx:id="eMailText" layoutX="110.0" layoutY="360.0" prefHeight="26.0" prefWidth="236.0" promptText="Alex@imat.se" />
+                  <TextField fx:id="phoneText" layoutX="524.0" layoutY="360.0" prefHeight="26.0" prefWidth="236.0" promptText="07XXXXXXX" />
+                  <TextField fx:id="addressText" layoutX="110.0" layoutY="502.0" prefHeight="26.0" prefWidth="236.0" promptText="Gatunummer, lgh nummer" />
+                  <TextField fx:id="postCodeText" layoutX="524.0" layoutY="502.0" prefHeight="26.0" prefWidth="236.0" promptText="XXXXX" />
                   <Label layoutX="237.0" layoutY="101.0" text="Personliga Information">
                      <font>
                         <Font name="System Bold Italic" size="40.0" />
@@ -189,7 +189,7 @@
                   <ProgressBar layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="821.0" progress="0.0" />
                   <Circle fill="WHITE" layoutX="326.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="841.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fill="#6f1fff" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fill="#4c1036" layoutX="35.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="598.0" layoutY="63.0" radius="29.0" stroke="BLACK" strokeType="INSIDE" />
                   <RadioButton fx:id="homeRadioButton" layoutX="363.0" layoutY="288.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hemleverans" />
                   <RadioButton fx:id="takeRadioButton" layoutX="344.0" layoutY="384.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hämta ut" />

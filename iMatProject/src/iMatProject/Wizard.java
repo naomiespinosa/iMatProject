@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
+import javafx.scene.control.RadioButton;
 
 import java.io.IOException;
 
@@ -20,10 +21,10 @@ public class Wizard extends AnchorPane {
     private AnchorPane personalInfoPane;
 
     @FXML
-    private RadioButton homeRadioButton;
+    public RadioButton homeRadioButton;
 
     @FXML
-    private RadioButton takeRadioButton;
+    public  RadioButton takeRadioButton;
 
     @FXML
     private ImageView backArrow2;
@@ -112,14 +113,13 @@ public class Wizard extends AnchorPane {
 
 
     private Model model = Model.getInstance();
+    private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
 
     public Wizard(){
-     //   ToggleGroup deliveryToggleGroup = new ToggleGroup();
-     //   homeRadioButton.setToggleGroup(deliveryToggleGroup);
-      //  takeRadioButton.setToggleGroup(deliveryToggleGroup);
 
-        controller = new iMatMainWindowController();
+
+
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Wizard.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -129,6 +129,19 @@ public class Wizard extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+
+        deliveryToggleGroup = new ToggleGroup();
+        homeRadioButton.setToggleGroup(deliveryToggleGroup);
+        takeRadioButton.setToggleGroup(deliveryToggleGroup);
+
+
+        progressBar1.setStyle("-fx-accent: #4c1036; ");
+        progressBar2.setStyle("-fx-accent: #4c1036; ");
+        progressBar3.setStyle("-fx-accent: #4c1036; ");
+
+
+
     }
 
     public void navigateFront1(){
