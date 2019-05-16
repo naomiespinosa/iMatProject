@@ -12,6 +12,7 @@ import iMatProject.Wizard;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 
+
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -57,6 +58,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     private TreeView <String> catTreeView;
     @FXML
     public FlowPane productFlowPane;
+    @FXML
+    public AnchorPane cartAnchorPane;
   //  @FXML
  //   private FlowPane wizardFlowPane;
     @FXML
@@ -70,6 +73,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
         wizard = new Wizard();
        // Skafferi(Pasta, Flower, Potatoris, ), Frukt(Berry, Citrus, Exotic, Melons, Fruit),
         // Grönsaker(Vegetable fruit, cabbage, Root veg, Herb ), Nötter och Bönor(nuts seeds,Pod ), Mejrj(Diaries), Kött(meat, fish,) ,
@@ -158,6 +162,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     }
     private void helpNavigation(){
+        SearchTextField.setVisible(false);
+        searchButton.setVisible(false);
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(new HelpView());
         wizardAnchorPane.toFront();
@@ -169,26 +175,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
     }
-  /*  private void updateCreditCard() {
 
-        CreditCard card = model.getCreditCard();
-
-        card.setCardNumber(wizard.cardNumberText.getText());
-        card.setHoldersName(wizard.cardNameText.getText());
-
-        String selectedValue = wizard.cardTypeCombo.getSelectionModel().getSelectedItem();
-        card.setCardType(selectedValue);
-
-        selectedValue = wizard.monthCombo.getSelectionModel().getSelectedItem();
-        card.setValidMonth(Integer.parseInt(selectedValue));
-
-        selectedValue = wizard.yearCombo.getSelectionModel().getSelectedItem();
-        card.setValidYear(Integer.parseInt(selectedValue));
-
-        card.setVerificationCode(Integer.parseInt(wizard.ccvText.getText()));
-
-    }
-*/
 
     @FXML
     public void logoButtonNavigationAction(ActionEvent event){
@@ -208,6 +195,10 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     @FXML
     public void helpNavigationAction(ActionEvent event){
         helpNavigation();
+    }
+    @FXML
+    private void clearCartAction(ActionEvent event) {
+        model.clearShoppingCart();
     }
 }
 
