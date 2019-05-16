@@ -55,9 +55,15 @@
                 </AnchorPane>
             </bottom>
             <left>
-                <AnchorPane fx:id="sortimentPane" prefHeight="610.0" prefWidth="142.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
+                <AnchorPane fx:id="sortimentPane" prefHeight="605.0" prefWidth="162.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
                <children>
-                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" nodeOrientation="LEFT_TO_RIGHT" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#showCategoryOnClick" prefHeight="609.6" prefWidth="142.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#showCategoryOnClick" prefHeight="604.8" prefWidth="162.4" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                     <opaqueInsets>
+                        <Insets right="5.0" />
+                     </opaqueInsets></TreeView>
                </children></AnchorPane>
             </left>
             <right>

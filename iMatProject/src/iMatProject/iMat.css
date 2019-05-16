@@ -11,8 +11,11 @@
 .tree-view{
 
     -fx-font-family: "Arial";
-    -fx-font-size: 10px;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
     -fx-text-fill: #4c253d;
+
+
 }
 .button{
     -fx-effect: dropshadow(two-pass-box , darkgray, 10, 0.0 , 4, 5);
