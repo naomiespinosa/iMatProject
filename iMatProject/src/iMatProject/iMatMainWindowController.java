@@ -9,6 +9,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
 import iMatProject.Wizard;
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 
 import java.net.URL;
@@ -58,51 +59,70 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public FlowPane productFlowPane;
   //  @FXML
  //   private FlowPane wizardFlowPane;
-
-    public void doSearch(){
+    @FXML
+    private void handleSearchAction(ActionEvent event) {
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
         List<Product> matches = model.findProducts(SearchTextField.getText());
         updateProductList(matches);
         System.out.println("# matching products: " + matches.size());
-    }
-    @FXML
-    private void handleSearchAction(ActionEvent event) {
-        doSearch();
 
     }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         wizard = new Wizard();
+       // Skafferi(Pasta, Flower, Potatoris, ), Frukt(Berry, Citrus, Exotic, Melons, Fruit),
+        // Grönsaker(Vegetable fruit, cabbage, Root veg, Herb ), Nötter och Bönor(nuts seeds,Pod ), Mejrj(Diaries), Kött(meat, fish,) ,
+        // Dryck(hot, cold,). Söttsaker(sweets)
+
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
         root.setExpanded(true);
-        TreeItem<String> cat1 = new TreeItem(ProductCategory.BERRY);
-        TreeItem<String> cat2 = new TreeItem(ProductCategory.BREAD);
-        TreeItem<String> cat3 = new TreeItem(ProductCategory.CABBAGE);
-        TreeItem<String> cat4 = new TreeItem(ProductCategory.CITRUS_FRUIT);
-        TreeItem<String> cat5 = new TreeItem(ProductCategory.COLD_DRINKS);
-        TreeItem<String> cat7 = new TreeItem(ProductCategory.DAIRIES);
-        TreeItem<String> cat8 = new TreeItem(ProductCategory.EXOTIC_FRUIT);
-        TreeItem<String> cat9 = new TreeItem(ProductCategory.FISH);
-        TreeItem<String> cat10 = new TreeItem(ProductCategory.FLOUR_SUGAR_SALT);
-        TreeItem<String> cat11 = new TreeItem(ProductCategory.FRUIT);
-        TreeItem<String> cat12 = new TreeItem(ProductCategory.HERB);
-        TreeItem<String> cat13 = new TreeItem(ProductCategory.HOT_DRINKS);
-        TreeItem<String> cat14 = new TreeItem(ProductCategory.MEAT);
-        TreeItem<String> cat15 = new TreeItem(ProductCategory.MELONS);
-        TreeItem<String> cat16 = new TreeItem(ProductCategory.NUTS_AND_SEEDS);
-        TreeItem<String> cat17 = new TreeItem(ProductCategory.PASTA);
-        TreeItem<String> cat18 = new TreeItem(ProductCategory.POD);
-        TreeItem<String> cat19 = new TreeItem(ProductCategory.POTATO_RICE);
-        TreeItem<String> cat20 = new TreeItem(ProductCategory.ROOT_VEGETABLE);
-        TreeItem<String> cat21 = new TreeItem(ProductCategory.SWEET);
-//     cat6 is missning. Just forgot to add and was lazy to do editing
 
 
-        root.getChildren().addAll(cat1,cat2,cat3,cat4,cat5,cat7,cat8,cat9,cat10,cat11,cat12,cat13,cat14,cat15,cat16,cat17,cat18,cat19,cat20,cat21);
+        TreeItem<String> berry = new TreeItem(ProductCategory.BERRY);
+        TreeItem<String> bread = new TreeItem(ProductCategory.BREAD);
+        TreeItem<String> cabbage = new TreeItem(ProductCategory.CABBAGE);
+        TreeItem<String> citruses = new TreeItem(ProductCategory.CITRUS_FRUIT);
+        TreeItem<String> colds = new TreeItem(ProductCategory.COLD_DRINKS);
+        TreeItem<String> diaries = new TreeItem(ProductCategory.DAIRIES);
+        TreeItem<String> exotics = new TreeItem(ProductCategory.EXOTIC_FRUIT);
+        TreeItem<String> fish = new TreeItem(ProductCategory.FISH);
+        TreeItem<String> flourAndsuggar = new TreeItem(ProductCategory.FLOUR_SUGAR_SALT);
+        TreeItem<String> fruit = new TreeItem(ProductCategory.FRUIT);
+        TreeItem<String> herbs = new TreeItem(ProductCategory.HERB);
+        TreeItem<String> hots = new TreeItem(ProductCategory.HOT_DRINKS);
+        TreeItem<String> meat = new TreeItem(ProductCategory.MEAT);
+        TreeItem<String> melons = new TreeItem(ProductCategory.MELONS);
+        TreeItem<String> nuts = new TreeItem(ProductCategory.NUTS_AND_SEEDS);
+        TreeItem<String> pasta = new TreeItem(ProductCategory.PASTA);
+        TreeItem<String> pod = new TreeItem(ProductCategory.POD);
+        TreeItem<String> potato = new TreeItem(ProductCategory.POTATO_RICE);
+        TreeItem<String> rootVegs = new TreeItem(ProductCategory.ROOT_VEGETABLE);
+        TreeItem<String> sweets = new TreeItem(ProductCategory.SWEET);
+        TreeItem<String> vegFruits = new TreeItem(ProductCategory.VEGETABLE_FRUIT);
+
+
+        TreeItem<String> dryck = new TreeItem("Dryck");
+        TreeItem<String> frukt = new TreeItem("Frukt");
+        TreeItem<String> gronssaker = new TreeItem("Grönskaer");
+        TreeItem<String> kott = new TreeItem("Kött");
+        TreeItem<String> mejeri = new TreeItem("Mejeri");
+        TreeItem<String> notter = new TreeItem("Nötter & Bönor");
+        TreeItem<String> skafferi = new TreeItem("Skafferi");
+        TreeItem<String> sotsaker = new TreeItem("Söttsaker");
 
         catTreeView.setRoot(root);
+        root.getChildren().addAll(dryck,frukt,gronssaker,kott,mejeri,notter,skafferi,sotsaker);
+        dryck.getChildren().addAll(colds,hots);
+        frukt.getChildren().addAll(berry,citruses,exotics, fruit, melons);
+        gronssaker.getChildren().addAll(cabbage,herbs, rootVegs, vegFruits);
+        kott.getChildren().addAll(fish,meat);
+        mejeri.getChildren().addAll(diaries);
+        notter.getChildren().addAll(nuts,pod);
+        skafferi.getChildren().addAll(flourAndsuggar,pasta,potato);
+        sotsaker.getChildren().addAll(sweets);
+
         updateProductList(model.getProducts());
         updateShoppingCart();
     }
@@ -130,6 +150,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     }
     private void wizardDemo(){
+        SearchTextField.setVisible(false);
+        searchButton.setVisible(false);
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(new Wizard());
         wizardAnchorPane.toFront();
@@ -142,6 +164,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
 
     public  void logoButtonNavigation(){
+        SearchTextField.setVisible(true);
+        searchButton.setVisible(true);
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
     }
