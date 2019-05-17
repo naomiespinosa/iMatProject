@@ -18,97 +18,97 @@ public class Wizard extends AnchorPane {
 
 
     @FXML
-    private AnchorPane personalInfoPane;
+     AnchorPane personalInfoPane;
 
     @FXML
-    public RadioButton homeRadioButton;
+     RadioButton homeRadioButton;
 
     @FXML
-    public  RadioButton takeRadioButton;
+      RadioButton takeRadioButton;
 
     @FXML
-    private ImageView backArrow2;
+     ImageView backArrow2;
 
     @FXML
-    private ImageView backArrow3;
+     ImageView backArrow3;
 
     @FXML
-    private AnchorPane buyMessagePane;
+     AnchorPane buyMessagePane;
 
     @FXML
-    private AnchorPane deliveryPane;
+    public AnchorPane deliveryPane;
 
     @FXML
-    private TextField firstNameText;
+     TextField firstNameText;
 
     @FXML
-    private TextField postCodeText;
+     TextField postCodeText;
 
     @FXML
-    private TextField phoneText;
+     TextField phoneText;
 
     @FXML
-    private TextField lastNameTExt;
+     TextField lastNameTExt;
 
     @FXML
-    private TextField addressText;
+     TextField addressText;
 
     @FXML
-    private TextField eMailText;
+     TextField eMailText;
 
     @FXML
-    private ImageView backArrow32;
+     ImageView backArrow32;
 
     @FXML
-    private ImageView backArrow31;
+     ImageView backArrow31;
 
     @FXML
-    private AnchorPane payPane;
+     AnchorPane payPane;
 
     @FXML
-    private Label cardTypeText;
+     Label cardTypeText;
 
     @FXML
-    public TextField cardNameText;
+     TextField cardNameText;
 
     @FXML
-    public TextField ccvText;
+     TextField ccvText;
 
     @FXML
-    public TextField cardNumberText;
+     TextField cardNumberText;
 
     @FXML
-    public ComboBox<String> cardTypeCombo;
+     ComboBox<String> cardTypeCombo;
 
     @FXML
-    public ComboBox<String> yearCombo;
+     ComboBox<String> yearCombo;
 
     @FXML
-    public ComboBox<String> monthCombo;
+     ComboBox<String> monthCombo;
 
     @FXML
-    private ImageView backArrow1;
+     ImageView backArrow1;
 
     @FXML
-    private ImageView frontArrow1;
+     ImageView frontArrow1;
 
     @FXML
-    private AnchorPane confirmationPane;
+     AnchorPane confirmationPane;
 
     @FXML
-    private Button backToMainButton;
+     Button backToMainButton;
 
     @FXML
-    private Button confirmButton;
+     Button confirmButton;
 
     @FXML
-    private ImageView backArrow;
+     ImageView backArrow;
     @FXML
-    public ProgressBar progressBar1;
+     ProgressBar progressBar1;
     @FXML
-    public ProgressBar progressBar2;
+     ProgressBar progressBar2;
     @FXML
-    public ProgressBar progressBar3;
+     ProgressBar progressBar3;
 
     private WizardListener listener;
 
@@ -150,8 +150,6 @@ public class Wizard extends AnchorPane {
     }
 
     public void navigateFront1(){
-        setValidCardInfo();
-        updateWizardpane();
         progressBar1.setProgress(0.33);
         personalInfoPane.toFront();
     }
@@ -271,7 +269,7 @@ public class Wizard extends AnchorPane {
       //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
 
     }
-    private void setValidCardInfo() {
+    void setValidCardInfo() {
 
         cardTypeCombo.getItems().addAll(model.getCardTypes());
 

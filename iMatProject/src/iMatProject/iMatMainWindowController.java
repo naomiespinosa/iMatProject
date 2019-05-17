@@ -156,6 +156,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     }
     private void wizardDemo(){
+        wizard.setValidCardInfo();
+        wizard.updateWizardpane();
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         wizardAnchorPane.getChildren().clear();
@@ -205,8 +207,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
     @Override
     public void onWizardFinish() {
-
-
+        wizard.deliveryPane.toFront();
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
         SearchTextField.setVisible(true);
