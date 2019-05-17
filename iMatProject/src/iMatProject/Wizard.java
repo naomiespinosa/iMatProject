@@ -11,7 +11,6 @@ import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import javafx.scene.control.RadioButton;
-import iMatProject.iMatMainWindowController;
 
 import java.io.IOException;
 
@@ -122,7 +121,7 @@ public class Wizard extends AnchorPane {
     private iMatMainWindowController controller;
 
     public Wizard(){
-        controller = new iMatMainWindowController();
+
 
 
 
@@ -183,6 +182,8 @@ public class Wizard extends AnchorPane {
         buyMessagePane.toFront();
     }
     public void navigateToMain(){
+
+
         listener.onWizardFinish();
     }
     @FXML

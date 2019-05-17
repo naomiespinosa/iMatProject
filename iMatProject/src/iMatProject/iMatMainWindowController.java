@@ -26,7 +26,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
     private Label ItemCountLabel;
     @FXML
-    private TextField SearchTextField;
+    public TextField SearchTextField;
     @FXML
     private Button wizardDemoButton;
     @FXML
@@ -36,7 +36,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     private Button logoButton;
 
     @FXML
-    private Button searchButton;
+    public Button searchButton;
 
     @FXML
     private Button toCartButton;
@@ -62,6 +62,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public AnchorPane cartAnchorPane;
   //  @FXML
  //   private FlowPane wizardFlowPane;
+
     @FXML
     private void handleSearchAction(ActionEvent event) {
         wizardAnchorPane.toBack();
@@ -204,8 +205,11 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
     @Override
     public void onWizardFinish() {
+
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
+        SearchTextField.setVisible(true);
+        searchButton.setVisible(true);
     }
 }
 
