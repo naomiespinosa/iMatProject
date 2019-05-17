@@ -75,6 +75,7 @@ public class Model {
         for(ShoppingItem item : Model.getInstance().getShoppingCart().getItems()){
             if(item.getProduct() == p){
                 Model.getInstance().getShoppingCart().removeItem(item);
+
             }
         }
 

@@ -16,6 +16,10 @@ public class iMat_App extends Application {
         Scene scene = new Scene(root);
         stage.setTitle("IMAT");
         stage.setScene(scene);
+        stage.setMaxHeight(820);
+        stage.setMinHeight(820);
+        stage.setMaxWidth(1300);
+        stage.setMinWidth(1300);
         stage.show();
     }
 

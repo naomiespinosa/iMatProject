@@ -141,7 +141,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         productFlowPane.getChildren().clear();
 
         for (Product product : products) {
-
+            product.getCategory();
             productFlowPane.getChildren().add(new ProductPanel(product));
         }
     }

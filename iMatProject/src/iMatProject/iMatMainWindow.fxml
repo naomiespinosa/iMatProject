@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
@@ -24,20 +25,20 @@
                      </font></TextField>
                         <Button fx:id="helpButton" layoutX="1122.0" layoutY="14.0" mnemonicParsing="false" onAction="#helpNavigationAction" prefHeight="56.0" prefWidth="79.0" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="99.0">
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></Button>
-                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="62.0" prefWidth="137.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="62.0">
+                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="48.0" prefWidth="138.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>
-                        <Button fx:id="searchButton" layoutX="847.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="53.0" prefWidth="66.0" text="Sök" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="403.0" />
+                        <Button fx:id="searchButton" layoutX="847.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="50.0" prefWidth="47.0" text="Sök" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="422.0" />
                     </children>
                 </AnchorPane>
             </top>
             <bottom>
                 <AnchorPane prefHeight="60.0" prefWidth="1300.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
-                        <Button id="logo" fx:id="toCartButton" layoutX="547.0" layoutY="2.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="549.0" text="Till Kassan" textFill="#4c1036" AnchorPane.bottomAnchor="-1.0" AnchorPane.rightAnchor="374.0" AnchorPane.topAnchor="2.0">
+                        <Button id="logo" fx:id="toCartButton" layoutX="442.0" layoutY="6.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="450.0" text="Till Kassan" textFill="#4c1036" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="407.6" AnchorPane.topAnchor="6.0">
                      <font>
                         <Font name="System Bold Italic" size="26.0" />
                      </font></Button>
@@ -80,7 +81,13 @@
                       <AnchorPane fx:id="cartAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="195.0" />
                     </content>
                   </ScrollPane>
-                  <Button layoutX="139.0" layoutY="593.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="47.0" prefWidth="48.0" text="Töm" />
+                  <Button layoutX="142.0" layoutY="587.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 50;" text="Töm" textFill="#4c1036">
+                     <font>
+                        <Font name="System Bold Italic" size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Tömma varukrogen" />
+                     </tooltip></Button>
                </children></AnchorPane>
             </right>
             <center>
@@ -88,10 +95,11 @@
                <children>
                   <ScrollPane hbarPolicy="NEVER" layoutX="1.0" layoutY="-1.0" pannable="true" prefHeight="609.6" prefWidth="965.0" vbarPolicy="ALWAYS" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <content>
-                        <FlowPane fx:id="productFlowPane" hgap="20.0" prefHeight="690.0" prefWidth="869.0" style="-fx-background-color: grey;" vgap="20.0">
+                        <FlowPane fx:id="productFlowPane" hgap="20.0" prefHeight="690.0" prefWidth="869.0" style="-fx-background-color: #ffdbfa;" vgap="20.0">
                            <padding>
                               <Insets bottom="6.0" left="20.0" right="20.0" top="6.0" />
-                           </padding></FlowPane>
+                           </padding>
+                        </FlowPane>
                      </content></ScrollPane>
                </children></AnchorPane>
             </center>
