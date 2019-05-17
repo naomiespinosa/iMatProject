@@ -110,12 +110,12 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         TreeItem<String> dryck = new TreeItem("Dryck");
         TreeItem<String> frukt = new TreeItem("Frukt");
-        TreeItem<String> gronssaker = new TreeItem("Grönskaer");
+        TreeItem<String> gronssaker = new TreeItem("Grönsaker");
         TreeItem<String> kott = new TreeItem("Kött");
         TreeItem<String> mejeri = new TreeItem("Mejeri");
         TreeItem<String> notter = new TreeItem("Nötter & Bönor");
         TreeItem<String> skafferi = new TreeItem("Skafferi");
-        TreeItem<String> sotsaker = new TreeItem("Söttsaker");
+        TreeItem<String> sotsaker = new TreeItem("Sötsaker");
 
         catTreeView.setRoot(root);
         root.getChildren().addAll(dryck,frukt,gronssaker,kott,mejeri,notter,skafferi,sotsaker);
