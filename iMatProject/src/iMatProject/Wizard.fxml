@@ -238,7 +238,7 @@
                         <Font size="15.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="takeRadioButton" layoutX="529.0" layoutY="394.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hämta ut">
+                  <RadioButton fx:id="takeRadioButton" layoutX="529.0" layoutY="396.0" mnemonicParsing="false" scaleX="3.0" scaleY="3.0" text="Hämta ut">
                      <font>
                         <Font size="15.0" />
                      </font>
