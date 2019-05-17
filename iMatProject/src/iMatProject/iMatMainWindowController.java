@@ -17,7 +17,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class iMatMainWindowController implements Initializable, ShoppingCartListener {
+public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener {
     private final Model model = Model.getInstance();
     private Wizard wizard;
 
@@ -75,6 +75,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public void initialize(URL location, ResourceBundle resources) {
 
         wizard = new Wizard();
+        wizard.setListener(this);
        // Skafferi(Pasta, Flower, Potatoris, ), Frukt(Berry, Citrus, Exotic, Melons, Fruit),
         // Grönsaker(Vegetable fruit, cabbage, Root veg, Herb ), Nötter och Bönor(nuts seeds,Pod ), Mejrj(Diaries), Kött(meat, fish,) ,
         // Dryck(hot, cold,). Söttsaker(sweets)
@@ -157,7 +158,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         wizardAnchorPane.getChildren().clear();
-        wizardAnchorPane.getChildren().add(new Wizard());
+        wizardAnchorPane.getChildren().add(wizard);
         wizardAnchorPane.toFront();
 
     }
@@ -199,6 +200,12 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     @FXML
     private void clearCartAction(ActionEvent event) {
         model.clearShoppingCart();
+    }
+
+    @Override
+    public void onWizardFinish() {
+        wizardAnchorPane.toBack();
+        productFlowPane.toFront();
     }
 }
 

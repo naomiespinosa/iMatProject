@@ -111,7 +111,11 @@ public class Wizard extends AnchorPane {
     @FXML
     public ProgressBar progressBar3;
 
+    private WizardListener listener;
 
+    public void setListener(WizardListener listener) {
+        this.listener = listener;
+    }
 
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
@@ -179,8 +183,7 @@ public class Wizard extends AnchorPane {
         buyMessagePane.toFront();
     }
     public void navigateToMain(){
-        controller.wizardAnchorPane.toBack();
-        controller.productFlowPane.toFront();
+        listener.onWizardFinish();
     }
     @FXML
     private void navigateFront1Action(MouseEvent event) {

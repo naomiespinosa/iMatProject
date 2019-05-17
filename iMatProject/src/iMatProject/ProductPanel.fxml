@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="218.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="productPane" prefHeight="218.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="imageView" fitHeight="121.0" fitWidth="157.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="121.0" fitWidth="157.0" layoutX="7.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nameLabel" layoutX="14.0" layoutY="126.0" text="name" />
       <Label fx:id="prizeLabel" layoutX="15.0" layoutY="157.0" text="price" />
       <Label fx:id="ecoLabel" layoutX="14.0" layoutY="181.0" text="eco" />
@@ -20,7 +20,7 @@
          <font>
             <Font name="System Bold Italic" size="14.0" />
          </font></Button>
-      <Button id="favorite" layoutX="158.0" layoutY="8.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="26.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button id="favorite" layoutX="160.0" layoutY="8.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="26.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

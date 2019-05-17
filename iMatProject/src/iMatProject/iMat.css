@@ -85,3 +85,7 @@
     -fx-min-width: 20px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);
 }
+#productPane{
+    -fx-border-width:2px;
+    -fx-border-color: #4c1036;
+}
