@@ -21,6 +21,8 @@ public class iMat_App extends Application {
         stage.setMaxWidth(1300);
         stage.setMinWidth(1300);
         stage.show();
+
+
     }
 
     public static void main(String[] args) {
