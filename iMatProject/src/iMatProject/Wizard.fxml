@@ -25,16 +25,26 @@
                         <Font name="System Bold Italic" size="62.0" />
                      </font>
                   </Label>
-                  <Label layoutX="394.0" layoutY="283.0" text="maybe a thumps up icon to be placed here">
-                     <font>
-                        <Font name="System Bold" size="24.0" />
-                     </font>
-                  </Label>
-                  <Button id="logo" fx:id="backToMainButton" layoutX="437.0" layoutY="412.0" mnemonicParsing="false" onAction="#navigateToMainAction" prefHeight="70.0" prefWidth="419.0" text="Förtsätt handla">
+                  <Button id="logo" fx:id="backToMainButton" layoutX="442.0" layoutY="493.0" mnemonicParsing="false" onAction="#navigateToMainAction" prefHeight="70.0" prefWidth="419.0" text="Förtsätt handla">
                      <font>
                         <Font name="System Bold Italic" size="32.0" />
                      </font></Button>
+                  <ImageView fitHeight="267.0" fitWidth="245.0" layoutX="526.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/bag.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="585.0" layoutY="315.0" text="iMat" textFill="#4c1036">
+                     <font>
+                        <Font name="System Bold" size="60.0" />
+                     </font>
+                  </Label>
                </children></AnchorPane>
+            <Label prefHeight="134.0" prefWidth="180.0" text="Label">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
             <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ProgressBar fx:id="progressBar3" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="1197.0" progress="0.0" />
