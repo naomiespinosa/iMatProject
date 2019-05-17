@@ -206,6 +206,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     @Override
     public void onWizardFinish() {
 
+
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
         SearchTextField.setVisible(true);
