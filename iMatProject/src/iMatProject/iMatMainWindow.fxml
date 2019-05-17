@@ -12,18 +12,18 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
       <AnchorPane fx:id="wizardAnchorPane" layoutY="62.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <AnchorPane prefHeight="60.0" prefWidth="1300.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField fx:id="SearchTextField" layoutX="556.0" layoutY="16.0" prefHeight="47.0" prefWidth="425.0" promptText="SÖK....." AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="467.0">
+                        <TextField fx:id="SearchTextField" layoutX="556.0" layoutY="16.0" prefHeight="47.0" prefWidth="425.0" promptText="SÖK..." AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="467.0">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font></TextField>
-                        <Button fx:id="helpButton" layoutX="1122.0" layoutY="14.0" mnemonicParsing="false" onAction="#helpNavigationAction" prefHeight="56.0" prefWidth="79.0" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="99.0">
+                        <Button fx:id="helpButton" alignment="CENTER" layoutX="1122.0" layoutY="14.0" mnemonicParsing="false" onAction="#helpNavigationAction" prefHeight="56.0" prefWidth="79.0" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="99.0">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>
@@ -31,7 +31,10 @@
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>
-                        <Button fx:id="searchButton" layoutX="847.0" layoutY="16.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="50.0" prefWidth="47.0" text="Sök" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="422.0" />
+                        <Button fx:id="searchButton" layoutX="838.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="50.0" prefWidth="64.0" text="SÖK" textFill="#4c1036" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="398.0">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Button>
                     </children>
                 </AnchorPane>
             </top>
@@ -74,8 +77,14 @@
             <right>
                 <AnchorPane fx:id="shoppingCartPane" prefHeight="690.0" prefWidth="206.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="priceLabel" layoutX="22.0" layoutY="583.0" text="500kr" />
-                  <Label fx:id="ItemCountLabel" layoutX="17.0" layoutY="631.0" text="10varor" />
+                  <Label fx:id="priceLabel" layoutX="22.0" layoutY="583.0" text="500kr">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="ItemCountLabel" layoutX="22.0" layoutY="631.0" text="10varor">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="574.0" prefWidth="204.0" vbarPolicy="ALWAYS">
                     <content>
                       <AnchorPane fx:id="cartAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="573.0" prefWidth="195.0" />
@@ -83,7 +92,7 @@
                   </ScrollPane>
                   <Button layoutX="142.0" layoutY="587.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 50;" text="Töm" textFill="#4c1036">
                      <font>
-                        <Font name="System Bold Italic" size="14.0" />
+                        <Font name="System Bold Italic" size="15.0" />
                      </font>
                      <tooltip>
                         <Tooltip text="Tömma varukrogen" />
