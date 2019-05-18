@@ -145,8 +145,12 @@ public class Wizard extends AnchorPane {
         progressBar2.setStyle("-fx-accent: #4c1036; ");
         progressBar3.setStyle("-fx-accent: #4c1036; ");
 
-
-
+        monthCombo.getItems().addAll("1", "2","3", "4", "5", "6","7","8", "9","10", "11", "12");
+        monthCombo.getSelectionModel().select("1");
+        yearCombo.getItems().addAll("19", "20", "21", "22", "23", "24", "25","26","27" );
+        yearCombo.getSelectionModel().select("19");
+        cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
+        cardTypeCombo.getSelectionModel().select("välj");
     }
 
     public void navigateFront1(){
@@ -159,7 +163,7 @@ public class Wizard extends AnchorPane {
     }
     public void navigateFront3(){
         progressBar3.setProgress(0.99);
-        updateWizard();
+        updateWizardInfo();
 
         confirmationPane.toFront();
     }
@@ -221,7 +225,7 @@ public class Wizard extends AnchorPane {
     private void navigateToMainAction(ActionEvent event) {
         navigateToMain();
     }
-     public void updateWizard() {
+     public void updateWizardInfo() {
 
         CreditCard card = model.getCreditCard();
         Customer customer = model.getCustomer();
@@ -247,7 +251,7 @@ public class Wizard extends AnchorPane {
         card.setVerificationCode(Integer.parseInt(ccvText.getText()));
 
     }
-    public void updateWizardpane() {
+    public void updateWizardPane() {
 
         CreditCard card = model.getCreditCard();
         Customer customer = model.getCustomer();
@@ -269,7 +273,7 @@ public class Wizard extends AnchorPane {
       //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
 
     }
-    void setValidCardInfo() {
+    /*void setValidCardInfo() {
 
         cardTypeCombo.getItems().addAll(model.getCardTypes());
 
@@ -279,4 +283,6 @@ public class Wizard extends AnchorPane {
 
     }
 
+
+     */
 }

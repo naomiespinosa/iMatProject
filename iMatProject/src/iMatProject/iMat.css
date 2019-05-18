@@ -125,3 +125,11 @@
     -fx-min-width: 20px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);
 }
+.radio-button {
+    -fx-mark-highlight-color: #4c1036;
+    -fx-mark-color: #4c1036;
+}
+.combo-box{
+    -fx-mark-highlight-color: #4c1036;
+    -fx-mark-color: #4c1036
+}

@@ -8,7 +8,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
-import iMatProject.Wizard;
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 
@@ -22,13 +21,25 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     private Wizard wizard;
 
     @FXML
-    private Label priceLabel;
+
+    private Label priceLabel;   // Main View
     @FXML
-    private Label ItemCountLabel;
+
+    private Label ItemCountLabel;  // Main View
+    @FXML
+
+    private Label previousShopLabel;  //Cart view
+    @FXML
+
+    private Label productCountLabel;  //Cart view
+    @FXML
+
+    private Label totalPriceLabel;    //Cart view
+
+
     @FXML
     public TextField SearchTextField;
-    @FXML
-    private Button wizardDemoButton;
+
     @FXML
     private Button helpButton;
 
@@ -37,6 +48,12 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     @FXML
     public Button searchButton;
+
+    @FXML
+    Button clearButton;  // Main View
+
+    @FXML
+    Button clearButton1;  // Cart View
 
     @FXML
     private Button toCartButton;
@@ -49,37 +66,39 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     @FXML
     private AnchorPane sortimentPane;
+
     @FXML
     public AnchorPane wizardAnchorPane;
 
     @FXML
     private AnchorPane shoppingCartPane;
+
     @FXML
     private TreeView <String> catTreeView;
     @FXML
     public FlowPane productFlowPane;
+
     @FXML
-    public AnchorPane cartAnchorPane;
+    public AnchorPane startAnchorPane;
+
+    @FXML
+    public AnchorPane sideCartAnchorPane;
+
+    @FXML
+    public  AnchorPane cartAnchorPane;
+
+    @FXML
+    public  AnchorPane cartView;
+
   //  @FXML
  //   private FlowPane wizardFlowPane;
 
-    @FXML
-    private void handleSearchAction(ActionEvent event) {
-        wizardAnchorPane.toBack();
-        productFlowPane.toFront();
-        List<Product> matches = model.findProducts(SearchTextField.getText());
-        updateProductList(matches);
-        System.out.println("# matching products: " + matches.size());
 
-    }
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         wizard = new Wizard();
         wizard.setListener(this);
-       // Skafferi(Pasta, Flower, Potatoris, ), Frukt(Berry, Citrus, Exotic, Melons, Fruit),
-        // Grönsaker(Vegetable fruit, cabbage, Root veg, Herb ), Nötter och Bönor(nuts seeds,Pod ), Mejrj(Diaries), Kött(meat, fish,) ,
-        // Dryck(hot, cold,). Söttsaker(sweets)
 
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
@@ -131,6 +150,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         updateProductList(model.getProducts());
         updateShoppingCart();
+        clearButton.setOnAction(event -> AlertBox.display("test","wow"));
+
     }
 
     @Override
@@ -152,14 +173,23 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         ItemCountLabel.setText("Antal varor: " + shoppingCart.getItems().size());
         priceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+        productCountLabel.setText("Antal varor: " + shoppingCart.getItems().size());
+        totalPriceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+        previousShopLabel.setText("Antal tidigare köp: " + model.getNumberOfOrders());
 
 
     }
-    private void wizardDemo(){
-        wizard.setValidCardInfo();
-        wizard.updateWizardpane();
+    private void toCartNavigation(){
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
+        cartAnchorPane.toFront();
+
+    }
+    private void wizardHandler(){
+        wizard.updateWizardPane();
+        SearchTextField.setVisible(false);
+        searchButton.setVisible(false);
+        cartAnchorPane.toBack();
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(wizard);
         wizardAnchorPane.toFront();
@@ -180,7 +210,21 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         productFlowPane.toFront();
     }
 
+    public void startShoppingNavigation(){
+        startAnchorPane.toBack();
+        productFlowPane.toFront();
 
+    }
+
+    @FXML
+    private void handleSearchAction(ActionEvent event) {
+        wizardAnchorPane.toBack();
+        productFlowPane.toFront();
+        List<Product> matches = model.findProducts(SearchTextField.getText());
+        updateProductList(matches);
+        System.out.println("# matching products: " + matches.size());
+
+    }
     @FXML
     public void logoButtonNavigationAction(ActionEvent event){
         logoButtonNavigation();
@@ -189,20 +233,33 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
 public void showCategoryOnClick(MouseEvent mouseEvent){
         TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
- //   model.getCategory();
+
 }
-@FXML
-    public void wizarDemoAction(ActionEvent event){
-        wizardDemo();
+    @FXML
+    public void toPaymentAction(ActionEvent event){
+        wizardHandler();
 }
+
+    @FXML
+    public void toCartNavigationAction(ActionEvent event){
+        toCartNavigation();
+    }
 
     @FXML
     public void helpNavigationAction(ActionEvent event){
         helpNavigation();
     }
     @FXML
+    public void startShoppingNavigationAction (ActionEvent event){
+        startShoppingNavigation();
+    }
+    @FXML
     private void clearCartAction(ActionEvent event) {
         model.clearShoppingCart();
+    }
+    @FXML
+    private void buyAction(ActionEvent event) {
+        model.placeOrder();
     }
 
     @Override

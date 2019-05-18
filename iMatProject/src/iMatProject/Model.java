@@ -135,6 +135,7 @@ public class Model {
 
     public void clearShoppingCart() {
 
+
         iMatDataHandler.getShoppingCart().clear();
 
     }
