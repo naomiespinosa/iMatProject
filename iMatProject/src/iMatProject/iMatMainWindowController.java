@@ -18,6 +18,7 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener {
+
     private final Model model = Model.getInstance();
     private Wizard wizard;
 
@@ -100,6 +101,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         wizard = new Wizard();
         wizard.setListener(this);
+        SearchTextField.setVisible(false);
+        searchButton.setVisible(false);
 
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
@@ -214,6 +217,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
 
     public void startShoppingNavigation(){
+        SearchTextField.setVisible(true);
+        searchButton.setVisible(true);
         startAnchorPane.toBack();
         productFlowPane.toFront();
 
@@ -276,6 +281,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     @Override
 
     public void onWizardFinish() {
+
         model.placeOrder();
         wizard.deliveryPane.toFront();
         wizardAnchorPane.toBack();

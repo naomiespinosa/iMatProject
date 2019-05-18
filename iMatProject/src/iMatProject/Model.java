@@ -87,7 +87,6 @@ public class Model {
        System.out.println(getShoppingCart().getItems().size());
 
     }
-
     public List<String> getCardTypes() {
         return availableCardTypes;
     }
@@ -157,7 +156,6 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
-
 
 
 }

@@ -203,6 +203,7 @@ public class Wizard extends AnchorPane {
 
         navigateFront3();
     }
+
     @FXML
     private void navigateBack1Action(MouseEvent event) {
         navigateBack1();

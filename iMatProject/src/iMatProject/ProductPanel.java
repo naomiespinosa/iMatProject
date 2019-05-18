@@ -6,6 +6,7 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -20,6 +21,7 @@ public class ProductPanel extends AnchorPane {
     @FXML Label nameLabel;
     @FXML Label prizeLabel;
     @FXML Label ecoLabel;
+    @FXML Button favoriteButton;
     
     private Model model = Model.getInstance();
 
@@ -30,6 +32,8 @@ public class ProductPanel extends AnchorPane {
     private final static double kImageRatio = 0.75;
 
     public ProductPanel(Product product) {
+
+
         
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductPanel.fxml"));
         fxmlLoader.setRoot(this);
@@ -60,4 +64,5 @@ public class ProductPanel extends AnchorPane {
         System.out.println("Remove " + product.getName());
         model.removeFromShoppingCart(product);
     }
+
 }
