@@ -14,6 +14,7 @@ import se.chalmers.cse.dat216.project.ProductCategory;
 
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener {
@@ -150,7 +151,9 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         updateProductList(model.getProducts());
         updateShoppingCart();
-        clearButton.setOnAction(event -> AlertBox.display("test","wow"));
+
+
+
 
     }
 
@@ -255,16 +258,25 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     }
     @FXML
     private void clearCartAction(ActionEvent event) {
-        model.clearShoppingCart();
-    }
-    @FXML
-    private void buyAction(ActionEvent event) {
-        model.placeOrder();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+       // alert.setTitle("");
+        alert.setHeaderText("Vill du Tömma varukorgen?");
+      //  alert.setContentText("");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+
+            model.clearShoppingCart();
+        } else {
+
+        }
+
     }
 
     @Override
 
     public void onWizardFinish() {
+        model.placeOrder();
         wizard.deliveryPane.toFront();
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
