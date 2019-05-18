@@ -15,7 +15,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
-      <AnchorPane fx:id="cartAnchorPane" layoutY="61.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="cartAnchorPane" layoutY="61.0" prefHeight="719.0" prefWidth="1300.0" style="-fx-background-color: white;">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="714.0" prefWidth="1074.0">
               <content>
