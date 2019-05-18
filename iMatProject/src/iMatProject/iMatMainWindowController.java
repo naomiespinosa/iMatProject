@@ -263,6 +263,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     }
 
     @Override
+
     public void onWizardFinish() {
         wizard.deliveryPane.toFront();
         wizardAnchorPane.toBack();
