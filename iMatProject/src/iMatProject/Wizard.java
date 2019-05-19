@@ -151,6 +151,9 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
+
+
+
     }
 
     public void navigateFront1(){
@@ -195,8 +198,7 @@ public class Wizard extends AnchorPane {
     @FXML
 
     private void navigateFront2Action(MouseEvent event) {
-
-       navigateFront2();
+        navigateFront2();
     }
     @FXML
     private void navigateFront3Action(MouseEvent event) {
@@ -286,4 +288,16 @@ public class Wizard extends AnchorPane {
 
 
      */
+    public boolean isInt(TextField input, String message){
+try {
+    int number = Integer.parseInt(input.getText());
+
+    return true;
+}
+    catch (NumberFormatException e){
+    System.out.println("ogiltg data");
+    return false;
+}
+    }
+    
 }

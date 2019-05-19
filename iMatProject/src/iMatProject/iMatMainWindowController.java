@@ -21,6 +21,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     private final Model model = Model.getInstance();
     private Wizard wizard;
+    Product product;
 
     @FXML
 
@@ -103,6 +104,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         wizard.setListener(this);
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
+        product = new Product();
 
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
@@ -110,8 +112,11 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
 
         TreeItem<String> berry = new TreeItem(ProductCategory.BERRY);
+        berry = new TreeItem<>("Bär");
         TreeItem<String> bread = new TreeItem(ProductCategory.BREAD);
+        bread = new TreeItem<>("Bröd");
         TreeItem<String> cabbage = new TreeItem(ProductCategory.CABBAGE);
+        cabbage = new TreeItem<>("Kål");
         TreeItem<String> citruses = new TreeItem(ProductCategory.CITRUS_FRUIT);
         TreeItem<String> colds = new TreeItem(ProductCategory.COLD_DRINKS);
         TreeItem<String> diaries = new TreeItem(ProductCategory.DAIRIES);
@@ -149,8 +154,14 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         kott.getChildren().addAll(fish,meat);
         mejeri.getChildren().addAll(diaries);
         notter.getChildren().addAll(nuts,pod);
-        skafferi.getChildren().addAll(flourAndsuggar,pasta,potato);
+        skafferi.getChildren().addAll(bread,flourAndsuggar,pasta,potato);
         sotsaker.getChildren().addAll(sweets);
+
+        catTreeView.getSelectionModel().selectedItemProperty().addListener(((vlaue, oldValue, newValue) ->{
+            if (newValue != null)
+                System.out.println(newValue);
+
+        } ));
 
         updateProductList(model.getProducts());
         updateShoppingCart();
@@ -169,7 +180,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         productFlowPane.getChildren().clear();
 
         for (Product product : products) {
-            product.getCategory();
+            //product.getCategory();
             productFlowPane.getChildren().add(new ProductPanel(product));
         }
     }
@@ -213,6 +224,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         wizardAnchorPane.toBack();
+        cartAnchorPane.toBack();
         productFlowPane.toFront();
     }
 
@@ -277,6 +289,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         }
 
     }
+
 
     @Override
 

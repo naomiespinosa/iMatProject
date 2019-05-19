@@ -9,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -64,5 +63,15 @@ public class ProductPanel extends AnchorPane {
         System.out.println("Remove " + product.getName());
         model.removeFromShoppingCart(product);
     }
+    @FXML
+    public  void addFavoritesAction(){
+        if (!model.isFavorite(product)){
+            model.addFavorites(product);
 
+    }
+        else {
+            model.removeFavorites(product);
+            System.out.println( "Remove fav:  " + product.getProductId());
+        }
+}
 }

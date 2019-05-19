@@ -73,10 +73,11 @@ public class Model {
     public void removeFromShoppingCart(Product p) {
 
         for(ShoppingItem item : Model.getInstance().getShoppingCart().getItems()){
-            if(item.getProduct() == p){
+            if(item.getProduct().equals(p)){
                 Model.getInstance().getShoppingCart().removeItem(item);
 
             }
+
         }
 
         /*  ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
@@ -86,6 +87,18 @@ public class Model {
 
        System.out.println(getShoppingCart().getItems().size());
 
+    }
+    public boolean isFavorite(Product p){
+       return iMatDataHandler.isFavorite(p);
+
+    }
+    public Product addFavorites(Product p) {
+         iMatDataHandler.addFavorite(p);
+         return p;
+    }
+    public Product removeFavorites(Product p) {
+            iMatDataHandler.removeFavorite(p);
+        return p;
     }
     public List<String> getCardTypes() {
         return availableCardTypes;
