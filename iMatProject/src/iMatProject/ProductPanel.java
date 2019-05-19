@@ -51,7 +51,13 @@ public class ProductPanel extends AnchorPane {
         if (!product.isEcological()) {
             ecoLabel.setText("");
         }
+        if (Model.getInstance().isFavorite(product)){
+            favoriteButton.setStyle("-fx-background-color: #4c1036;");
+        }
+
+
     }
+
 
     @FXML
     private void handleAddAction(ActionEvent event) {

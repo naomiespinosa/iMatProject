@@ -302,5 +302,11 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
     }
+
+    @Override
+    public void backToCart() {
+        wizardAnchorPane.toBack();
+        cartAnchorPane.toFront();
+    }
 }
 

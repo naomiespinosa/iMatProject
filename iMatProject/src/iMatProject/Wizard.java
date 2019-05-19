@@ -191,6 +191,10 @@ public class Wizard extends AnchorPane {
 
         listener.onWizardFinish();
     }
+    public void backToCartNavigation(){
+        listener.backToCart();
+
+    }
     @FXML
     private void navigateFront1Action(MouseEvent event) {
         navigateFront1();
@@ -227,6 +231,10 @@ public class Wizard extends AnchorPane {
     @FXML
     private void navigateToMainAction(ActionEvent event) {
         navigateToMain();
+    }
+    @FXML
+    private void backToCartNavigationAction(MouseEvent event) {
+        backToCartNavigation();
     }
      public void updateWizardInfo() {
 
@@ -299,5 +307,5 @@ try {
     return false;
 }
     }
-    
+
 }

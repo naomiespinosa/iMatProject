@@ -36,7 +36,7 @@
          <tooltip>
             <Tooltip text="Ta bort ett stycke från varukorgen" />
          </tooltip></Button>
-      <Button id="favorite" fx:id="favoritsButton" layoutX="160.0" layoutY="8.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="31.0" prefWidth="26.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button id="favorite" fx:id="favoriteButton" layoutX="160.0" layoutY="8.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="31.0" prefWidth="26.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
