@@ -15,17 +15,15 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
-      <AnchorPane fx:id="wizardAnchorPane" layoutY="62.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
       <AnchorPane fx:id="cartAnchorPane" layoutY="61.0" prefHeight="719.0" prefWidth="1300.0" style="-fx-background-color: white;">
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="714.0" prefWidth="1074.0">
-               <content>
-                  <FlowPane fx:id="cartView" hgap="15.0" prefHeight="714.4" prefWidth="1061.6" style="-fx-background-color: white;" vgap="15.0">
-                     <padding>
-                        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
-                     </padding>
-                  </FlowPane>
-               </content>
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="714.0" prefWidth="1061.0">
+                     <children>
+                        <FlowPane fx:id="cartView" prefHeight="714.4" prefWidth="1061.6" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
+              </content>
             </ScrollPane>
             <Button id="logo" fx:id="paymetnButton" layoutX="1089.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
                <font>
@@ -55,6 +53,21 @@
                   <Tooltip text="Tömma varukrogen" />
                </tooltip>
             </Button>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="wizardAnchorPane" layoutY="62.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
+      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1303.0" style="-fx-background-color: white;">
+         <children>
+            <Button id="logo" layoutX="530.0" layoutY="324.0" mnemonicParsing="false" onAction="#startShoppingNavigationAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 500;" text="Börja Handla!">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font>
+            </Button>
+            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
+               <font>
+                  <Font name="System Bold Italic" size="48.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -102,7 +115,7 @@
             <left>
                 <AnchorPane fx:id="sortimentPane" prefHeight="690.0" prefWidth="211.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
                <children>
-                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#showCategoryOnClick" prefHeight="689.6" prefWidth="211.2" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#onCategoryClick" prefHeight="689.6" prefWidth="211.2" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <padding>
                         <Insets right="10.0" />
                      </padding>
@@ -160,19 +173,5 @@
                </children></AnchorPane>
             </center>
         </BorderPane>
-      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1303.0" style="-fx-background-color: white;">
-         <children>
-            <Button id="logo" layoutX="530.0" layoutY="324.0" mnemonicParsing="false" onAction="#startShoppingNavigationAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 500;" text="Börja Handla!">
-               <font>
-                  <Font name="System Bold Italic" size="25.0" />
-               </font>
-            </Button>
-            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
-               <font>
-                  <Font name="System Bold Italic" size="48.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
     </children>
 </AnchorPane>

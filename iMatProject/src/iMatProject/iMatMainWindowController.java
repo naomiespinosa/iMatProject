@@ -11,15 +11,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
-import se.chalmers.cse.dat216.project.ProductCategory
+import se.chalmers.cse.dat216.project.ProductCategory;
 
 
 
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
@@ -163,7 +160,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         TreeItem<String> dryck = new TreeItem("Dryck");
         TreeItem<String> frukt = new TreeItem("Frukt");
         TreeItem<String> gronssaker = new TreeItem("Grönsaker");
-        TreeItem<String> kott = new TreeItem("Kött");
+        TreeItem<String> kott = new TreeItem("Kött & Fisk");
         TreeItem<String> mejeri = new TreeItem("Mejeri");
         TreeItem<String> notter = new TreeItem("Nötter & Bönor");
         TreeItem<String> skafferi = new TreeItem("Skafferi");
@@ -233,12 +230,6 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
 
 
-
-
-
-
-
-
     private void updateShoppingCart() {
 
         ShoppingCart shoppingCart = model.getShoppingCart();
@@ -249,16 +240,17 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         totalPriceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
         previousShopLabel.setText("Antal tidigare köp: " + model.getNumberOfOrders());
 
-
     }
+
 
     private void toCartNavigation(){
         updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         cartAnchorPane.toFront();
-
     }
+
+
     private void toFavoritesNavigation(){
         updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
@@ -325,26 +317,40 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
        TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
        String category = item.toString();
         List<Product> products = new ArrayList<>();
-
        switch (category){
-            case "dryck":
+            case "TreeItem [ value: Dryck ]":
                 products.addAll(model.getProductsByCat(COLD_DRINKS));
-                products.addAll(model.getProductsByCat(HOT_DRINKS));
-            case "gronssaker":
+                products.addAll(model.getProductsByCat(HOT_DRINKS));break;
+            case "TreeItem [ value: Grönsaker ]":
                 products.addAll(model.getProductsByCat(CABBAGE));
-                products.addAll(model.getProductsByCat(HERB));
-            case "kott":;
-            case "mejeri":;
-            case "frukt":;
-            case "notter":;
-            case "skafferi":;
-            case "sotsaker":;
+                products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
+                products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
+                products.addAll(model.getProductsByCat(HERB));break;
+            case "TreeItem [ value: Kött & Fisk ]":
+                products.addAll(model.getProductsByCat(MEAT));
+                products.addAll(model.getProductsByCat(FISH));break;
+            case "TreeItem [ value: Mejeri ]":
+                products.addAll(model.getProductsByCat(DAIRIES));
+            case "TreeItem [ value: Frukt ]":
+                products.addAll(model.getProductsByCat(BERRY));
+                products.addAll(model.getProductsByCat(CITRUS_FRUIT));
+                products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
+                products.addAll(model.getProductsByCat(FRUIT));
+                products.addAll(model.getProductsByCat(MELONS));break;
+           case "TreeItem [ value: Nötter & Bönor ]":
+               products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
+               products.addAll(model.getProductsByCat(POD));break;
+           case "TreeItem [ value: Skafferi ]":
+               products.addAll(model.getProductsByCat(BREAD));
+               products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
+               products.addAll(model.getProductsByCat(PASTA));
+               products.addAll(model.getProductsByCat(POTATO_RICE));break;
 
+           case "TreeItem [ value: Sötsaker ]":
+               products.addAll(model.getProductsByCat(SWEET));
 
         }
 
-        wizardAnchorPane.toBack();
-        productFlowPane.toFront();
         updateProductList(products);
     }
 
