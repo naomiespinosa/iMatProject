@@ -15,7 +15,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
-public class ItemPanel extends AnchorPane  {
+public class SideItemPanel extends AnchorPane  {
 iMatMainWindowController paretnCOntroller;
 
     @FXML
@@ -38,11 +38,11 @@ iMatMainWindowController paretnCOntroller;
     private final static double kImageWidth = 75;
     private final static double kImageRatio = 0.75;
 
-    public ItemPanel( ShoppingItem item, iMatMainWindowController controller) {
+    public SideItemPanel( ShoppingItem item, iMatMainWindowController controller) {
 
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ItemPanel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SideItemPanel.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 

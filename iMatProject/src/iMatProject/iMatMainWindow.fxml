@@ -123,7 +123,7 @@
                      </font></Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="574.0" prefWidth="204.0" vbarPolicy="ALWAYS">
                      <content>
-                        <FlowPane fx:id="sideCartFlowPane" prefHeight="574.0" prefWidth="204.0" />
+                        <FlowPane fx:id="sideCartFlowPane" hgap="10.0" prefHeight="574.0" prefWidth="204.0" vgap="10.0" />
                      </content>
                   </ScrollPane>
                   <Button fx:id="clearButton" layoutX="142.0" layoutY="587.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 50;" text="Töm" textFill="#4c1036">

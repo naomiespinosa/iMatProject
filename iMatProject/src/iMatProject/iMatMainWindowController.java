@@ -226,7 +226,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         for (ShoppingItem item : items) {
 
             cartView.getChildren().add(new ItemPanel(item, this));
-            sideCartFlowPane.getChildren().add(new ItemPanel(item, this));
+            sideCartFlowPane.getChildren().add(new SideItemPanel(item, this));
         }
     }
 
