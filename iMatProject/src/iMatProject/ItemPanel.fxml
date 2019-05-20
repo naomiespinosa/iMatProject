@@ -22,21 +22,21 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Button layoutX="143.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button layoutX="143.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
          <tooltip>
             <Tooltip text="Lägg ett stycke i varukorgen" />
          </tooltip></Button>
-      <Button layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleRemoveAction" prefHeight="36.0" prefWidth="36.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="-" textFill="WHITE">
+      <Button layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleRemoveAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="-" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>
          <tooltip>
             <Tooltip text="Ta bort ett stycke från varukorgen" />
          </tooltip></Button>
-      <Button id="favorite" fx:id="favoriteButton" layoutX="160.0" layoutY="8.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="31.0" prefWidth="26.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button id="favorite" fx:id="favoriteButton" layoutX="154.0" layoutY="8.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>

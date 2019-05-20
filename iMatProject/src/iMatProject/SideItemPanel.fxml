@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="productPane" prefHeight="127.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="productPane" prefHeight="127.0" prefWidth="184.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="imageView" fitHeight="75.0" fitWidth="83.0" layoutX="2.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="75.0" fitWidth="81.0" layoutX="4.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nameLabel" layoutX="90.0" layoutY="4.0" text="name">
          <font>
             <Font size="14.0" />
@@ -36,7 +36,7 @@
          <tooltip>
             <Tooltip text="Ta bort ett stycke från varukorgen" />
          </tooltip></Button>
-      <Button id="favorite" fx:id="favoriteButton" layoutX="150.0" layoutY="91.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button id="favorite" fx:id="favoriteButton" layoutX="141.0" layoutY="91.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="25.0" prefWidth="25.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="System Bold Italic" size="12.0" />
          </font>
