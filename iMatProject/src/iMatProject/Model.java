@@ -4,6 +4,7 @@ package iMatProject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -45,6 +46,7 @@ public class Model {
     public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
     }
+    public List<Product> getProductsByCat(ProductCategory cat) {return iMatDataHandler.getProducts(cat);}
 
     public Product getProduct(int idNbr) {
         return iMatDataHandler.getProduct(idNbr);
@@ -54,7 +56,7 @@ public class Model {
         return iMatDataHandler.findProducts(s);
     }
 
-    public Image getImage(Product p) {
+    public javafx.scene.image.Image getImage(Product p) {
         return iMatDataHandler.getFXImage(p);
     }
 
@@ -173,6 +175,7 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
+
 
 
 }
