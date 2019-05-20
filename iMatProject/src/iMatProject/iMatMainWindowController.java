@@ -317,6 +317,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         wizardHandler();
 }
 
+
     @FXML
     public void toCartNavigationAction(ActionEvent event){
         toCartNavigation();
