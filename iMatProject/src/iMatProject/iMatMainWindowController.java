@@ -347,7 +347,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
                products.addAll(model.getProductsByCat(POTATO_RICE));break;
 
            case "TreeItem [ value: Sötsaker ]":
-               products.addAll(model.getProductsByCat(SWEET));
+               products.addAll(model.getProductsByCat(SWEET));break;
 
         }
 
