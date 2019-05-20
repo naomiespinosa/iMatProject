@@ -1,9 +1,7 @@
-module iMatProject {
-    requires javafx.fxml;
+
+module iMatProjekt {
     requires javafx.controls;
+    requires javafx.fxml;
     requires projectbackend;
-
-    opens iMatProject;
+     opens iMatProject;
 }
-
-
