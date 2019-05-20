@@ -188,6 +188,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         updateFavorite(model.getFavorites());
         System.out.println(model.getFavorites());
         updateProductList(model.getProducts());
+        cartUpdate(model.getShoppingCart().getItems());
+
         updateShoppingCart();
 
 
@@ -197,6 +199,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @Override
     public void shoppingCartChanged(CartEvent evt) {
         updateShoppingCart();
+        cartUpdate(model.getShoppingCart().getItems());
+
 
     }
 
@@ -219,6 +223,16 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         }
 
     }
+    public void cartUpdate(List<ShoppingItem> items) {
+        cartView.getChildren().clear();
+
+        for (ShoppingItem item : items) {
+
+            cartView.getChildren().add(new ItemPanel(item, this));
+        }
+    }
+
+
 
 
 

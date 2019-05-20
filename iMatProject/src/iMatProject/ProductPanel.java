@@ -60,6 +60,11 @@ iMatMainWindowController paretnCOntroller;
         if (!product.isEcological()) {
             ecoLabel.setText("");
         }
+
+
+
+    }
+    private void colorChangeControl(){
         if (model.isFavorite(product)){
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
         }
@@ -70,8 +75,9 @@ iMatMainWindowController paretnCOntroller;
         }
         else favoriteButton.setStyle("-fx-background-color: #4c1036;");
 
-
     }
+
+
 
 
     @FXML
@@ -88,17 +94,24 @@ iMatMainWindowController paretnCOntroller;
 
     @FXML
     public void addFavoritesAction() {
+
         if (!model.isFavorite(product)) {
 
-            favoriteButton.setStyle("-fx-background-color: #4c1036;");
+
+           // favoriteButton.setStyle("-fx-background-color: #4c1036;");
             model.addFavorites(product);
+            colorChangeControl();
             paretnCOntroller.updateFavorite(model.getFavorites());
 
         } else {
 
+            //favoriteButton.setStyle("-fx-background-color: #ffffff;");
+
             model.removeFavorites(product);
+            colorChangeControl();
+
             paretnCOntroller.updateFavorite(model.getFavorites());
-            favoriteButton.setStyle("-fx-background-color: #ffffff;");
+
             System.out.println("Remove fav:  " + product.getProductId());
         }
     }
