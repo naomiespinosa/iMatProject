@@ -56,20 +56,6 @@
          </children>
       </AnchorPane>
       <AnchorPane fx:id="wizardAnchorPane" layoutY="62.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
-      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1303.0" style="-fx-background-color: white;">
-         <children>
-            <Button id="logo" layoutX="530.0" layoutY="324.0" mnemonicParsing="false" onAction="#startShoppingNavigationAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 500;" text="Börja Handla!">
-               <font>
-                  <Font name="System Bold Italic" size="25.0" />
-               </font>
-            </Button>
-            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
-               <font>
-                  <Font name="System Bold Italic" size="48.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
                 <AnchorPane prefHeight="60.0" prefWidth="1300.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
@@ -173,5 +159,19 @@
                </children></AnchorPane>
             </center>
         </BorderPane>
+      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1303.0" style="-fx-background-color: white;">
+         <children>
+            <Button id="logo" layoutX="530.0" layoutY="324.0" mnemonicParsing="false" onAction="#startShoppingNavigationAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 500;" text="Börja Handla!">
+               <font>
+                  <Font name="System Bold Italic" size="25.0" />
+               </font>
+            </Button>
+            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
+               <font>
+                  <Font name="System Bold Italic" size="48.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

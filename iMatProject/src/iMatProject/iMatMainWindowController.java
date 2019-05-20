@@ -314,6 +314,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
     @FXML
     public void onCategoryClick(MouseEvent mouseEvent){
+        prodcutScrollPane.toFront();
        TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
        String category = item.toString();
         List<Product> products = new ArrayList<>();
