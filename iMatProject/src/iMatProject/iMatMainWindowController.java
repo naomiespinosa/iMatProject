@@ -17,37 +17,44 @@ import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener {
+public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener{
 
     private final Model model = Model.getInstance();
     private Wizard wizard;
     Product product;
 
+
+
+
     @FXML
 
-    private Label priceLabel;   // Main View
+     Label priceLabel;   // Main View
+
+
+
+
     @FXML
 
-    private Label ItemCountLabel;  // Main View
+     Label ItemCountLabel;  // Main View
     @FXML
 
-    private Label previousShopLabel;  //Cart view
+     Label previousShopLabel;  //Cart view
     @FXML
 
-    private Label productCountLabel;  //Cart view
+     Label productCountLabel;  //Cart view
     @FXML
 
-    private Label totalPriceLabel;    //Cart view
+     Label totalPriceLabel;    //Cart view
 
 
     @FXML
     public TextField SearchTextField;
 
     @FXML
-    private Button helpButton;
+     Button helpButton;
 
     @FXML
-    private Button logoButton;
+     Button logoButton;
 
     @FXML
     public Button searchButton;
@@ -59,25 +66,25 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     Button clearButton1;  // Cart View
 
     @FXML
-    private Button toCartButton;
+     Button toCartButton;
 
     @FXML
-    private Button favoritsButton;
+     Button favoritsButton;
 
     @FXML
-    private Button historyButton;
+     Button historyButton;
 
     @FXML
-    private AnchorPane sortimentPane;
+     AnchorPane sortimentPane;
 
     @FXML
     public AnchorPane wizardAnchorPane;
 
     @FXML
-    private AnchorPane shoppingCartPane;
+     AnchorPane shoppingCartPane;
 
     @FXML
-    private TreeView <String> catTreeView;
+     TreeView<String> catTreeView;
     @FXML
     public FlowPane productFlowPane;
 
@@ -88,13 +95,20 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public AnchorPane sideCartAnchorPane;
 
     @FXML
-    public  AnchorPane cartAnchorPane;
+    public AnchorPane cartAnchorPane;
 
     @FXML
-    public  AnchorPane cartView;
+    public FlowPane cartView;
+    @FXML
+    public FlowPane favoritesFlowPane;
+    @FXML
+    ScrollPane favoritesScrollPane;
+    @FXML
+    ScrollPane prodcutScrollPane;
 
-  //  @FXML
- //   private FlowPane wizardFlowPane;
+
+    //  @FXML
+    //   private FlowPane wizardFlowPane;
 
 
     @Override
@@ -102,6 +116,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         wizard = new Wizard();
         wizard.setListener(this);
+
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         product = new Product();
@@ -147,43 +162,61 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         TreeItem<String> sotsaker = new TreeItem("Sötsaker");
 
         catTreeView.setRoot(root);
-        root.getChildren().addAll(dryck,frukt,gronssaker,kott,mejeri,notter,skafferi,sotsaker);
-        dryck.getChildren().addAll(colds,hots);
-        frukt.getChildren().addAll(berry,citruses,exotics, fruit, melons);
-        gronssaker.getChildren().addAll(cabbage,herbs, rootVegs, vegFruits);
-        kott.getChildren().addAll(fish,meat);
+        root.getChildren().addAll(dryck, frukt, gronssaker, kott, mejeri, notter, skafferi, sotsaker);
+        dryck.getChildren().addAll(colds, hots);
+        frukt.getChildren().addAll(berry, citruses, exotics, fruit, melons);
+        gronssaker.getChildren().addAll(cabbage, herbs, rootVegs, vegFruits);
+        kott.getChildren().addAll(fish, meat);
         mejeri.getChildren().addAll(diaries);
-        notter.getChildren().addAll(nuts,pod);
-        skafferi.getChildren().addAll(bread,flourAndsuggar,pasta,potato);
+        notter.getChildren().addAll(nuts, pod);
+        skafferi.getChildren().addAll(bread, flourAndsuggar, pasta, potato);
         sotsaker.getChildren().addAll(sweets);
 
-        catTreeView.getSelectionModel().selectedItemProperty().addListener(((vlaue, oldValue, newValue) ->{
+        catTreeView.getSelectionModel().selectedItemProperty().addListener(((vlaue, oldValue, newValue) -> {
             if (newValue != null)
                 System.out.println(newValue);
 
-        } ));
-
+        }));
+        updateFavorite(model.getFavorites());
+        System.out.println(model.getFavorites());
         updateProductList(model.getProducts());
         updateShoppingCart();
-
 
 
 
     }
 
     @Override
-    public void shoppingCartChanged(CartEvent evt) { updateShoppingCart();
+    public void shoppingCartChanged(CartEvent evt) {
+        updateShoppingCart();
 
     }
-    private void updateProductList(List<Product> products) {
 
+     void updateProductList(List<Product> products) {
         productFlowPane.getChildren().clear();
 
         for (Product product : products) {
-            //product.getCategory();
-            productFlowPane.getChildren().add(new ProductPanel(product));
+
+            productFlowPane.getChildren().add( new ProductPanel(product, this));
         }
+
     }
+
+    public void updateFavorite(List<Product> favorites) {
+        favoritesFlowPane.getChildren().clear();
+
+        for (Product product : favorites) {
+
+            favoritesFlowPane.getChildren().add(new ProductPanel(product, this));
+        }
+
+    }
+
+
+
+
+
+
     private void updateShoppingCart() {
 
         ShoppingCart shoppingCart = model.getShoppingCart();
@@ -196,10 +229,20 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
 
     }
+
     private void toCartNavigation(){
+        updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         cartAnchorPane.toFront();
+
+    }
+    private void toFavoritesNavigation(){
+        updateFavorite(model.getFavorites());
+        SearchTextField.setVisible(false);
+        searchButton.setVisible(false);
+        prodcutScrollPane.toBack();
+        favoritesScrollPane.toFront();
 
     }
     private void wizardHandler(){
@@ -225,7 +268,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         searchButton.setVisible(true);
         wizardAnchorPane.toBack();
         cartAnchorPane.toBack();
-        productFlowPane.toFront();
+        prodcutScrollPane.toFront();
     }
 
     public void startShoppingNavigation(){
@@ -263,6 +306,10 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     @FXML
     public void toCartNavigationAction(ActionEvent event){
         toCartNavigation();
+    }
+    @FXML
+    public void toFavoritesNavigationAction(ActionEvent event){
+        toFavoritesNavigation();
     }
 
     @FXML
@@ -308,5 +355,8 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         wizardAnchorPane.toBack();
         cartAnchorPane.toFront();
     }
+
+
+
 }
 

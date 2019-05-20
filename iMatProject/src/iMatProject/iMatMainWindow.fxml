@@ -19,7 +19,10 @@
          <children>
             <ScrollPane hbarPolicy="NEVER" prefHeight="714.0" prefWidth="1074.0">
               <content>
-                <AnchorPane fx:id="cartView" minHeight="0.0" minWidth="0.0" prefHeight="714.0" prefWidth="1062.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="714.0" prefWidth="1061.0">
+                     <children>
+                        <FlowPane fx:id="cartView" prefHeight="714.4" prefWidth="1061.6" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                     </children></AnchorPane>
               </content>
             </ScrollPane>
             <Button id="logo" fx:id="paymetnButton" layoutX="1089.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
@@ -83,7 +86,7 @@
                      <font>
                         <Font name="System Bold Italic" size="26.0" />
                      </font></Button>
-                        <Button fx:id="favoritsButton" layoutX="766.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="44.39999999999998">
+                        <Button fx:id="favoritsButton" layoutX="766.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFavoritesNavigationAction" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="44.39999999999998">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
@@ -137,7 +140,12 @@
                <children>
                   <StackPane layoutY="-0.6000000238418579" prefHeight="652.8" prefWidth="882.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <ScrollPane hbarPolicy="NEVER" pannable="true" prefHeight="609.6" prefWidth="965.0" vbarPolicy="ALWAYS">
+                        <ScrollPane fx:id="favoritesScrollPane" hbarPolicy="NEVER" prefHeight="609.6" prefWidth="965.0" style="-fx-background-color: white;">
+                           <content>
+                              <FlowPane fx:id="favoritesFlowPane" prefHeight="650.0" prefWidth="870.0" style="-fx-background-color: #ffdbfa;" />
+                           </content>
+                        </ScrollPane>
+                        <ScrollPane fx:id="prodcutScrollPane" hbarPolicy="NEVER" pannable="true" prefHeight="609.6" prefWidth="965.0" style="-fx-background-color: white;">
                            <content>
                               <FlowPane fx:id="productFlowPane" hgap="20.0" prefHeight="650.0" prefWidth="870.0" style="-fx-background-color: #ffdbfa;" vgap="20.0">
                                  <padding>

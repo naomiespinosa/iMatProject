@@ -92,6 +92,10 @@ public class Model {
        return iMatDataHandler.isFavorite(p);
 
     }
+    public  List<Product> getFavorites(){
+       return iMatDataHandler.favorites();
+
+    }
     public Product addFavorites(Product p) {
          iMatDataHandler.addFavorite(p);
          return p;
