@@ -96,6 +96,8 @@ public class Model {
        return iMatDataHandler.favorites();
 
     }
+
+
     public Product addFavorites(Product p) {
          iMatDataHandler.addFavorite(p);
          return p;
@@ -168,6 +170,7 @@ public class Model {
         return iMatDataHandler.getOrders().size();
 
     }
+
 
 
     public void shutDown() {
