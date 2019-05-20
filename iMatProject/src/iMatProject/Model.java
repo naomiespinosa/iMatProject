@@ -4,6 +4,7 @@ package iMatProject;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -45,6 +46,7 @@ public class Model {
     public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
     }
+    public List<Product> getProductsByCat(ProductCategory cat) {return iMatDataHandler.getProducts(cat);}
 
     public Product getProduct(int idNbr) {
         return iMatDataHandler.getProduct(idNbr);
@@ -54,7 +56,7 @@ public class Model {
         return iMatDataHandler.findProducts(s);
     }
 
-    public Image getImage(Product p) {
+    public javafx.scene.image.Image getImage(Product p) {
         return iMatDataHandler.getFXImage(p);
     }
 
@@ -73,10 +75,11 @@ public class Model {
     public void removeFromShoppingCart(Product p) {
 
         for(ShoppingItem item : Model.getInstance().getShoppingCart().getItems()){
-            if(item.getProduct() == p){
+            if(item.getProduct().equals(p)){
                 Model.getInstance().getShoppingCart().removeItem(item);
 
             }
+
         }
 
         /*  ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
@@ -87,7 +90,24 @@ public class Model {
        System.out.println(getShoppingCart().getItems().size());
 
     }
+    public boolean isFavorite(Product p){
+       return iMatDataHandler.isFavorite(p);
 
+    }
+    public  List<Product> getFavorites(){
+       return iMatDataHandler.favorites();
+
+    }
+
+
+    public Product addFavorites(Product p) {
+         iMatDataHandler.addFavorite(p);
+         return p;
+    }
+    public Product removeFavorites(Product p) {
+            iMatDataHandler.removeFavorite(p);
+        return p;
+    }
     public List<String> getCardTypes() {
         return availableCardTypes;
     }
@@ -135,6 +155,7 @@ public class Model {
 
     public void clearShoppingCart() {
 
+
         iMatDataHandler.getShoppingCart().clear();
 
     }
@@ -151,6 +172,8 @@ public class Model {
         return iMatDataHandler.getOrders().size();
 
     }
+
+
 
     public void shutDown() {
         iMatDataHandler.shutDown();

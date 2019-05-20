@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -62,7 +62,7 @@
                      <font>
                         <Font name="System Bold Italic" size="32.0" />
                      </font></Button>
-                  <ImageView fx:id="backArrow" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ImageView" fx:id="backArrow" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack3Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
@@ -141,12 +141,12 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <ImageView fx:id="backArrow1" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack2Action" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ImageView" fx:id="backArrow1" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack2Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="frontArrow1" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront3Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView id="ImageView" fx:id="frontArrow1" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront3Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
@@ -225,12 +225,12 @@
                         <Font name="System Bold Italic" size="62.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="backArrow32" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack1Action" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ImageView" fx:id="backArrow32" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#navigateBack1Action" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="backArrow31" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront2Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView id="ImageView" fx:id="backArrow31" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront2Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
@@ -259,12 +259,12 @@
                         <Font name="System Bold Italic" size="62.0" />
                      </font>
                   </Label>
-                  <ImageView fx:id="backArrow2" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView id="ImageView" fx:id="backArrow2" fitHeight="101.0" fitWidth="113.0" layoutX="48.0" layoutY="580.0" onMouseClicked="#backToCartNavigation" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="backArrow3" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront1Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
+                  <ImageView id="ImageView" fx:id="backArrow3" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront1Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
                      </image>
