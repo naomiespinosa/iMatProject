@@ -28,7 +28,8 @@
                   <Button id="logo" fx:id="backToMainButton" layoutX="442.0" layoutY="493.0" mnemonicParsing="false" onAction="#navigateToMainAction" prefHeight="70.0" prefWidth="419.0" text="Förtsätt handla">
                      <font>
                         <Font name="System Bold Italic" size="32.0" />
-                     </font></Button>
+                     </font>
+                  </Button>
                   <ImageView fitHeight="267.0" fitWidth="245.0" layoutX="526.0" layoutY="206.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/bag.png" />

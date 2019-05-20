@@ -210,6 +210,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         productFlowPane.toFront();
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
+        
     }
 }
 
