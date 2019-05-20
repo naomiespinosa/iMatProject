@@ -1,15 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: white;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="345.0" layoutY="240.0" text="test test!!!" AnchorPane.bottomAnchor="347.6" AnchorPane.leftAnchor="345.0" AnchorPane.topAnchor="240.0">
-         <font>
-            <Font size="42.0" />
-         </font>
-      </Label>
+      <ScrollPane prefHeight="800.0" prefWidth="1301.0" style="-fx-background-color: white;">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="2117.0" prefWidth="1303.0" style="-fx-background-color: white;">
+               <children>
+                  <Label layoutX="28.0" layoutY="91.0" text="Hur hittar jag en vara?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="127.0" text="Det finns två sätt att hitta en vara.">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="901.0" layoutY="218.0" text="1. Via kategorierna">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="905.0" layoutY="332.0" text="2. Via sökfunktionen">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="290.0" fitWidth="859.0" layoutX="25.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/kategorier.PNG" />
+                     </image>
+                  </ImageView>
+                  <AnchorPane layoutX="29.0" layoutY="220.0" prefHeight="210.0" prefWidth="126.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <AnchorPane layoutX="384.0" layoutY="162.0" prefHeight="62.0" prefWidth="475.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="25.0" layoutY="11.0" text="HJÄLP" textFill="#4c1036">
+                     <font>
+                        <Font name="System Bold" size="49.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="160.0" layoutY="393.0" text="1." textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="356.0" layoutY="174.0" text="2." textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="930.0" layoutY="233.0" prefHeight="84.0" prefWidth="283.0" text="Genom att klicka på en kategori visas varorna i vald kategori." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="924.0" layoutY="351.0" prefHeight="74.0" prefWidth="292.0" text="Skriv namnet på vilken vara du letar efter och tryck därefter på sök." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="24.0" layoutY="485.0" text="Hur lägger jag till en vara i varukorgen?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="195.0" fitWidth="172.0" layoutX="26.0" layoutY="525.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/vara.PNG" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="144.0" layoutY="630.0" prefHeight="42.0" prefWidth="43.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="207.0" layoutY="516.0" prefHeight="86.0" prefWidth="358.0" text="Lägg till en vara genom att klicka på plus. Varan syns då till höger i varukorgen." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="25.0" layoutY="732.0" text="Hur lägger jag till en vara i varukorgen?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="195.0" fitWidth="172.0" layoutX="26.0" layoutY="769.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/vara.PNG" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="144.0" layoutY="914.0" prefHeight="42.0" prefWidth="43.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="203.0" layoutY="760.0" prefHeight="86.0" prefWidth="358.0" text="Ta bort en vara genom att klicka på minus. Varans tas då bort från varukorgen till höger." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="22.0" layoutY="983.0" text="Hur markerar jag en vara som favorit?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="201.0" fitWidth="172.0" layoutX="29.0" layoutY="1030.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/favorit1.PNG" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="159.0" layoutY="1034.0" prefHeight="42.0" prefWidth="43.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="210.0" layoutY="1011.0" prefHeight="86.0" prefWidth="358.0" text="Klicka på hjärtat så det blir lila." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="1238.0" text="Var ser jag mina favoritmarkerade varor?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="164.0" fitWidth="337.0" layoutX="26.0" layoutY="1285.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/favoriter2.PNG" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="255.0" layoutY="1385.0" prefHeight="47.0" prefWidth="84.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="375.0" layoutY="1284.0" prefHeight="86.0" prefWidth="358.0" text="Klicka på knappen Favoriter längst ner till vänster så får du upp en sida med dina favortimarkerade varor." wrapText="true">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="11.0" layoutY="1449.0" text="Hur genomför jag ett köp?">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="85.0" fitWidth="324.0" layoutX="14.0" layoutY="1525.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Tillkassan.PNG" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="16.0" layoutY="1491.0" text="1. Klicka på knappen Till Kassan">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="186.0" fitWidth="220.0" layoutX="16.0" layoutY="1636.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Tillbetalning.PNG" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="11.0" layoutY="1604.0" text="2. Kontrollera att varorna i varukorgen stämmer och klicka sedan på knappen Till Betalning">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <BorderPane layoutX="13.0" layoutY="1748.0" prefHeight="72.0" prefWidth="140.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <Label layoutX="15.0" layoutY="1834.0" text="3. Följ stegen som visas på skrämen och fyll i alla uppgifter.">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="14.0" layoutY="1868.0" text="4. Glöm inte klicka på knappen Bekräfta Köpet">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="159.0" fitWidth="279.0" layoutX="19.0" layoutY="1901.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/Bekräftelse.PNG" />
+                     </image>
+                  </ImageView>
+                  <BorderPane layoutX="41.0" layoutY="1999.0" prefHeight="53.0" prefWidth="236.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <ImageView fx:id="close" fitHeight="90.0" fitWidth="75.0" layoutX="1211.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_close_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <Line endX="1208.0" layoutX="92.0" layoutY="478.0" startX="-100.0" />
+                  <Line endX="1208.0" layoutX="93.0" layoutY="733.0" startX="-100.0" />
+                  <Line endX="1208.0" layoutX="89.0" layoutY="980.0" startX="-100.0" />
+                  <Line endX="1208.0" layoutX="84.0" layoutY="1237.0" startX="-100.0" />
+                  <Line endX="1208.0" layoutX="84.0" layoutY="1449.0" startX="-100.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </fx:root>

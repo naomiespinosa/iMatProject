@@ -270,12 +270,15 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     }
     private void helpNavigation(){
-        SearchTextField.setVisible(false);
+       SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(new HelpView());
         wizardAnchorPane.toFront();
+
     }
+
+
 
     public  void logoButtonNavigation(){
         SearchTextField.setVisible(true);
@@ -414,6 +417,9 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         wizardAnchorPane.toBack();
         cartAnchorPane.toFront();
     }
+
+
+
 
 
 

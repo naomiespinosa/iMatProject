@@ -1,11 +1,15 @@
 package iMatProject;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
 
 public class HelpView extends AnchorPane {
+
+
 
     public HelpView(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("HelpView.fxml"));
