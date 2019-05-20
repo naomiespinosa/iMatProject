@@ -11,12 +11,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.*;
-import se.chalmers.cse.dat216.project.ProductCategory;
-
 
 
 import java.net.URL;
 import java.util.*;
+import java.util.concurrent.Flow;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
@@ -95,7 +94,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public AnchorPane startAnchorPane;
 
     @FXML
-    public AnchorPane sideCartAnchorPane;
+    public FlowPane sideCartFlowPane;
 
     @FXML
     public AnchorPane cartAnchorPane;
@@ -222,10 +221,12 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
     public void cartUpdate(List<ShoppingItem> items) {
         cartView.getChildren().clear();
+        sideCartFlowPane.getChildren().clear();
 
         for (ShoppingItem item : items) {
 
             cartView.getChildren().add(new ItemPanel(item, this));
+            sideCartFlowPane.getChildren().add(new ItemPanel(item, this));
         }
     }
 
@@ -329,7 +330,9 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
                 products.addAll(model.getProductsByCat(HERB));break;
             case "TreeItem [ value: Kött & Fisk ]":
                 products.addAll(model.getProductsByCat(MEAT));
-                products.addAll(model.getProductsByCat(FISH));break;
+                products.addAll(model.getProductsByCat(FISH));
+            break;
+
             case "TreeItem [ value: Mejeri ]":
                 products.addAll(model.getProductsByCat(DAIRIES));
             case "TreeItem [ value: Frukt ]":
