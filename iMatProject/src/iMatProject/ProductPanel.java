@@ -16,8 +16,9 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class ProductPanel extends AnchorPane  {
+    private final static double kImageWidth = 75;
+    private final static double kImageRatio = 0.75;
 iMatMainWindowController paretnCOntroller;
-
     @FXML
     ImageView imageView;
     @FXML
@@ -28,15 +29,9 @@ iMatMainWindowController paretnCOntroller;
     Label ecoLabel;
     @FXML
     Button favoriteButton;
-
     private Model model = Model.getInstance();
-
     private Product product;
     private ShoppingItem item;
-
-
-    private final static double kImageWidth = 75;
-    private final static double kImageRatio = 0.75;
 
     public ProductPanel(Product product, iMatMainWindowController controller) {
 

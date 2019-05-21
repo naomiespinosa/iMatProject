@@ -22,19 +22,28 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener{
 
     private final Model model = Model.getInstance();
-    private Wizard wizard;
+    @FXML
+    public TextField SearchTextField;
+    @FXML
+    public Button searchButton;
+    @FXML
+    public AnchorPane wizardAnchorPane;
+    @FXML
+    public FlowPane productFlowPane;
+    @FXML
+    public AnchorPane startAnchorPane;
+    @FXML
+    public FlowPane sideCartFlowPane;
+    @FXML
+    public AnchorPane cartAnchorPane;
+    @FXML
+    public FlowPane cartView;
+    @FXML
+    public FlowPane favoritesFlowPane;
     Product product;
-
-
-
-
     @FXML
 
      Label priceLabel;   // Main View
-
-
-
-
     @FXML
 
      Label ItemCountLabel;  // Main View
@@ -47,71 +56,35 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
 
      Label totalPriceLabel;    //Cart view
-
-
-    @FXML
-    public TextField SearchTextField;
-
     @FXML
      Button helpButton;
-
     @FXML
      Button logoButton;
-
-    @FXML
-    public Button searchButton;
-
     @FXML
     Button clearButton;  // Main View
-
     @FXML
     Button clearButton1;  // Cart View
-
     @FXML
      Button toCartButton;
-
     @FXML
      Button favoritsButton;
-
     @FXML
      Button historyButton;
-
     @FXML
      AnchorPane sortimentPane;
-
-    @FXML
-    public AnchorPane wizardAnchorPane;
-
     @FXML
      AnchorPane shoppingCartPane;
-
     @FXML
      TreeView<String> catTreeView;
-    @FXML
-    public FlowPane productFlowPane;
-
-    @FXML
-    public AnchorPane startAnchorPane;
-
-    @FXML
-    public FlowPane sideCartFlowPane;
-
-    @FXML
-    public AnchorPane cartAnchorPane;
-
-    @FXML
-    public FlowPane cartView;
-    @FXML
-    public FlowPane favoritesFlowPane;
     @FXML
     ScrollPane favoritesScrollPane;
     @FXML
     ScrollPane prodcutScrollPane;
+    private Wizard wizard;
 
 
     //  @FXML
     //   private FlowPane wizardFlowPane;
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

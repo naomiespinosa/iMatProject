@@ -18,26 +18,19 @@ public class Wizard extends AnchorPane {
 
 
     @FXML
+    public AnchorPane deliveryPane;
+    @FXML
      AnchorPane personalInfoPane;
-
     @FXML
      RadioButton homeRadioButton;
-
     @FXML
       RadioButton takeRadioButton;
-
     @FXML
      ImageView backArrow2;
-
     @FXML
      ImageView backArrow3;
-
     @FXML
      AnchorPane buyMessagePane;
-
-    @FXML
-    public AnchorPane deliveryPane;
-
     @FXML
      TextField firstNameText;
 
@@ -111,15 +104,9 @@ public class Wizard extends AnchorPane {
      ProgressBar progressBar3;
 
     private WizardListener listener;
-
-    public void setListener(WizardListener listener) {
-        this.listener = listener;
-    }
-
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
-
     public Wizard(){
 
 
@@ -154,6 +141,10 @@ public class Wizard extends AnchorPane {
 
 
 
+    }
+
+    public void setListener(WizardListener listener) {
+        this.listener = listener;
     }
 
     public void navigateFront1(){
