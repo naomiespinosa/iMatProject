@@ -55,6 +55,7 @@
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane fx:id="helpAnchorPane" layoutX="-2.0" layoutY="58.0" prefHeight="713.0" prefWidth="1300.0" />
       <AnchorPane fx:id="wizardAnchorPane" layoutY="62.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: grey;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0" />
         <BorderPane prefHeight="560.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <top>
@@ -123,7 +124,7 @@
                      </font></Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="574.0" prefWidth="204.0" vbarPolicy="ALWAYS">
                      <content>
-                        <FlowPane fx:id="sideCartFlowPane" prefHeight="574.0" prefWidth="204.0" />
+                        <FlowPane fx:id="sideCartFlowPane" hgap="10.0" prefHeight="574.0" prefWidth="204.0" vgap="10.0" />
                      </content>
                   </ScrollPane>
                   <Button fx:id="clearButton" layoutX="142.0" layoutY="587.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 50;" text="Töm" textFill="#4c1036">

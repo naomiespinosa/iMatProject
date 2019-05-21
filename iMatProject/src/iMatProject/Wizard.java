@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import javafx.scene.control.RadioButton;
@@ -18,26 +19,19 @@ public class Wizard extends AnchorPane {
 
 
     @FXML
+    public AnchorPane deliveryPane;
+    @FXML
      AnchorPane personalInfoPane;
-
     @FXML
      RadioButton homeRadioButton;
-
     @FXML
       RadioButton takeRadioButton;
-
     @FXML
      ImageView backArrow2;
-
     @FXML
      ImageView backArrow3;
-
     @FXML
      AnchorPane buyMessagePane;
-
-    @FXML
-    public AnchorPane deliveryPane;
-
     @FXML
      TextField firstNameText;
 
@@ -109,17 +103,15 @@ public class Wizard extends AnchorPane {
      ProgressBar progressBar2;
     @FXML
      ProgressBar progressBar3;
+    @FXML
+    Text userText;
+    @FXML
+    Button userButton;
 
     private WizardListener listener;
-
-    public void setListener(WizardListener listener) {
-        this.listener = listener;
-    }
-
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
-
     public Wizard(){
 
 
@@ -134,6 +126,8 @@ public class Wizard extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        Customer customer = model.getCustomer();
+
 
 
         deliveryToggleGroup = new ToggleGroup();
@@ -151,9 +145,26 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
+        if (customer != null){
+            userButton.setText("Förtsätt som : "+customer.getFirstName()+ " " + customer.getLastName());
+        }
+        else {
+            userButton.setText("Ingen registrearad anvädare");
+
+        }
+
+        userButton.setOnAction(event -> existedUserNavigation());
 
 
 
+
+
+
+
+    }
+
+    public void setListener(WizardListener listener) {
+        this.listener = listener;
     }
 
     public void navigateFront1(){
@@ -167,6 +178,8 @@ public class Wizard extends AnchorPane {
     public void navigateFront3(){
         progressBar3.setProgress(0.99);
         updateWizardInfo();
+        Customer customer = model.getCustomer();
+        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
 
         confirmationPane.toFront();
     }
@@ -194,6 +207,11 @@ public class Wizard extends AnchorPane {
     public void backToCartNavigation(){
         listener.backToCart();
 
+    }
+    public void existedUserNavigation(){
+        Customer customer = model.getCustomer();
+        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
+        confirmationPane.toFront();
     }
     @FXML
     private void navigateFront1Action(MouseEvent event) {
@@ -261,6 +279,7 @@ public class Wizard extends AnchorPane {
 
         card.setVerificationCode(Integer.parseInt(ccvText.getText()));
 
+
     }
     public void updateWizardPane() {
 
@@ -281,10 +300,9 @@ public class Wizard extends AnchorPane {
 
         ccvText.setText(""+card.getVerificationCode());
 
-      //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
-
     }
     /*void setValidCardInfo() {
+
 
         cardTypeCombo.getItems().addAll(model.getCardTypes());
 

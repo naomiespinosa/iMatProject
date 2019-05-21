@@ -15,7 +15,7 @@ import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
-public class ProductPanel extends AnchorPane  {
+public class SideItemPanel extends AnchorPane  {
     private final static double kImageWidth = 75;
     private final static double kImageRatio = 0.75;
 iMatMainWindowController paretnCOntroller;
@@ -30,14 +30,13 @@ iMatMainWindowController paretnCOntroller;
     @FXML
     Button favoriteButton;
     private Model model = Model.getInstance();
-    private Product product;
     private ShoppingItem item;
 
-    public ProductPanel(Product product, iMatMainWindowController controller) {
+    public SideItemPanel( ShoppingItem item, iMatMainWindowController controller) {
 
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductPanel.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SideItemPanel.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -47,12 +46,12 @@ iMatMainWindowController paretnCOntroller;
             throw new RuntimeException(exception);
         }
 
-        this.product = product;
+        this.item = item;
         this.paretnCOntroller = controller;
-        nameLabel.setText(product.getName());
-        prizeLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit() + "");
-        imageView.setImage(model.getImage(product, kImageWidth, kImageWidth * kImageRatio));
-        if (!product.isEcological()) {
+        nameLabel.setText(item.getProduct().getName());
+        prizeLabel.setText(String.format("%.2f", item.getProduct().getPrice()) + " " + item.getProduct().getUnit() + "");
+        imageView.setImage(model.getImage(item.getProduct(), kImageWidth, kImageWidth * kImageRatio));
+        if (!item.getProduct().isEcological()) {
             ecoLabel.setText("");
         }
 
@@ -60,12 +59,12 @@ iMatMainWindowController paretnCOntroller;
 
     }
     private void colorChangeControl(){
-        if (model.isFavorite(product)){
+        if (model.isFavorite(item.getProduct())){
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
         }
         else favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
-        if (!model.isFavorite(product)){
+        if (!model.isFavorite(item.getProduct())){
             favoriteButton.setStyle("-fx-background-color: #ffffff;");
         }
         else favoriteButton.setStyle("-fx-background-color: #4c1036;");
@@ -77,24 +76,24 @@ iMatMainWindowController paretnCOntroller;
 
     @FXML
     private void handleAddAction(ActionEvent event) {
-        System.out.println("Add " + product.getName());
-        model.addToShoppingCart(product);
+        System.out.println("Add " + item.getProduct().getName());
+        model.addToShoppingCart(item.getProduct());
     }
 
     @FXML
     private void handleRemoveAction(ActionEvent event) {
-        System.out.println("Remove " + product.getName());
-        model.removeFromShoppingCart(product);
+        System.out.println("Remove " + item.getProduct().getName());
+        model.removeFromShoppingCart(item.getProduct());
     }
 
     @FXML
     public void addFavoritesAction() {
 
-        if (!model.isFavorite(product)) {
+        if (!model.isFavorite(item.getProduct())) {
 
 
            // favoriteButton.setStyle("-fx-background-color: #4c1036;");
-            model.addFavorites(product);
+            model.addFavorites(item.getProduct());
             colorChangeControl();
             paretnCOntroller.updateFavorite(model.getFavorites());
 
@@ -102,12 +101,12 @@ iMatMainWindowController paretnCOntroller;
 
             //favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
-            model.removeFavorites(product);
+            model.removeFavorites(item.getProduct());
             colorChangeControl();
 
             paretnCOntroller.updateFavorite(model.getFavorites());
 
-            System.out.println("Remove fav:  " + product.getProductId());
+            System.out.println("Remove fav:  " + item.getProduct().getProductId());
         }
     }
 

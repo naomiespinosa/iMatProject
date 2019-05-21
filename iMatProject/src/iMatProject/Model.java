@@ -12,13 +12,12 @@ import se.chalmers.cse.dat216.project.*;
 public class Model {
 
     private static Model instance = null;
-    private IMatDataHandler iMatDataHandler;
-    private Customer customer;
-    private Product product;
-
     private final ArrayList<String> availableCardTypes = new ArrayList<String>(Arrays.asList("MasterCard", "Visa"));
     private final ArrayList<String> months = new ArrayList<String>(Arrays.asList("1", "2","3", "4", "5", "6","7","8", "9","10", "11", "12"));
     private final ArrayList<String> years = new ArrayList<String>(Arrays.asList("19", "20", "21", "22", "23", "24", "25"));
+    private IMatDataHandler iMatDataHandler;
+    private Customer customer;
+    private Product product;
     /**
      * Constructor that should never be called, use getInstance() instead.
      */
@@ -172,6 +171,7 @@ public class Model {
         return iMatDataHandler.getOrders().size();
 
     }
+
 
 
 
