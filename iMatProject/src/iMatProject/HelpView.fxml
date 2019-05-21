@@ -78,7 +78,7 @@
                      </image>
                   </ImageView>
                   <BorderPane layoutX="144.0" layoutY="630.0" prefHeight="42.0" prefWidth="43.0" style="-fx-border-color: red; -fx-border-width: 3;" />
-                  <Label layoutX="207.0" layoutY="516.0" prefHeight="86.0" prefWidth="358.0" text="Lägg till en vara genom att klicka på plus. Varan syns då till höger i varukorgen." wrapText="true">
+                  <Label layoutX="207.0" layoutY="517.0" prefHeight="86.0" prefWidth="358.0" text="Lägg till en vara genom att klicka på plus. Varan syns då till höger i varukorgen." wrapText="true">
                      <font>
                         <Font size="18.0" />
                      </font>
