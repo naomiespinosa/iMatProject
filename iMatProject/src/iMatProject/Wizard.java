@@ -8,6 +8,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import javafx.scene.control.RadioButton;
@@ -102,6 +103,10 @@ public class Wizard extends AnchorPane {
      ProgressBar progressBar2;
     @FXML
      ProgressBar progressBar3;
+    @FXML
+    Text userText;
+    @FXML
+    Button userButton;
 
     private WizardListener listener;
     private Model model = Model.getInstance();
@@ -123,6 +128,7 @@ public class Wizard extends AnchorPane {
         }
 
 
+
         deliveryToggleGroup = new ToggleGroup();
         homeRadioButton.setToggleGroup(deliveryToggleGroup);
         takeRadioButton.setToggleGroup(deliveryToggleGroup);
@@ -138,6 +144,11 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
+        userButton.setOnAction(event -> existedUserNavigation());
+
+
+
+
 
 
 
@@ -158,6 +169,8 @@ public class Wizard extends AnchorPane {
     public void navigateFront3(){
         progressBar3.setProgress(0.99);
         updateWizardInfo();
+        Customer customer = model.getCustomer();
+        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
 
         confirmationPane.toFront();
     }
@@ -185,6 +198,11 @@ public class Wizard extends AnchorPane {
     public void backToCartNavigation(){
         listener.backToCart();
 
+    }
+    public void existedUserNavigation(){
+        Customer customer = model.getCustomer();
+        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
+        confirmationPane.toFront();
     }
     @FXML
     private void navigateFront1Action(MouseEvent event) {
@@ -252,6 +270,7 @@ public class Wizard extends AnchorPane {
 
         card.setVerificationCode(Integer.parseInt(ccvText.getText()));
 
+
     }
     public void updateWizardPane() {
 
@@ -271,6 +290,7 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select(""+card.getValidYear());
 
         ccvText.setText(""+card.getVerificationCode());
+
 
       //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
 
