@@ -145,13 +145,7 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
-        if (customer != null){
-            userButton.setText("Förtsätt som : "+customer.getFirstName()+ " " + customer.getLastName());
-        }
-        else {
-            userButton.setText("Ingen registrearad anvädare");
 
-        }
 
         userButton.setOnAction(event -> existedUserNavigation());
 
@@ -161,6 +155,16 @@ public class Wizard extends AnchorPane {
 
 
 
+    }
+    public void checkName(){
+        Customer customer =  model.getCustomer();
+        if (customer != null){
+            userButton.setText("Förtsätt som : "+customer.getFirstName()+ " " + customer.getLastName());
+        }
+        else {
+            userButton.setText("Ingen registrearad anvädare");
+
+        }
     }
 
     public void setListener(WizardListener listener) {
@@ -178,12 +182,15 @@ public class Wizard extends AnchorPane {
     public void navigateFront3(){
         progressBar3.setProgress(0.99);
         updateWizardInfo();
+        checkName();
         Customer customer = model.getCustomer();
         userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
 
         confirmationPane.toFront();
     }
     public void navigateBack1(){
+        updateWizardInfo();
+        checkName();
         deliveryPane.toFront();
     }
     public void navigateBack2(){

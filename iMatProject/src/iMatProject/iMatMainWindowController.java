@@ -242,6 +242,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     }
     private void wizardHandler(){
+        wizard.checkName();
         wizard.updateWizardPane();
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -249,6 +250,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(wizard);
         wizardAnchorPane.toFront();
+        wizard.deliveryPane.toFront();
 
     }
     private void helpNavigation(){
