@@ -173,16 +173,16 @@
                      </image>
                   </ImageView>
                   <BorderPane layoutX="41.0" layoutY="1999.0" prefHeight="53.0" prefWidth="236.0" style="-fx-border-color: red; -fx-border-width: 3;" />
-                  <ImageView fx:id="close" fitHeight="90.0" fitWidth="75.0" layoutX="1211.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@resources/baseline_close_black_18dp.png" />
-                     </image>
-                  </ImageView>
                   <Line endX="1208.0" layoutX="92.0" layoutY="478.0" startX="-100.0" />
                   <Line endX="1208.0" layoutX="93.0" layoutY="733.0" startX="-100.0" />
                   <Line endX="1208.0" layoutX="89.0" layoutY="980.0" startX="-100.0" />
                   <Line endX="1208.0" layoutX="84.0" layoutY="1237.0" startX="-100.0" />
                   <Line endX="1208.0" layoutX="84.0" layoutY="1449.0" startX="-100.0" />
+                  <ImageView fitHeight="90.0" fitWidth="65.0" layoutX="1205.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_close_black_18dp.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
         </content>

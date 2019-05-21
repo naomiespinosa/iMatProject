@@ -15,7 +15,7 @@ import se.chalmers.cse.dat216.project.*;
 
 import java.net.URL;
 import java.util.*;
-import java.util.concurrent.Flow;
+//import java.util.concurrent.Flow;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
@@ -31,8 +31,6 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
 
      Label priceLabel;   // Main View
-
-
 
 
     @FXML
@@ -278,6 +276,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         wizardAnchorPane.toFront();
 
     }
+
+
 
 
 
