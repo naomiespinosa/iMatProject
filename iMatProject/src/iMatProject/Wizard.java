@@ -146,7 +146,7 @@ public class Wizard extends AnchorPane {
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
         if (customer != null){
-            userButton.setText(customer.getFirstName()+ " " + customer.getLastName());
+            userButton.setText("Förtsätt som : "+customer.getFirstName()+ " " + customer.getLastName());
         }
         else {
             userButton.setText("Ingen registrearad anvädare");
@@ -302,6 +302,7 @@ public class Wizard extends AnchorPane {
 
     }
     /*void setValidCardInfo() {
+
 
         cardTypeCombo.getItems().addAll(model.getCardTypes());
 

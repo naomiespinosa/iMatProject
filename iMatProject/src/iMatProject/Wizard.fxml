@@ -275,7 +275,7 @@
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="userButton" layoutX="1076.0" layoutY="125.0" mnemonicParsing="false">
+                  <Button fx:id="userButton" layoutX="1026.0" layoutY="125.0" mnemonicParsing="false">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
