@@ -80,6 +80,11 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     ScrollPane favoritesScrollPane;
     @FXML
     ScrollPane prodcutScrollPane;
+    @FXML
+    AnchorPane helpAnchorPane;
+
+
+
     private Wizard wizard;
 
 
@@ -154,6 +159,9 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
                 System.out.println(newValue);
 
         }));
+
+
+
         updateFavorite(model.getFavorites());
         System.out.println(model.getFavorites());
         updateProductList(model.getProducts());
@@ -246,9 +254,9 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     private void helpNavigation(){
        SearchTextField.setVisible(false);
         searchButton.setVisible(false);
-        wizardAnchorPane.getChildren().clear();
-        wizardAnchorPane.getChildren().add(new HelpView());
-        wizardAnchorPane.toFront();
+        helpAnchorPane.getChildren().add(new HelpView(this));
+        helpAnchorPane.toFront();
+
 
     }
 
@@ -257,6 +265,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public  void logoButtonNavigation(){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
+        helpAnchorPane.toBack();
         wizardAnchorPane.toBack();
         cartAnchorPane.toBack();
         prodcutScrollPane.toFront();
