@@ -23,6 +23,6 @@ public class HelpView extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
-        closeHelpButton.setOnAction(event -> controller.helpAnchorPane.toBack());
+       closeHelpButton.setOnAction(event -> controller.helpAnchorPane.toBack());
     }
 }
