@@ -265,6 +265,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public  void logoButtonNavigation(){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
+      //  updateProductList(model.findProducts(SearchTextField.getText()));
         helpAnchorPane.toBack();
         wizardAnchorPane.toBack();
         cartAnchorPane.toBack();

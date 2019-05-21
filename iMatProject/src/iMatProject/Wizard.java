@@ -126,6 +126,7 @@ public class Wizard extends AnchorPane {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+        Customer customer = model.getCustomer();
 
 
 
@@ -144,6 +145,14 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
+        if (customer != null){
+            userButton.setText(customer.getFirstName()+ " " + customer.getLastName());
+        }
+        else {
+            userButton.setText("Ingen registrearad anvädare");
+
+        }
+
         userButton.setOnAction(event -> existedUserNavigation());
 
 
@@ -290,9 +299,6 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select(""+card.getValidYear());
 
         ccvText.setText(""+card.getVerificationCode());
-
-
-      //  purchasesLabel.setText(model.getNumberOfOrders()+ " tidigare inköp hos iMat");
 
     }
     /*void setValidCardInfo() {
