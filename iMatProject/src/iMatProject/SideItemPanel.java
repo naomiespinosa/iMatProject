@@ -32,6 +32,7 @@ iMatMainWindowController paretnCOntroller;
     private Model model = Model.getInstance();
     private ShoppingItem item;
 
+
     public SideItemPanel( ShoppingItem item, iMatMainWindowController controller) {
 
 
@@ -63,11 +64,6 @@ iMatMainWindowController paretnCOntroller;
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
         }
         else favoriteButton.setStyle("-fx-background-color: #ffffff;");
-
-        if (!model.isFavorite(item.getProduct())){
-            favoriteButton.setStyle("-fx-background-color: #ffffff;");
-        }
-        else favoriteButton.setStyle("-fx-background-color: #4c1036;");
 
     }
 

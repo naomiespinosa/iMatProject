@@ -1,33 +1,31 @@
 package iMatProject;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
+
+import java.util.Date;
 import java.util.List;
 
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
+import se.chalmers.cse.dat216.project.Order;
 
 
 public class Model {
 
     private static Model instance = null;
-    private final ArrayList<String> availableCardTypes = new ArrayList<String>(Arrays.asList("MasterCard", "Visa"));
-    private final ArrayList<String> months = new ArrayList<String>(Arrays.asList("1", "2","3", "4", "5", "6","7","8", "9","10", "11", "12"));
-    private final ArrayList<String> years = new ArrayList<String>(Arrays.asList("19", "20", "21", "22", "23", "24", "25"));
     private IMatDataHandler iMatDataHandler;
     private Customer customer;
     private Product product;
-    /**
-     * Constructor that should never be called, use getInstance() instead.
-     */
+    private Order order;
+    private List<Order> orders;
+
+
     protected Model() {
-        // Exists only to defeat instantiation.
+
+
     }
 
-    /**
-     * Retu2rns the single instance of the Model class.
-     */
+
     public static Model getInstance() {
         if (instance == null) {
             instance = new Model();
@@ -40,7 +38,27 @@ public class Model {
 
         iMatDataHandler = IMatDataHandler.getInstance();
 
+
     }
+
+    public Date getDate(){
+        return  order.getDate();
+    }
+    public int getItems(){
+        return order.getItems().size();
+    }
+    public int getOrderNumber() {
+        return order.getOrderNumber();
+    }
+
+    public int test(List<Order>orders){
+        for (Order order : orders){
+            order.getItems();
+
+        }
+        return order.getItems().size();
+    }
+
 
     public List<Product> getProducts() {
         return iMatDataHandler.getProducts();
@@ -107,17 +125,6 @@ public class Model {
             iMatDataHandler.removeFavorite(p);
         return p;
     }
-    public List<String> getCardTypes() {
-        return availableCardTypes;
-    }
-
-    public List<String> getMonths() {
-        return months;
-    }
-
-    public List<String> getYears() {
-        return years;
-    }
 
     public CreditCard getCreditCard() {
         return iMatDataHandler.getCreditCard();
@@ -170,6 +177,9 @@ public class Model {
 
         return iMatDataHandler.getOrders().size();
 
+    }
+    public List<Order> getOrders() {
+        return iMatDataHandler.getOrders();
     }
 
 
