@@ -2,7 +2,6 @@
 package iMatProject;
 
 import java.io.IOException;
-import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,13 +11,12 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class ProductPanel extends AnchorPane  {
     private final static double kImageWidth = 75;
     private final static double kImageRatio = 0.75;
-iMatMainWindowController paretnCOntroller;
+iMatMainWindowController parentController;
     @FXML
     ImageView imageView;
     @FXML
@@ -31,7 +29,7 @@ iMatMainWindowController paretnCOntroller;
     Button favoriteButton;
     private Model model = Model.getInstance();
     private Product product;
-    private ShoppingItem item;
+
 
     public ProductPanel(Product product, iMatMainWindowController controller) {
 
@@ -48,7 +46,7 @@ iMatMainWindowController paretnCOntroller;
         }
 
         this.product = product;
-        this.paretnCOntroller = controller;
+        this.parentController = controller;
         nameLabel.setText(product.getName());
         prizeLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit() + "");
         imageView.setImage(model.getImage(product, kImageWidth, kImageWidth * kImageRatio));
@@ -59,16 +57,12 @@ iMatMainWindowController paretnCOntroller;
 
 
     }
-    private void colorChangeControl(){
+    public void colorChangeControl(){
+
         if (model.isFavorite(product)){
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
         }
         else favoriteButton.setStyle("-fx-background-color: #ffffff;");
-
-        if (!model.isFavorite(product)){
-            favoriteButton.setStyle("-fx-background-color: #ffffff;");
-        }
-        else favoriteButton.setStyle("-fx-background-color: #4c1036;");
 
     }
 
@@ -96,16 +90,17 @@ iMatMainWindowController paretnCOntroller;
            // favoriteButton.setStyle("-fx-background-color: #4c1036;");
             model.addFavorites(product);
             colorChangeControl();
-            paretnCOntroller.updateFavorite(model.getFavorites());
+            parentController.updateFavorite(model.getFavorites());
 
         } else {
 
             //favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
             model.removeFavorites(product);
+
             colorChangeControl();
 
-            paretnCOntroller.updateFavorite(model.getFavorites());
+            parentController.updateFavorite(model.getFavorites());
 
             System.out.println("Remove fav:  " + product.getProductId());
         }

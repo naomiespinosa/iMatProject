@@ -82,10 +82,17 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     ScrollPane prodcutScrollPane;
     @FXML
     AnchorPane helpAnchorPane;
+    @FXML
+    AnchorPane historyAnchorPane;
+    @FXML
+    FlowPane historyView;
 
 
 
     private Wizard wizard;
+ProductPanel productPanel;
+
+
 
 
     //  @FXML
@@ -94,8 +101,12 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+
+
         wizard = new Wizard();
         wizard.setListener(this);
+
+
 
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -125,6 +136,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
                 System.out.println(newValue);
 
         }));
+        historyButton.setOnAction(event -> historyUpdate(model.getOrders()));
 
 
 
@@ -162,18 +174,32 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         for (Product product : favorites) {
 
-            favoritesFlowPane.getChildren().add(new ProductPanel(product, this));
+            favoritesFlowPane.getChildren().add( new ProductPanel(product, this));
         }
 
     }
     public void cartUpdate(List<ShoppingItem> items) {
+
         cartView.getChildren().clear();
         sideCartFlowPane.getChildren().clear();
 
         for (ShoppingItem item : items) {
 
+
             cartView.getChildren().add(new ItemPanel(item, this));
             sideCartFlowPane.getChildren().add(new SideItemPanel(item, this));
+        }
+    }
+
+    public void historyUpdate(List<Order> orders) {
+
+        historyAnchorPane.toFront();
+
+        for (Order order : orders) {
+
+
+            historyView.getChildren().add(new HistoryPanel(order,this));
+
         }
     }
 
@@ -201,8 +227,10 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
     private void toFavoritesNavigation(){
         updateFavorite(model.getFavorites());
+
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
+
         prodcutScrollPane.toBack();
         favoritesScrollPane.toFront();
 
@@ -233,10 +261,10 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public  void logoButtonNavigation(){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
-      //  updateProductList(model.findProducts(SearchTextField.getText()));
         helpAnchorPane.toBack();
         wizardAnchorPane.toBack();
         cartAnchorPane.toBack();
+        historyAnchorPane.toBack();
         prodcutScrollPane.toFront();
     }
 
@@ -373,8 +401,6 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
 
 
-
-
-
 }
+
 
