@@ -105,33 +105,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         TreeItem<String> root = new TreeItem<>("Sortiment");
         root.setExpanded(true);
 
-/*
-        TreeItem<String> berry = new TreeItem(ProductCategory.BERRY);
-        berry = new TreeItem<>("Bär");
-        TreeItem<String> bread = new TreeItem(ProductCategory.BREAD);
-        bread = new TreeItem<>("Bröd");
-        TreeItem<String> cabbage = new TreeItem(ProductCategory.CABBAGE);
-        cabbage = new TreeItem<>("Kål");
-        TreeItem<String> citruses = new TreeItem(ProductCategory.CITRUS_FRUIT);
-        TreeItem<String> colds = new TreeItem(ProductCategory.COLD_DRINKS);
-        TreeItem<String> diaries = new TreeItem(ProductCategory.DAIRIES);
-        TreeItem<String> exotics = new TreeItem(ProductCategory.EXOTIC_FRUIT);
-        TreeItem<String> fish = new TreeItem(ProductCategory.FISH);
-        TreeItem<String> flourAndsuggar = new TreeItem(ProductCategory.FLOUR_SUGAR_SALT);
-        TreeItem<String> fruit = new TreeItem(ProductCategory.FRUIT);
-        TreeItem<String> herbs = new TreeItem(ProductCategory.HERB);
-        TreeItem<String> hots = new TreeItem(ProductCategory.HOT_DRINKS);
-        TreeItem<String> meat = new TreeItem(ProductCategory.MEAT);
-        TreeItem<String> melons = new TreeItem(ProductCategory.MELONS);
 
-
-        TreeItem<String> nuts = new TreeItem(ProductCategory.NUTS_AND_SEEDS);
-        TreeItem<String> pasta = new TreeItem(ProductCategory.PASTA);
-        TreeItem<String> pod = new TreeItem(ProductCategory.POD);
-        TreeItem<String> potato = new TreeItem(ProductCategory.POTATO_RICE);
-        TreeItem<String> rootVegs = new TreeItem(ProductCategory.ROOT_VEGETABLE);
-        TreeItem<String> sweets = new TreeItem(ProductCategory.SWEET);
-        TreeItem<String> vegFruits = new TreeItem(ProductCategory.VEGETABLE_FRUIT); */
 
 
         TreeItem<String> dryck = new TreeItem("Dryck");
@@ -145,14 +119,6 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         catTreeView.setRoot(root);
         root.getChildren().addAll(dryck, frukt, gronssaker, kott, mejeri, notter, skafferi, sotsaker);
-      /*  dryck.getChildren().addAll(colds, hots);
-        frukt.getChildren().addAll(berry, citruses, exotics, fruit, melons);
-        gronssaker.getChildren().addAll(cabbage, herbs, rootVegs, vegFruits);
-        kott.getChildren().addAll(fish, meat);
-        mejeri.getChildren().addAll(diaries);
-        notter.getChildren().addAll(nuts, pod);
-        skafferi.getChildren().addAll(bread, flourAndsuggar, pasta, potato);
-        sotsaker.getChildren().addAll(sweets);*/
 
         catTreeView.getSelectionModel().selectedItemProperty().addListener(((vlaue, oldValue, newValue) -> {
             if (newValue != null)
