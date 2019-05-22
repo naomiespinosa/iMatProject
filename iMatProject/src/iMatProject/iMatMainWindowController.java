@@ -164,7 +164,7 @@ ProductPanel productPanel;
 
         for (Product product : products) {
 
-            productFlowPane.getChildren().add( new ProductPanel(product, this));
+            productFlowPane.getChildren().add( new ProductPanel(product, this,false));
         }
 
     }
@@ -174,7 +174,7 @@ ProductPanel productPanel;
 
         for (Product product : favorites) {
 
-            favoritesFlowPane.getChildren().add( new ProductPanel(product, this));
+            favoritesFlowPane.getChildren().add( new ProductPanel(product, this, true));
         }
 
     }

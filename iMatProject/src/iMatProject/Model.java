@@ -17,9 +17,11 @@ public class Model {
     private Customer customer;
     private Product product;
     private Order order;
+    private List<Order> orders;
 
 
     protected Model() {
+
 
     }
 
@@ -35,6 +37,7 @@ public class Model {
     private void init() {
 
         iMatDataHandler = IMatDataHandler.getInstance();
+
 
     }
 

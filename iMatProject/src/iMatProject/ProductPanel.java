@@ -17,6 +17,7 @@ public class ProductPanel extends AnchorPane  {
     private final static double kImageWidth = 75;
     private final static double kImageRatio = 0.75;
 iMatMainWindowController parentController;
+private Boolean fave;
     @FXML
     ImageView imageView;
     @FXML
@@ -31,7 +32,7 @@ iMatMainWindowController parentController;
     private Product product;
 
 
-    public ProductPanel(Product product, iMatMainWindowController controller) {
+    public ProductPanel(Product product, iMatMainWindowController controller, Boolean fave) {
 
 
 
@@ -53,6 +54,11 @@ iMatMainWindowController parentController;
         if (!product.isEcological()) {
             ecoLabel.setText("");
         }
+        if (fave){
+            favoriteButton.setStyle("-fx-background-color: #4c1036;");
+
+        }
+        else favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
 
 
@@ -101,6 +107,7 @@ iMatMainWindowController parentController;
             colorChangeControl();
 
             parentController.updateFavorite(model.getFavorites());
+            parentController.updateProductList(model.getProducts());
 
             System.out.println("Remove fav:  " + product.getProductId());
         }
