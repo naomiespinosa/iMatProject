@@ -79,6 +79,7 @@ iMatMainWindowController parentController;
 
     @FXML
     private void handleRemoveAction(ActionEvent event) {
+
         System.out.println("Remove " + item.getProduct().getName());
         model.removeFromShoppingCart(item.getProduct());
     }

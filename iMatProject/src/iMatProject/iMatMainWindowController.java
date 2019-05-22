@@ -22,6 +22,7 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener{
 
     private final Model model = Model.getInstance();
+    ShoppingCart shoppingCart;
     @FXML
     public TextField SearchTextField;
     @FXML
@@ -56,6 +57,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
 
      Label totalPriceLabel;    //Cart view
+    @FXML
+    Button payButton;
     @FXML
      Button helpButton;
     @FXML
@@ -219,6 +222,12 @@ ProductPanel productPanel;
 
 
     private void toCartNavigation(){
+        if (model.getShoppingCart().getTotal() == 0){
+
+            payButton.setVisible(false);
+        }
+        else
+            payButton.setVisible(true);
         updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -237,6 +246,7 @@ ProductPanel productPanel;
 
     }
     private void wizardHandler(){
+
         wizard.checkName();
         wizard.updateWizardPane();
         SearchTextField.setVisible(false);

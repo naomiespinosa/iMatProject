@@ -25,7 +25,7 @@
                      </children></AnchorPane>
               </content>
             </ScrollPane>
-            <Button id="logo" fx:id="paymetnButton" layoutX="1089.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
+            <Button id="logo" fx:id="payButton" layoutX="1089.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
