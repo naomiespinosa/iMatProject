@@ -143,6 +143,7 @@ ProductPanel productPanel;
         updateFavorite(model.getFavorites());
         System.out.println(model.getFavorites());
         updateProductList(model.getProducts());
+
         cartUpdate(model.getShoppingCart().getItems());
 
         updateShoppingCart();
