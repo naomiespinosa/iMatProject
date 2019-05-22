@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="775.0" prefWidth="1300.0" stylesheets="@iMat.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="iMatProject.iMatMainWindowController">
     <children>
       <AnchorPane fx:id="cartAnchorPane" layoutY="61.0" prefHeight="719.0" prefWidth="1300.0" style="-fx-background-color: white;">
          <children>
@@ -78,7 +78,7 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>
-                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="48.0" prefWidth="138.0" text="iMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0">
+                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="48.0" prefWidth="138.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>
@@ -176,7 +176,7 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Button>
-            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till iMAT!" textFill="#4c1036">
+            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
                <font>
                   <Font name="System Bold Italic" size="48.0" />
                </font>

@@ -51,13 +51,8 @@ public class Model {
         return order.getOrderNumber();
     }
 
-    public int test(List<Order>orders){
-        for (Order order : orders){
-            order.getItems();
 
-        }
-        return order.getItems().size();
-    }
+
 
 
     public List<Product> getProducts() {
