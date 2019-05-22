@@ -21,7 +21,10 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="714.0" prefWidth="1061.0">
                      <children>
-                        <FlowPane fx:id="cartView" prefHeight="714.4" prefWidth="1061.6" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                        <FlowPane fx:id="cartView" hgap="20.0" prefHeight="714.4" prefWidth="1061.6" style="-fx-background-color: #ffdbfa;" vgap="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <padding>
+                              <Insets bottom="10.0" left="12.0" right="12.0" top="10.0" />
+                           </padding></FlowPane>
                      </children></AnchorPane>
               </content>
             </ScrollPane>
@@ -59,7 +62,10 @@
          <children>
             <ScrollPane layoutX="1.0" layoutY="-3.0" prefHeight="718.0" prefWidth="1298.0">
                <content>
-                  <FlowPane fx:id="historyView" prefHeight="725.0" prefWidth="1299.0" />
+                  <FlowPane fx:id="historyView" hgap="25.0" prefHeight="725.0" prefWidth="1299.0" vgap="25.0">
+                     <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                     </padding></FlowPane>
                </content>
             </ScrollPane>
          </children>
@@ -78,7 +84,7 @@
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font></Button>
-                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="48.0" prefWidth="138.0" text="IMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0">
+                        <Button id="logo" fx:id="logoButton" layoutX="32.0" layoutY="9.0" minHeight="40.0" mnemonicParsing="false" onAction="#logoButtonNavigationAction" prefHeight="48.0" prefWidth="138.0" text="iMAT" textAlignment="CENTER" wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="62.0">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font></Button>
@@ -96,11 +102,11 @@
                      <font>
                         <Font name="System Bold Italic" size="26.0" />
                      </font></Button>
-                        <Button fx:id="favoritsButton" layoutX="766.0" layoutY="-1.0" mnemonicParsing="false" onAction="#toFavoritesNavigationAction" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="2.6000000000000014" AnchorPane.rightAnchor="44.39999999999998">
+                        <Button fx:id="favoritsButton" layoutX="1011.0" layoutY="13.0" mnemonicParsing="false" onAction="#toFavoritesNavigationAction" prefHeight="40.0" prefWidth="100.0" text="Favoriter" textFill="#4c1036" AnchorPane.bottomAnchor="10.200000000000003" AnchorPane.rightAnchor="189.0">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font></Button>
-                        <Button fx:id="historyButton" layoutX="656.0" layoutY="-1.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Köphistorik" textFill="#4c1036" AnchorPane.bottomAnchor="4.200000000000003" AnchorPane.rightAnchor="154.39999999999998">
+                        <Button fx:id="historyButton" layoutX="220.0" layoutY="14.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" text="Köphistorik" textFill="#4c1036" AnchorPane.bottomAnchor="9.200000000000003" AnchorPane.rightAnchor="980.0">
                      <font>
                         <Font name="System Bold Italic" size="14.0" />
                      </font>
@@ -176,7 +182,7 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Button>
-            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till IMAT!" textFill="#4c1036">
+            <Label layoutX="342.0" layoutY="149.0" text="Hej. Välkommen till iMAT!" textFill="#4c1036">
                <font>
                   <Font name="System Bold Italic" size="48.0" />
                </font>

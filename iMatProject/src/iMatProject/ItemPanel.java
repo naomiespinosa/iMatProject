@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import se.chalmers.cse.dat216.project.CartEvent;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
@@ -82,6 +83,12 @@ iMatMainWindowController parentController;
 
         System.out.println("Remove " + item.getProduct().getName());
         model.removeFromShoppingCart(item.getProduct());
+        parentController.cartUpdate(model.getShoppingCart().getItems());
+        parentController.updateShoppingCart();
+        if (model.getShoppingCart().getTotal() == 0){
+            parentController.payButton.setDisable(true);
+        }
+        else parentController.payButton.setDisable(false);
     }
 
     @FXML

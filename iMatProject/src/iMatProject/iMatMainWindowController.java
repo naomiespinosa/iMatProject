@@ -186,8 +186,13 @@ ProductPanel productPanel;
 
         cartView.getChildren().clear();
         sideCartFlowPane.getChildren().clear();
+        if (model.getShoppingCart().getTotal() == 0){
+            payButton.setDisable(true);
+        }
+        else payButton.setDisable(false);
 
         for (ShoppingItem item : items) {
+
 
 
             cartView.getChildren().add(new ItemPanel(item, this));
@@ -208,7 +213,7 @@ ProductPanel productPanel;
     }
 
 
-    private void updateShoppingCart() {
+    public void updateShoppingCart() {
 
         ShoppingCart shoppingCart = model.getShoppingCart();
 
@@ -224,10 +229,10 @@ ProductPanel productPanel;
     private void toCartNavigation(){
         if (model.getShoppingCart().getTotal() == 0){
 
-            payButton.setVisible(false);
+            payButton.setDisable(true);
         }
         else
-            payButton.setVisible(true);
+            payButton.setDisable(false);
         updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -385,9 +390,13 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         if (result.get() == ButtonType.OK){
 
             model.clearShoppingCart();
+            payButton.setDisable(true);
         } else {
-
+            if (model.getShoppingCart().getTotal() != 0)
+                payButton.setDisable(false);
+            else payButton.setDisable(true);
         }
+
 
     }
 
