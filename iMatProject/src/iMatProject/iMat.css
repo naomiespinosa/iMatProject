@@ -90,7 +90,7 @@
 }
 
 #favorite:selected {
-    -fx-background-color: #4c1036;
+    -fx-background-color: #ba2013;
     -fx-min-height: 20px;
     -fx-min-width: 20px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);
