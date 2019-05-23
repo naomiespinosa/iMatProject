@@ -123,7 +123,7 @@
             <left>
                 <AnchorPane fx:id="sortimentPane" prefHeight="690.0" prefWidth="211.0" style="-fx-background-color: #a7a6ba;" BorderPane.alignment="CENTER">
                <children>
-                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#onCategoryClick" prefHeight="689.6" prefWidth="211.2" showRoot="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TreeView fx:id="catTreeView" editable="true" layoutX="-57.0" layoutY="32.0" onContextMenuRequested="#showCategoryOnClick" onMouseClicked="#onCategoryClick" prefHeight="689.6" prefWidth="211.2" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <padding>
                         <Insets right="10.0" />
                      </padding>

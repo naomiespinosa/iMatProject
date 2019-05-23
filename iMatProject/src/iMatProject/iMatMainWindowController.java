@@ -122,6 +122,7 @@ ProductPanel productPanel;
 
 
 
+
         TreeItem<String> dryck = new TreeItem("Dryck");
         TreeItem<String> frukt = new TreeItem("Frukt");
         TreeItem<String> gronssaker = new TreeItem("Grönsaker");
@@ -320,7 +321,31 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
        String category = item.toString();
         List<Product> products = new ArrayList<>();
        switch (category){
-            case "TreeItem [ value: Dryck ]":
+           case "TreeItem [ value: Sortiment ]":
+               products.addAll(model.getProductsByCat(COLD_DRINKS));
+               products.addAll(model.getProductsByCat(HOT_DRINKS));
+               products.addAll(model.getProductsByCat(CABBAGE));
+               products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
+               products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
+               products.addAll(model.getProductsByCat(HERB));
+               products.addAll(model.getProductsByCat(MEAT));
+               products.addAll(model.getProductsByCat(FISH));
+               products.addAll(model.getProductsByCat(DAIRIES));
+               products.addAll(model.getProductsByCat(BERRY));
+               products.addAll(model.getProductsByCat(CITRUS_FRUIT));
+               products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
+               products.addAll(model.getProductsByCat(FRUIT));
+               products.addAll(model.getProductsByCat(MELONS));
+               products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
+               products.addAll(model.getProductsByCat(POD));
+               products.addAll(model.getProductsByCat(BREAD));
+               products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
+               products.addAll(model.getProductsByCat(PASTA));
+               products.addAll(model.getProductsByCat(POTATO_RICE));
+               products.addAll(model.getProductsByCat(SWEET));break;
+
+
+           case "TreeItem [ value: Dryck ]":
                 products.addAll(model.getProductsByCat(COLD_DRINKS));
                 products.addAll(model.getProductsByCat(HOT_DRINKS));break;
             case "TreeItem [ value: Grönsaker ]":
