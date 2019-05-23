@@ -123,6 +123,7 @@ ProductPanel productPanel;
 
 
 
+
         TreeItem<String> dryck = new TreeItem("Dryck");
         TreeItem<String> frukt = new TreeItem("Frukt");
         TreeItem<String> gronssaker = new TreeItem("Grönsaker");
