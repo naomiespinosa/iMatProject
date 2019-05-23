@@ -33,19 +33,19 @@
                   <Font name="System Bold Italic" size="25.0" />
                </font>
             </Button>
-            <Label fx:id="previousShopLabel" layoutX="1094.0" layoutY="551.0" text="antak köp">
+            <Label fx:id="previousShopLabel" layoutX="1094.0" layoutY="551.0" text="antak köp" textFill="#4c1036">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
-            <Label fx:id="productCountLabel" layoutX="1090.0" layoutY="482.0" text="antal varor">
+            <Label fx:id="productCountLabel" layoutX="1090.0" layoutY="482.0" text="antal varor" textFill="#4c1036">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <Label fx:id="totalPriceLabel" layoutX="1091.0" layoutY="419.0" text="total pris" textFill="#4c1036">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="15.0" />
                </font>
             </Label>
             <Button fx:id="clearButton1" layoutX="1220.0" layoutY="11.0" mnemonicParsing="false" onAction="#clearCartAction" prefHeight="55.0" prefWidth="55.0" style="-fx-background-radius: 50;" text="Töm" textFill="#4c1036">
@@ -135,13 +135,13 @@
             <right>
                 <AnchorPane fx:id="shoppingCartPane" prefHeight="690.0" prefWidth="206.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
                <children>
-                  <Label fx:id="priceLabel" layoutX="22.0" layoutY="583.0" text="500kr">
+                  <Label fx:id="priceLabel" layoutX="22.0" layoutY="583.0" text="500kr" textFill="#4c1036">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font></Label>
-                  <Label fx:id="ItemCountLabel" layoutX="22.0" layoutY="631.0" text="10varor">
+                  <Label fx:id="ItemCountLabel" layoutX="22.0" layoutY="631.0" text="10varor" textFill="#4c1036">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font></Label>
                   <ScrollPane hbarPolicy="NEVER" prefHeight="574.0" prefWidth="204.0" vbarPolicy="ALWAYS">
                      <content>
