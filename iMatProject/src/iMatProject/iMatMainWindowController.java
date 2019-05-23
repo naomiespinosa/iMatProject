@@ -1,12 +1,15 @@
 package iMatProject;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -118,6 +121,18 @@ ProductPanel productPanel;
         model.getShoppingCart().addShoppingCartListener(this);
         TreeItem<String> root = new TreeItem<>("Sortiment");
         root.setExpanded(true);
+
+        SearchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent keyEvent) {
+                if (keyEvent.getCode() == KeyCode.ENTER)  {
+                    List<Product> matches = model.findProducts(SearchTextField.getText());
+                    updateProductList(matches);
+                }
+            }
+        });
+
+
 
 
 
@@ -320,7 +335,31 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
        String category = item.toString();
         List<Product> products = new ArrayList<>();
        switch (category){
-            case "TreeItem [ value: Dryck ]":
+           case "TreeItem [ value: Sortiment ]":
+               products.addAll(model.getProductsByCat(COLD_DRINKS));
+               products.addAll(model.getProductsByCat(HOT_DRINKS));
+               products.addAll(model.getProductsByCat(CABBAGE));
+               products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
+               products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
+               products.addAll(model.getProductsByCat(HERB));
+               products.addAll(model.getProductsByCat(MEAT));
+               products.addAll(model.getProductsByCat(FISH));
+               products.addAll(model.getProductsByCat(DAIRIES));
+               products.addAll(model.getProductsByCat(BERRY));
+               products.addAll(model.getProductsByCat(CITRUS_FRUIT));
+               products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
+               products.addAll(model.getProductsByCat(FRUIT));
+               products.addAll(model.getProductsByCat(MELONS));
+               products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
+               products.addAll(model.getProductsByCat(POD));
+               products.addAll(model.getProductsByCat(BREAD));
+               products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
+               products.addAll(model.getProductsByCat(PASTA));
+               products.addAll(model.getProductsByCat(POTATO_RICE));
+               products.addAll(model.getProductsByCat(SWEET));break;
+
+
+           case "TreeItem [ value: Dryck ]":
                 products.addAll(model.getProductsByCat(COLD_DRINKS));
                 products.addAll(model.getProductsByCat(HOT_DRINKS));break;
             case "TreeItem [ value: Grönsaker ]":
@@ -330,11 +369,10 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
                 products.addAll(model.getProductsByCat(HERB));break;
             case "TreeItem [ value: Kött & Fisk ]":
                 products.addAll(model.getProductsByCat(MEAT));
-                products.addAll(model.getProductsByCat(FISH));
-            break;
+                products.addAll(model.getProductsByCat(FISH));break;
 
             case "TreeItem [ value: Mejeri ]":
-                products.addAll(model.getProductsByCat(DAIRIES));
+                products.addAll(model.getProductsByCat(DAIRIES));break;
             case "TreeItem [ value: Frukt ]":
                 products.addAll(model.getProductsByCat(BERRY));
                 products.addAll(model.getProductsByCat(CITRUS_FRUIT));

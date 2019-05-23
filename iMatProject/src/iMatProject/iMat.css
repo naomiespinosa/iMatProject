@@ -27,8 +27,6 @@
 }
 .button:hover{
     -fx-background-color:  #a7a6ba;
-    -fx-scale-x: 0.95;
-    -fx-scale-y: 0.95;
 }
 
 .button:pressed{
@@ -92,7 +90,7 @@
 }
 
 #favorite:selected {
-    -fx-background-color: #ba2013;
+    -fx-background-color: #4c1036;
     -fx-min-height: 20px;
     -fx-min-width: 20px;
     -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0), 0, 0, 0, 0);

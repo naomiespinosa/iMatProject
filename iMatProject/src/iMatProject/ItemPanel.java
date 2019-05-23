@@ -91,29 +91,6 @@ iMatMainWindowController parentController;
         else parentController.payButton.setDisable(false);
     }
 
-    @FXML
-    public void addFavoritesAction() {
-
-        if (!model.isFavorite(item.getProduct())) {
-
-
-           // favoriteButton.setStyle("-fx-background-color: #4c1036;");
-            model.addFavorites(item.getProduct());
-            colorChangeControl();
-            parentController.updateFavorite(model.getFavorites());
-
-        } else {
-
-            //favoriteButton.setStyle("-fx-background-color: #ffffff;");
-
-            model.removeFavorites(item.getProduct());
-            colorChangeControl();
-
-            parentController.updateFavorite(model.getFavorites());
-
-            System.out.println("Remove fav:  " + item.getProduct().getProductId());
-        }
-    }
 
 
 }
