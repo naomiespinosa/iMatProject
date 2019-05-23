@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
@@ -33,6 +34,10 @@ iMatMainWindowController parentController;
     AnchorPane clickPane;
     @FXML
     FlowPane historyFlow;
+    @FXML
+    Button close;
+    @FXML
+    Button buy;
 
     private Product product;
     Order order;
@@ -60,6 +65,8 @@ iMatMainWindowController parentController;
         orderNumber.setText("Beställnings nummer : "+String.valueOf(order.getOrderNumber()));
         orderItems.setText("Antal varor : "+ String.valueOf(order.getItems().size()));
         orderDate.setText("Beställnings datum : "+ String.valueOf(order.getDate()));
+close.setOnAction(event -> historyAnchor.toBack());
+        buy.setOnAction(event -> addToCart());
 
 
 
@@ -71,6 +78,12 @@ iMatMainWindowController parentController;
 
 
 
+
+    }
+    public void addToCart(){
+        for (ShoppingItem item : order.getItems()){
+            model.addToShoppingCart(item.getProduct());
+        }
     }
 
     public void onClick(List<ShoppingItem> items) {
@@ -90,6 +103,7 @@ iMatMainWindowController parentController;
     public void onClickNavigation(){
 
             onClick(order.getItems());
+
 
     }
 

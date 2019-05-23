@@ -145,6 +145,7 @@ ProductPanel productPanel;
         TreeItem<String> notter = new TreeItem("Nötter & Bönor");
         TreeItem<String> skafferi = new TreeItem("Skafferi");
         TreeItem<String> sotsaker = new TreeItem("Sötsaker");
+        catTreeView.setFixedCellSize(72.2);
 
         catTreeView.setRoot(root);
         root.getChildren().addAll(dryck, frukt, gronssaker, kott, mejeri, notter, skafferi, sotsaker);
@@ -268,9 +269,12 @@ ProductPanel productPanel;
 
     }
     private void wizardHandler(){
-
-        wizard.checkName();
+        wizard.nameText.setText(model.getCustomer().getFirstName() +" "+ model.getCustomer().getLastName());
+        wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f",model.getShoppingCart().getTotal()) + " kronor");
+        wizard.adressTextConfirmation.setText(model.getCustomer().getPostAddress());
         wizard.updateWizardPane();
+        wizard.updateWizardInfo();
+        wizard.checkName();
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         cartAnchorPane.toBack();

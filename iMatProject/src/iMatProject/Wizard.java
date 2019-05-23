@@ -9,14 +9,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
-import se.chalmers.cse.dat216.project.CreditCard;
-import se.chalmers.cse.dat216.project.Customer;
+import se.chalmers.cse.dat216.project.*;
 import javafx.scene.control.RadioButton;
-import se.chalmers.cse.dat216.project.ShoppingCart;
 
 import java.io.IOException;
 
-public class Wizard extends AnchorPane {
+public class Wizard extends AnchorPane implements ShoppingCartListener {
 
 
     @FXML
@@ -154,9 +152,9 @@ public class Wizard extends AnchorPane {
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
 
-        nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
-        totalpriceText.setText("Totalt pris: " + String.format("%.2f",shoppingCart.getTotal()) + " kronor");
-        adressTextConfirmation.setText(customer.getPostAddress());
+    //    nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
+        //totalpriceText.setText("Totalt pris: " + String.format("%.2f",shoppingCart.getTotal()) + " kronor");
+      //  adressTextConfirmation.setText(customer.getPostAddress());
 
 
         userButton.setOnAction(event -> existedUserNavigation());
@@ -168,13 +166,19 @@ public class Wizard extends AnchorPane {
 
 
     }
+    public void updateInfo(){
+
+
+    }
     public void checkName(){
         Customer customer =  model.getCustomer();
         if (customer != null){
             userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
+            nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
+            adressTextConfirmation.setText(customer.getPostAddress());
         }
         else {
-            userButton.setText("Ingen registrearad anvädare");
+            userButton.setText("Ingen registrearad användare");
 
         }
     }
@@ -188,12 +192,14 @@ public class Wizard extends AnchorPane {
         personalInfoPane.toFront();
     }
     public void navigateFront2(){
+        checkName();
         progressBar2.setProgress(0.66);
         payPane.toFront();
     }
     public void navigateFront3(){
         progressBar3.setProgress(0.99);
         updateWizardInfo();
+        updateWizardPane();
         checkName();
         Customer customer = model.getCustomer();
         userText.setText("Du genomför köpet som:" );
@@ -228,6 +234,9 @@ public class Wizard extends AnchorPane {
 
     }
     public void existedUserNavigation(){
+        updateWizardPane();
+        updateWizardInfo();
+        checkName();
         Customer customer = model.getCustomer();
         userText.setText("Du genomför köpet som: " );
         confirmationPane.toFront();
@@ -343,6 +352,13 @@ try {
     System.out.println("ogiltg data");
     return false;
 }
+    }
+    @Override
+    public void shoppingCartChanged(CartEvent evt) {
+        controller.updateShoppingCart();
+        controller.cartUpdate(model.getShoppingCart().getItems());
+
+
     }
 
 }
