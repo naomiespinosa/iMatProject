@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -42,11 +42,6 @@
                      </font>
                   </Label>
                </children></AnchorPane>
-            <Label prefHeight="134.0" prefWidth="180.0" text="Label">
-               <font>
-                  <Font size="27.0" />
-               </font>
-            </Label>
             <AnchorPane fx:id="confirmationPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ProgressBar fx:id="progressBar3" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="1197.0" progress="0.0" />
@@ -71,26 +66,51 @@
                   </ImageView>
                   <Text fx:id="userText" layoutX="548.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="a">
                      <font>
-                        <Font name="System Bold Italic" size="18.0" />
+                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
                   <Text fx:id="nameText" layoutX="548.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
                   <Text fx:id="adressTextConfirmation" layoutX="548.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="totalpriceText" layoutX="546.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                  <Text fx:id="totalpriceText" layoutX="546.0" layoutY="391.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font name="System Bold" size="21.0" />
                      </font>
                   </Text>
+                  <ImageView fitHeight="76.0" fitWidth="81.0" layoutX="1174.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_check_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="73.0" fitWidth="76.0" layoutX="23.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_home_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="67.0" fitWidth="61.0" layoutX="398.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_person_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="69.0" layoutX="790.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_credit_card_black_18dp.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
+            <Label prefHeight="134.0" prefWidth="180.0" text="Label">
+               <font>
+                  <Font size="27.0" />
+               </font>
+            </Label>
             <AnchorPane fx:id="payPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ProgressBar fx:id="progressBar2" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="1205.0" progress="0.0" />
@@ -171,6 +191,26 @@
                   <ImageView id="ImageView" fx:id="frontArrow1" fitHeight="101.0" fitWidth="113.0" layoutX="1148.0" layoutY="581.0" onMouseClicked="#navigateFront3Action" pickOnBounds="true" preserveRatio="true" rotate="-180.0">
                      <image>
                         <Image url="@resources/left-arrow.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="793.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_credit_card_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="91.0" fitWidth="76.0" layoutX="22.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_home_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="68.0" fitWidth="61.0" layoutX="397.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_person_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="90.0" fitWidth="76.0" layoutX="1173.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_check_black_18dp.png" />
                      </image>
                   </ImageView>
                </children>
@@ -257,6 +297,26 @@
                         <Image url="@resources/left-arrow.png" />
                      </image>
                   </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="398.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_person_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="83.0" fitWidth="69.0" layoutX="25.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_home_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="66.0" fitWidth="61.0" layoutX="793.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_credit_card_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="89.0" fitWidth="76.0" layoutX="1173.0" layoutY="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_check_black_18dp.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
@@ -296,6 +356,26 @@
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
                   </Button>
+                  <ImageView fitHeight="68.0" fitWidth="81.0" layoutX="26.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_home_white_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="402.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_person_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="59.0" fitWidth="59.0" layoutX="794.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_credit_card_black_18dp.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="76.0" fitWidth="69.0" layoutX="1178.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@resources/baseline_check_black_18dp.png" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children>

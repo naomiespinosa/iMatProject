@@ -155,8 +155,8 @@ public class Wizard extends AnchorPane {
         cardTypeCombo.getSelectionModel().select("välj");
 
         nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
-        totalpriceText.setText("Totalt pris : " + String.format("%.2f",shoppingCart.getTotal()));
-        adressTextConfirmation.setText("Adress : " + customer.getPostAddress());
+        totalpriceText.setText("Totalt pris: " + String.format("%.2f",shoppingCart.getTotal()) + " kronor");
+        adressTextConfirmation.setText(customer.getPostAddress());
 
 
         userButton.setOnAction(event -> existedUserNavigation());
@@ -171,7 +171,7 @@ public class Wizard extends AnchorPane {
     public void checkName(){
         Customer customer =  model.getCustomer();
         if (customer != null){
-            userButton.setText("Förtsätt som : "+customer.getFirstName()+ " " + customer.getLastName());
+            userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
         }
         else {
             userButton.setText("Ingen registrearad anvädare");
@@ -196,7 +196,7 @@ public class Wizard extends AnchorPane {
         updateWizardInfo();
         checkName();
         Customer customer = model.getCustomer();
-        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
+        userText.setText("Du genomför köpet som:" );
 
         confirmationPane.toFront();
     }
@@ -229,7 +229,7 @@ public class Wizard extends AnchorPane {
     }
     public void existedUserNavigation(){
         Customer customer = model.getCustomer();
-        userText.setText("Du genomför köpet som: " + customer.getFirstName() +" " + customer.getLastName());
+        userText.setText("Du genomför köpet som: " );
         confirmationPane.toFront();
     }
     @FXML
