@@ -36,13 +36,5 @@
          <tooltip>
             <Tooltip text="Ta bort ett stycke från varukorgen" />
          </tooltip></Button>
-      <Button id="favorite" fx:id="favoriteButton" layoutX="154.0" layoutY="8.0" mnemonicParsing="false" onAction="#addFavoritesAction" prefHeight="30.0" prefWidth="30.0" style="-fx-background-radius: 25;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
-         <font>
-            <Font name="System Bold Italic" size="15.0" />
-         </font>
-         <tooltip>
-            <Tooltip text="Lägg till i favoriter" />
-         </tooltip>
-      </Button>
    </children>
 </fx:root>
