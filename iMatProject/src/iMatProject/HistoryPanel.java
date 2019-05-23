@@ -2,23 +2,24 @@
 package iMatProject;
 
 import java.io.IOException;
+import java.util.List;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class HistoryPanel extends AnchorPane  {
     private Model model = Model.getInstance();
 iMatMainWindowController parentController;
     private IMatDataHandler iMatDataHandler;
+    ShoppingItem item;
 
     @FXML
     Label orderNumber;
@@ -27,10 +28,16 @@ iMatMainWindowController parentController;
     @FXML
     Label orderItems;
     @FXML
-    Label prevOrders;
+    AnchorPane historyAnchor;
+    @FXML
+    AnchorPane clickPane;
+    @FXML
+    FlowPane historyFlow;
 
     private Product product;
     Order order;
+
+
 
 
     public HistoryPanel(Order order,iMatMainWindowController controller) {
@@ -51,11 +58,38 @@ iMatMainWindowController parentController;
         this.order = order;
         this.parentController = controller;
         orderNumber.setText("Beställnings nummer : "+String.valueOf(order.getOrderNumber()));
-        orderItems.setText("Antal ITems"+ String.valueOf(order.getItems().size()));
+        orderItems.setText("Antal varor : "+ String.valueOf(order.getItems().size()));
         orderDate.setText("Beställnings datum : "+ String.valueOf(order.getDate()));
-        prevOrders.setText("Antal tidigare köp: " + model.getNumberOfOrders());
 
 
+
+
+
+
+
+
+
+
+
+    }
+
+    public void onClick(List<ShoppingItem> items) {
+
+        historyAnchor.toFront();
+
+        for (ShoppingItem item : items) {
+
+
+            historyFlow.getChildren().add(new SideItemPanel(item, parentController));
+
+        }
+
+
+        }
+    @FXML
+    public void onClickNavigation(){
+
+            onClick(order.getItems());
 
     }
 

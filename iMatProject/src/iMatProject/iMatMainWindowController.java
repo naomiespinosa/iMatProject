@@ -22,6 +22,7 @@ import static se.chalmers.cse.dat216.project.ProductCategory.*;
 public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener{
 
     private final Model model = Model.getInstance();
+    ShoppingCart shoppingCart;
     @FXML
     public TextField SearchTextField;
     @FXML
@@ -56,6 +57,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     @FXML
 
      Label totalPriceLabel;    //Cart view
+    @FXML
+    Button payButton;
     @FXML
      Button helpButton;
     @FXML
@@ -183,8 +186,13 @@ ProductPanel productPanel;
 
         cartView.getChildren().clear();
         sideCartFlowPane.getChildren().clear();
+        if (model.getShoppingCart().getTotal() == 0){
+            payButton.setDisable(true);
+        }
+        else payButton.setDisable(false);
 
         for (ShoppingItem item : items) {
+
 
 
             cartView.getChildren().add(new ItemPanel(item, this));
@@ -205,7 +213,7 @@ ProductPanel productPanel;
     }
 
 
-    private void updateShoppingCart() {
+    public void updateShoppingCart() {
 
         ShoppingCart shoppingCart = model.getShoppingCart();
 
@@ -219,6 +227,12 @@ ProductPanel productPanel;
 
 
     private void toCartNavigation(){
+        if (model.getShoppingCart().getTotal() == 0){
+
+            payButton.setDisable(true);
+        }
+        else
+            payButton.setDisable(false);
         updateFavorite(model.getFavorites());
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -237,6 +251,7 @@ ProductPanel productPanel;
 
     }
     private void wizardHandler(){
+
         wizard.checkName();
         wizard.updateWizardPane();
         SearchTextField.setVisible(false);
@@ -374,9 +389,13 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         if (result.get() == ButtonType.OK){
 
             model.clearShoppingCart();
+            payButton.setDisable(true);
         } else {
-
+            if (model.getShoppingCart().getTotal() != 0)
+                payButton.setDisable(false);
+            else payButton.setDisable(true);
         }
+
 
     }
 
