@@ -355,11 +355,10 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
                 products.addAll(model.getProductsByCat(HERB));break;
             case "TreeItem [ value: Kött & Fisk ]":
                 products.addAll(model.getProductsByCat(MEAT));
-                products.addAll(model.getProductsByCat(FISH));
-            break;
+                products.addAll(model.getProductsByCat(FISH));break;
 
             case "TreeItem [ value: Mejeri ]":
-                products.addAll(model.getProductsByCat(DAIRIES));
+                products.addAll(model.getProductsByCat(DAIRIES));break;
             case "TreeItem [ value: Frukt ]":
                 products.addAll(model.getProductsByCat(BERRY));
                 products.addAll(model.getProductsByCat(CITRUS_FRUIT));

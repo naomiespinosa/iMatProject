@@ -40,6 +40,7 @@ private Boolean fave;
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
+
         try {
             fxmlLoader.load();
         } catch (IOException exception) {
@@ -50,10 +51,12 @@ private Boolean fave;
         this.parentController = controller;
         nameLabel.setText(product.getName());
         prizeLabel.setText(String.format("%.2f", product.getPrice()) + " " + product.getUnit() + "");
-        imageView.setImage(model.getImage(product, kImageWidth, kImageWidth * kImageRatio));
+        imageView.setImage(model.getImage(product));
         if (!product.isEcological()) {
             ecoLabel.setText("");
         }
+
+        this.fave = fave;
         if (fave){
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
 
@@ -94,14 +97,14 @@ private Boolean fave;
         if (!model.isFavorite(product)) {
 
 
-           // favoriteButton.setStyle("-fx-background-color: #4c1036;");
+            //favoriteButton.setStyle("-fx-background-color: #4c1036;");
             model.addFavorites(product);
             colorChangeControl();
             parentController.updateFavorite(model.getFavorites());
 
         } else {
 
-            //favoriteButton.setStyle("-fx-background-color: #ffffff;");
+           // favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
             model.removeFavorites(product);
 
@@ -109,6 +112,7 @@ private Boolean fave;
 
             parentController.updateFavorite(model.getFavorites());
             parentController.updateProductList(model.getProducts());
+            parentController.cartUpdate(model.getShoppingCart().getItems());
 
             System.out.println("Remove fav:  " + product.getProductId());
         }

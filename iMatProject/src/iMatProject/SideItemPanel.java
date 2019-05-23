@@ -51,7 +51,7 @@ iMatMainWindowController paretnCOntroller;
         this.paretnCOntroller = controller;
         nameLabel.setText(item.getProduct().getName());
         prizeLabel.setText(String.format("%.2f", item.getProduct().getPrice()) + " " + item.getProduct().getUnit() + "");
-        imageView.setImage(model.getImage(item.getProduct(), kImageWidth, kImageWidth * kImageRatio));
+        imageView.setImage(model.getImage(item.getProduct()));
         if (!item.getProduct().isEcological()) {
             ecoLabel.setText("");
         }
