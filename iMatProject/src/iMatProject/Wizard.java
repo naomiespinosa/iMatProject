@@ -12,6 +12,7 @@ import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.CreditCard;
 import se.chalmers.cse.dat216.project.Customer;
 import javafx.scene.control.RadioButton;
+import se.chalmers.cse.dat216.project.ShoppingCart;
 
 import java.io.IOException;
 
@@ -106,14 +107,21 @@ public class Wizard extends AnchorPane {
     @FXML
     Text userText;
     @FXML
+    Text nameText;
+    @FXML
+    Text adressTextConfirmation;
+    @FXML
+    Text totalpriceText;
+    @FXML
     Button userButton;
 
     private WizardListener listener;
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
+    ShoppingCart shoppingCart;
     public Wizard(){
-
+        ShoppingCart shoppingCart = model.getShoppingCart();
 
 
 
@@ -145,6 +153,10 @@ public class Wizard extends AnchorPane {
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
         cardTypeCombo.getSelectionModel().select("välj");
+
+        nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
+        totalpriceText.setText("Totalt pris : " + String.format("%.2f",shoppingCart.getTotal()));
+        adressTextConfirmation.setText("Adress : " + customer.getPostAddress());
 
 
         userButton.setOnAction(event -> existedUserNavigation());
