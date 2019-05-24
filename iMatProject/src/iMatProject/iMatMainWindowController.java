@@ -269,6 +269,10 @@ ProductPanel productPanel;
 
     }
     private void wizardHandler(){
+        if (!wizard.homeRadioButton.isSelected() || !wizard.takeRadioButton.isSelected()) {
+            wizard.backArrow3.setDisable(true);
+            wizard.userButton.setDisable(true);
+        }
         wizard.nameText.setText(model.getCustomer().getFirstName() +" "+ model.getCustomer().getLastName());
         wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f",model.getShoppingCart().getTotal()) + " kronor");
         wizard.adressTextConfirmation.setText(model.getCustomer().getPostAddress());

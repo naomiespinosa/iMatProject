@@ -29,7 +29,7 @@
          <tooltip>
             <Tooltip text="Lägg ett stycke i varukorgen" />
          </tooltip></Button>
-      <Button layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleRemoveAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="-" textFill="WHITE">
+      <Button fx:id="minus" layoutX="143.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleRemoveAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="-" textFill="WHITE">
          <font>
             <Font name="System Bold Italic" size="18.0" />
          </font>

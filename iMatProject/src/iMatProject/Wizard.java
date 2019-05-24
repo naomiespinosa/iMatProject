@@ -1,11 +1,14 @@
 package iMatProject;
 
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -160,13 +163,264 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         userButton.setOnAction(event -> existedUserNavigation());
 
 
+        deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+
+                if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
+                    backArrow3.setDisable(false);
+                    userButton.setDisable(false);
+
+                }else backArrow3.setDisable(true);
+
+            }
+        });
+
+
+
+
+        phoneText.textProperty().addListener(new ChangeListener<String>() {
+
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    phoneText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+            }
+
+        });
+
+        phoneText.lengthProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (newValue.intValue() > oldValue.intValue()) {
+                    // Check if the new character is greater than LIMIT
+                    if (phoneText.getText().length() >=10) {
+
+                        // if it's 11th character then just setText to previous
+                        // one
+                        phoneText.setText(phoneText.getText().substring(0, 10));
+                    }
+                }
+            }
+        });
+
+
+
+        postCodeText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    postCodeText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+
+
+            }
+
+        });
+
+        postCodeText.lengthProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (newValue.intValue() > oldValue.intValue()) {
+                    // Check if the new character is greater than LIMIT
+                    if (postCodeText.getText().length() >=5) {
+
+                        // if it's 11th character then just setText to previous
+                        // one
+                        postCodeText.setText(postCodeText.getText().substring(0, 5));
+                    }
+                }
+            }
+        });
 
 
 
 
 
-    }
-    public void updateInfo(){
+        firstNameText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\sa-zA-Z*")) {
+                    firstNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+                }
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+
+            }
+        });
+
+
+        lastNameTExt.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\sa-zA-Z*")) {
+                    lastNameTExt.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+                }
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+
+            }
+        });
+
+        eMailText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+
+
+            }
+        });
+
+        addressText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                    backArrow31.setDisable(true);
+                }
+                else backArrow31.setDisable(false);
+
+
+            }
+        });
+
+
+
+
+
+        cardNumberText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    cardNumberText.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                    frontArrow1.setDisable(true);
+
+                }
+                else frontArrow1.setDisable(false);
+
+            }
+        });
+
+        cardNumberText.lengthProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (newValue.intValue() > oldValue.intValue()) {
+                    // Check if the new character is greater than LIMIT
+                    if (cardNumberText.getText().length() >=16) {
+
+                        // if it's 11th character then just setText to previous
+                        // one
+                        cardNumberText.setText(cardNumberText.getText().substring(0, 16));
+                    }
+                }
+            }
+        });
+
+
+        cardNameText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\sa-zA-Z*")) {
+                    cardNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
+                }
+                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                    frontArrow1.setDisable(true);
+
+                }
+                else frontArrow1.setDisable(false);
+
+            }
+        });
+
+        ccvText.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+
+                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                    frontArrow1.setDisable(true);
+
+                }
+                else frontArrow1.setDisable(false);
+
+
+            }
+
+        });
+
+        ccvText.lengthProperty().addListener(new ChangeListener<Number>() {
+
+            @Override
+            public void changed(ObservableValue<? extends Number> observable,
+                                Number oldValue, Number newValue) {
+                if (newValue.intValue() > oldValue.intValue()) {
+                    // Check if the new character is greater than LIMIT
+                    if (ccvText.getText().length() >= 4) {
+
+                        // if it's 11th character then just setText to previous
+                        // one
+                        ccvText.setText(ccvText.getText().substring(0, 4));
+                    }
+                }
+            }
+        });
+
+
+        cardTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+               if (cardTypeCombo.getSelectionModel().selectedIndexProperty().equals(0)){
+                   frontArrow1.setDisable(true);
+               }
+               else frontArrow1.setDisable(false);
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }

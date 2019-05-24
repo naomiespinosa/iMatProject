@@ -11,6 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
+import se.chalmers.cse.dat216.project.ShoppingCart;
+import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class ProductPanel extends AnchorPane  {
@@ -28,6 +30,8 @@ private Boolean fave;
     Label ecoLabel;
     @FXML
     Button favoriteButton;
+    @FXML
+    Button minus;
     private Model model = Model.getInstance();
     private Product product;
 
@@ -62,7 +66,6 @@ private Boolean fave;
 
         }
         else favoriteButton.setStyle("-fx-background-color: #ffffff;");
-
 
 
     }
