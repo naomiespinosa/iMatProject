@@ -120,6 +120,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
+
+    public ShoppingCart getShoppingCart() {
+        return shoppingCart;
+    }
+
     ShoppingCart shoppingCart;
     public Wizard(){
         ShoppingCart shoppingCart = model.getShoppingCart();

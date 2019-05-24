@@ -361,7 +361,7 @@
                         <Image url="@resources/baseline_home_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="402.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="402.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: 2;">
                      <image>
                         <Image url="@resources/baseline_person_black_18dp.png" />
                      </image>
