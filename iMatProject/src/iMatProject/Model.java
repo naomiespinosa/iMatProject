@@ -18,6 +18,8 @@ public class Model {
     private Product product;
     private Order order;
     private List<Order> orders;
+    ShoppingCart shoppingCart;
+    Date date;
 
 
     protected Model() {
@@ -183,6 +185,11 @@ public class Model {
     public void shutDown() {
         iMatDataHandler.shutDown();
     }
+
+
+
+
+
 
 
 

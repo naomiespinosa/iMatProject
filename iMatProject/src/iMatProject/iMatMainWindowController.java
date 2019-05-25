@@ -119,7 +119,7 @@ ProductPanel productPanel;
         product = new Product();
 
         model.getShoppingCart().addShoppingCartListener(this);
-        TreeItem<String> root = new TreeItem<>("Sortiment");
+        TreeItem<String> root = new TreeItem<>("Alla produkter");
         root.setExpanded(true);
 
         SearchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
@@ -219,6 +219,8 @@ ProductPanel productPanel;
     }
 
     public void historyUpdate(List<Order> orders) {
+        searchButton.setVisible(false);
+        SearchTextField.setVisible(false);
 
         historyAnchorPane.toFront();
 
@@ -269,6 +271,9 @@ ProductPanel productPanel;
 
     }
     private void wizardHandler(){
+        wizard.homeRadioButton.setSelected(false);
+        wizard.takeRadioButton.setSelected(false);
+
         if (!wizard.homeRadioButton.isSelected() || !wizard.takeRadioButton.isSelected()) {
             wizard.backArrow3.setDisable(true);
             wizard.userButton.setDisable(true);
@@ -338,12 +343,14 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
     @FXML
     public void onCategoryClick(MouseEvent mouseEvent){
+        SearchTextField.setVisible(true);
+        searchButton.setVisible(true);
         prodcutScrollPane.toFront();
        TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
        String category = item.toString();
         List<Product> products = new ArrayList<>();
        switch (category){
-           case "TreeItem [ value: Sortiment ]":
+           case "TreeItem [ value: Alla produkter ]":
                products.addAll(model.getProductsByCat(COLD_DRINKS));
                products.addAll(model.getProductsByCat(HOT_DRINKS));
                products.addAll(model.getProductsByCat(CABBAGE));
@@ -454,6 +461,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     public void onWizardFinish() {
 
         model.placeOrder();
+        updateProductList(model.getProducts());
         wizard.deliveryPane.toFront();
         wizardAnchorPane.toBack();
         productFlowPane.toFront();

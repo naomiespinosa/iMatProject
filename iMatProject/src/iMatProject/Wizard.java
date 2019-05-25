@@ -161,9 +161,21 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
 
         userButton.setOnAction(event -> existedUserNavigation());
+        String telephoneNr = "88765432";
+
+        if (telephoneNr.matches("^(?=(?:[8-9]){1})(?=[0-9]{8}).*")) {
+            System.out.println("Valid phone number!");
+        }
+        else {
+            System.out.println("Invalid!");
+        }
 
 
-        deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+
+
+        deliveryToggleGroup.selectedToggleProperty().addListener(new
+
+                                                                         ChangeListener<Toggle>() {
 
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
@@ -583,19 +595,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         ccvText.setText(""+card.getVerificationCode());
 
     }
-    /*void setValidCardInfo() {
 
-
-        cardTypeCombo.getItems().addAll(model.getCardTypes());
-
-        monthCombo.getItems().addAll(model.getMonths());
-
-        yearCombo.getItems().addAll(model.getYears());
-
-    }
-
-
-     */
     public boolean isInt(TextField input, String message){
 try {
     int number = Integer.parseInt(input.getText());
