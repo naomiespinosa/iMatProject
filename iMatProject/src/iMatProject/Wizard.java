@@ -441,7 +441,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         if (customer != null){
             userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
             nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
-            adressTextConfirmation.setText(customer.getPostAddress());
+            adressTextConfirmation.setText(customer.getPostAddress()+ "   "+ customer.getPostCode());
         }
         else {
             userButton.setText("Ingen registrearad användare");
