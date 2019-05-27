@@ -201,10 +201,15 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\d*")) {
                     phoneText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+                if (phoneText.getText().isEmpty()){
+                    phoneText.setStyle("-fx-border-width: 10px");
+                    phoneText.setStyle("-fx-border-color: red");
+                }else phoneText.setStyle("");
             }
 
         });
@@ -235,10 +240,15 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\d*")) {
                     postCodeText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+                if (postCodeText.getText().isEmpty()){
+                    postCodeText.setStyle("-fx-border-width: 10px");
+                    postCodeText.setStyle("-fx-border-color: red");
+                }else postCodeText.setStyle("");
 
 
             }
@@ -273,10 +283,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     firstNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+                if (firstNameText.getText().isEmpty()){
+                    firstNameText.setStyle("-fx-border-width: 10px");
+                    firstNameText.setStyle("-fx-border-color: red");
+                }else firstNameText.setStyle("");
+
 
             }
         });
@@ -289,10 +305,15 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     lastNameTExt.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+                if (lastNameTExt.getText().isEmpty()){
+                    lastNameTExt.setStyle("-fx-border-width: 10px");
+                    lastNameTExt.setStyle("-fx-border-color: red");
+                }else lastNameTExt.setStyle("");
 
             }
         });
@@ -301,10 +322,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
                                 String newValue) {
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+
+                if (eMailText.getText().isEmpty()){
+                    eMailText.setStyle("-fx-border-width: 10px");
+                    eMailText.setStyle("-fx-border-color: red");
+                }else eMailText.setStyle("");
 
 
             }
@@ -314,10 +341,15 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
                                 String newValue) {
-                if (firstNameText.getText().isBlank() ||lastNameTExt.getText().isBlank() ||eMailText.getText().isBlank() ||phoneText.getText().isBlank() ||addressText.getText().isBlank() ||postCodeText.getText().isBlank() ){
+                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
                     backArrow31.setDisable(true);
                 }
                 else backArrow31.setDisable(false);
+
+                if (addressText.getText().isEmpty()){
+                    addressText.setStyle("-fx-border-width: 10px");
+                    addressText.setStyle("-fx-border-color: red");
+                }else addressText.setStyle("");
 
 
             }
@@ -334,11 +366,17 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\d*")) {
                     cardNumberText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
                     frontArrow1.setDisable(true);
 
                 }
                 else frontArrow1.setDisable(false);
+
+
+                if (cardNumberText.getText().isEmpty()){
+                    cardNumberText.setStyle("-fx-border-width: 10px");
+                    cardNumberText.setStyle("-fx-border-color: red");
+                }else cardNumberText.setStyle("");
 
             }
         });
@@ -368,11 +406,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     cardNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
                     frontArrow1.setDisable(true);
 
                 }
                 else frontArrow1.setDisable(false);
+
+                if (cardNameText.getText().isEmpty()){
+                    cardNameText.setStyle("-fx-border-width: 10px");
+                    cardNameText.setStyle("-fx-border-color: red");
+                }else cardNameText.setStyle("");
 
             }
         });
@@ -382,11 +425,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             public void changed(ObservableValue<? extends String> observable, String oldValue,
                                 String newValue) {
 
-                if (ccvText.getText().isBlank() || cardNameText.getText().isBlank() ||  cardNumberText.getText().isBlank()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
                     frontArrow1.setDisable(true);
 
                 }
                 else frontArrow1.setDisable(false);
+
+                if (ccvText.getText().isEmpty()){
+                    ccvText.setStyle("-fx-border-width: 10px");
+                    ccvText.setStyle("-fx-border-color: red");
+                }else ccvText.setStyle("");
 
 
             }
@@ -438,7 +486,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     }
     public void checkName(){
         Customer customer =  model.getCustomer();
-        if (customer != null){
+        if (!customer.getFirstName().isEmpty() && !customer.getLastName().isEmpty()){
             userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
             nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
             adressTextConfirmation.setText(customer.getPostAddress()+ "   "+ customer.getPostCode());

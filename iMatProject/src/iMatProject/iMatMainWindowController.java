@@ -13,6 +13,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import org.controlsfx.control.textfield.TextFields;
 import se.chalmers.cse.dat216.project.*;
 
 
@@ -92,6 +93,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     AnchorPane historyAnchorPane;
     @FXML
     FlowPane historyView;
+    @FXML
+    Label searchResults;
 
 
 
@@ -127,10 +130,13 @@ ProductPanel productPanel;
             public void handle(KeyEvent keyEvent) {
                 if (keyEvent.getCode() == KeyCode.ENTER)  {
                     List<Product> matches = model.findProducts(SearchTextField.getText());
+                    searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
                     updateProductList(matches);
                 }
             }
         });
+
+
 
 
 
@@ -167,6 +173,7 @@ ProductPanel productPanel;
 
         updateShoppingCart();
 
+        TextFields.bindAutoCompletion(SearchTextField,names);
 
 
 
@@ -180,6 +187,7 @@ ProductPanel productPanel;
 
 
     }
+
 
      void updateProductList(List<Product> products) {
         productFlowPane.getChildren().clear();
@@ -220,6 +228,7 @@ ProductPanel productPanel;
 
     public void historyUpdate(List<Order> orders) {
         searchButton.setVisible(false);
+        searchResults.setText("");
         SearchTextField.setVisible(false);
 
         historyAnchorPane.toFront();
@@ -254,6 +263,7 @@ ProductPanel productPanel;
         else
             payButton.setDisable(false);
         updateFavorite(model.getFavorites());
+        searchResults.setText("");
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         cartAnchorPane.toFront();
@@ -262,7 +272,7 @@ ProductPanel productPanel;
 
     private void toFavoritesNavigation(){
         updateFavorite(model.getFavorites());
-
+        searchResults.setText("");
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
 
@@ -286,6 +296,7 @@ ProductPanel productPanel;
         wizard.checkName();
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
+        searchResults.setText("");
         cartAnchorPane.toBack();
         wizardAnchorPane.getChildren().clear();
         wizardAnchorPane.getChildren().add(wizard);
@@ -296,6 +307,7 @@ ProductPanel productPanel;
     private void helpNavigation(){
        SearchTextField.setVisible(false);
         searchButton.setVisible(false);
+        searchResults.setText("");
         helpAnchorPane.getChildren().add(new HelpView(this));
         helpAnchorPane.toFront();
 
@@ -317,6 +329,7 @@ ProductPanel productPanel;
     public void startShoppingNavigation(){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
+        searchResults.setText("");
         startAnchorPane.toBack();
         productFlowPane.toFront();
 
@@ -328,6 +341,7 @@ ProductPanel productPanel;
         productFlowPane.toFront();
         List<Product> matches = model.findProducts(SearchTextField.getText());
         updateProductList(matches);
+        searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
         System.out.println("# matching products: " + matches.size());
 
     }
@@ -345,6 +359,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     public void onCategoryClick(MouseEvent mouseEvent){
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
+        searchResults.setText("");
         prodcutScrollPane.toFront();
        TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
        String category = item.toString();
@@ -410,6 +425,8 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
 
         updateProductList(products);
     }
+
+
 
     @FXML
     public void toPaymentAction(ActionEvent event){
@@ -477,7 +494,12 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     }
 
 
+String [] names = {"Linser bruna","Linser gröna","Linser röda","Röda bönor","Vita bönor","Gröna ärter","Kikärtor","Fralla","Knäckebröd","Toast","Bröd grovt","Tunnbröd","Vörtlimpa","Björnbär","Blåbär","Hallon","Krusbär", "Röda vinbär","Smultron" , "Svarta vinbär" ,"Apelsin","Citron"        ,"Clementin","Grapefruit","Lime","Fruktsoppa","7Up flaska","Vatten","Apelsinjuice","Cola burk","Cola flaska","Fanta burk","Fanta flaska","7Up burk","Cacao","Earlgrey","Grönt te","Kaffe","Rooibos","Ananas","FIkon","Granatäpple","Kiwi","Mango","Papaya","Rambutan","Tonfisk","Fiskpinnar","Kräftor","Lax","Räkor","Sej","Sill","Aubergine","Avokado","Gurka"   , "Koksnöt","Mandel","Pistagenöt","Valnöt","Pumpakärnor","Solroskärnor","Farfalle","Fettuccine","Fusilli","Lasagne","Penne","Rigatoni","Spaghetti","Potatispuré","Basmati ris","Fullkornsris","Jasmin ris","Potatis"
+        ,"Chips","Choklad","Kanelbullar","Kokosbollar","Basilika","Citronmeliss","Dill","Koriander","Oregano","Persilja","Rosmarin","Timjan","Oliver","Okra","Paprika","Pumpa","Squash","Blomkål","Broccoli","Bryssel"  ,"Kinakål","Romanesco","Rödkål","Vitkål", "Grytbitar nött","Högrev","Kycklingbröstfilé","Kycklingklubbor","Kyckling hel","Köttfärs nöt","Ägg","Brie","Fillmjölk","Färskost","Mjölk","Mozzarella","Västerbotten",        "Yoghurt laktosfri","Yoghurt turkisk","Charentaismelon","Galiamelon","Honungsmelon","Nätmelon","Vattenmelon","Farinsocker","Graham mjöl","Rågmjöl","Salt","Socker","Vetemjöl 2kg","Cashewnöt","Hasselnöt","Jordnöt"            ,    "Röda vinbär","Smultron","Svarta vinbär","Apelsin","Citron","Clementin","Grapefruit","Lime","Fruktsoppa","7Up flaska","Vatten","Apelsinjuice","Cola burk","Cola flaska","Fanta burk","Fanta flaska","7Up burk","Potatis röd","Potatis sött","Råris","Kålrot","Majrova","Morot","Palsternacka","Pepparrot","Rädisa", "Rödbeta","Rotselleri","Aprikos","Körsbär","Nektarin","Persika","Plommon","Kex","Praliner","Glass"       , "Cacao","Earlgrey","Grönt te","Kaffe","Rooibos","Ananas","FIkon", "Granatäpple","Kiwi", "Mango", "Papaya", "Rambutan", "Tonfisk", "Fiskpinnar", "Kräftor","Lax","Räkor", "Sej","Sill",  "Aubergine", "Avokado", "Gurka",   "Oliver", "Okra", "Paprika", "Pumpa", "Squash", "Blomkål", "Broccoli", "Bryssel", "Kinakål", "Romanesco", "Rödkål", "Vitkål", "Savoykål", "Grytbitar nött", "Högrev",  "Kycklingbröstfilé", "Kycklingklubbor", "Kyckling hel",  "Köttfärs nöt",  "Ägg", "Brie",  "Fillmjölk",  "Färskost",  "Mjölk", "Mozzarella", "Västerbotten", "Yoghurt laktosfri", "Yoghurt turkisk", "Charentaismelon",  "Honungsmelon", "Nätmelon", "Vattenmelon", "Farinsocker", "Graham mjöl", "Rågmjöl","Salt", "Socker", "Vetemjöl 2kg", "Cashewnöt",  "Hasselnöt",  "Jordnöt", "Koksnöt", "Mandel","Pistagenöt", "Valnöt",  "Pumpakärnor", "Solroskärnor", "Farfalle", "Fettuccine", "Fusilli",  "Lasagne",  "Penne", "Rigatoni",  "Spaghetti",  "Potatispuré",  "Basmati ris",  "Fullkornsris",  "Jasmin ris","Potatis","Potatis röd", "Potatis sött", "Råris", "Kålrot", "Majrova", "Morot","Palsternacka", "Pepparrot", "Rädisa", "Rödbeta", "Rotselleri", "Aprikos","Körsbär","Nektarin", "Persika","Plommon","Kex","Praliner","Glass","Chips","Choklad","Kanelbullar","Kokosbollar","Basilika","Citronmeliss","Dill","Koriander","Oregano","Persilja","Rosmarin","Timjan" };
 
 }
+
+
+
 
 
