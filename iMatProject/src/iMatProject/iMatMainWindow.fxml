@@ -76,9 +76,9 @@
             <top>
                 <AnchorPane prefHeight="60.0" prefWidth="1300.0" style="-fx-background-color: #4C1036;" BorderPane.alignment="CENTER">
                     <children>
-                        <TextField fx:id="SearchTextField" layoutX="556.0" layoutY="16.0" prefHeight="47.0" prefWidth="425.0" promptText="SÖK..." AnchorPane.bottomAnchor="7.0" AnchorPane.rightAnchor="467.0">
+                        <TextField fx:id="SearchTextField" layoutX="397.0" layoutY="12.0" prefHeight="33.0" prefWidth="426.0" promptText="SÖK..." AnchorPane.bottomAnchor="16.800000000000004" AnchorPane.rightAnchor="476.6">
                      <font>
-                        <Font name="System Bold" size="20.0" />
+                        <Font name="System Bold" size="16.0" />
                      </font></TextField>
                         <Button fx:id="helpButton" alignment="CENTER" layoutX="1122.0" layoutY="14.0" mnemonicParsing="false" onAction="#helpNavigationAction" prefHeight="56.0" prefWidth="79.0" text="HJÄLP" textFill="#4c1036" AnchorPane.bottomAnchor="3.0" AnchorPane.rightAnchor="99.0">
                      <font>
@@ -91,13 +91,18 @@
                      <tooltip>
                         <Tooltip text="gå tillbaks till startsidan" />
                      </tooltip></Button>
-                        <Button fx:id="searchButton" layoutX="838.0" layoutY="5.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="50.0" prefWidth="64.0" text="SÖK" textFill="#4c1036" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="398.0">
+                        <Button fx:id="searchButton" layoutX="824.0" layoutY="6.0" mnemonicParsing="false" onAction="#handleSearchAction" prefHeight="33.0" prefWidth="64.0" text="SÖK" textFill="#4c1036" AnchorPane.bottomAnchor="14.799999999999997" AnchorPane.rightAnchor="412.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                      <tooltip>
                         <Tooltip text="kilcka för att söka" />
                      </tooltip></Button>
+                  <Label fx:id="searchResults" layoutX="415.0" layoutY="42.0" textFill="WHITE">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                     </children>
                 </AnchorPane>
             </top>
