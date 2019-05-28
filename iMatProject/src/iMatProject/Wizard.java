@@ -153,7 +153,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         yearCombo.getItems().addAll("19", "20", "21", "22", "23", "24", "25","26","27" );
         yearCombo.getSelectionModel().select("19");
         cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
-        cardTypeCombo.getSelectionModel().select("välj");
+        cardTypeCombo.getSelectionModel().select("Visa");
 
     //    nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
         //totalpriceText.setText("Totalt pris: " + String.format("%.2f",shoppingCart.getTotal()) + " kronor");
@@ -169,6 +169,8 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         else {
             System.out.println("Invalid!");
         }
+
+
 
 
 
@@ -210,6 +212,10 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                     phoneText.setStyle("-fx-border-width: 10px");
                     phoneText.setStyle("-fx-border-color: red");
                 }else phoneText.setStyle("");
+
+
+
+
             }
 
         });
@@ -496,6 +502,13 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
         }
     }
+
+
+
+
+
+
+
 
     public void setListener(WizardListener listener) {
         this.listener = listener;

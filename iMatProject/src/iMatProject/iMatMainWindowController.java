@@ -14,6 +14,14 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import org.controlsfx.control.textfield.TextFields;
+import org.controlsfx.control.textfield.CustomTextField;
+import org.controlsfx.validation.ValidationResult;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
+import org.controlsfx.validation.decoration.CompoundValidationDecoration;
+import org.controlsfx.validation.decoration.GraphicValidationDecoration;
+import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
+import org.controlsfx.validation.decoration.ValidationDecoration;
 import se.chalmers.cse.dat216.project.*;
 
 
@@ -104,6 +112,7 @@ ProductPanel productPanel;
 
 
 
+
     //  @FXML
     //   private FlowPane wizardFlowPane;
 
@@ -174,8 +183,6 @@ ProductPanel productPanel;
         updateShoppingCart();
 
         TextFields.bindAutoCompletion(SearchTextField,names);
-
-
 
 
     }
@@ -288,6 +295,7 @@ ProductPanel productPanel;
             wizard.backArrow3.setDisable(true);
             wizard.userButton.setDisable(true);
         }
+
         wizard.nameText.setText(model.getCustomer().getFirstName() +" "+ model.getCustomer().getLastName());
         wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f",model.getShoppingCart().getTotal()) + " kronor");
         wizard.adressTextConfirmation.setText(model.getCustomer().getPostAddress());
