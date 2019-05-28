@@ -221,16 +221,19 @@
                         <Image url="@resources/baseline_check_black_18dp.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="label7" layoutX="909.0" layoutY="236.0" />
+                  <Label fx:id="label8" layoutX="909.0" layoutY="375.0" />
+                  <Label fx:id="label9" layoutX="754.0" layoutY="515.0" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
+            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="1250.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ProgressBar fx:id="progressBar1" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="1170.0" progress="0.0" style="-fx-background-color: #802277;" />
                   <Circle fill="WHITE" layoutX="60.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="1212.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="823.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="#4c1036" layoutX="428.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label layoutX="281.0" layoutY="340.0" text="E-mail:">
+                  <Label layoutX="150.0" layoutY="340.0" text="E-mail:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -250,17 +253,17 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="274.0" layoutY="424.0" text="Adress:">
+                  <Label layoutX="143.0" layoutY="424.0" text="Adress:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="255.0" layoutY="256.0" text="Förnamn:">
+                  <Label layoutX="124.0" layoutY="256.0" text="Förnamn:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="firstNameText" layoutX="383.0" layoutY="259.0" prefHeight="40.0" prefWidth="236.0" promptText="Ditt Förnamn">
+                  <TextField fx:id="firstNameText" layoutX="252.0" layoutY="259.0" prefHeight="40.0" prefWidth="236.0" promptText="Ditt Förnamn">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -270,7 +273,7 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="eMailText" layoutX="380.0" layoutY="337.0" prefHeight="40.0" prefWidth="236.0" promptText="Alex@imat.se">
+                  <TextField fx:id="eMailText" layoutX="249.0" layoutY="337.0" prefHeight="40.0" prefWidth="236.0" promptText="Alex@imat.se">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -280,7 +283,7 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="addressText" layoutX="380.0" layoutY="426.0" prefHeight="40.0" prefWidth="236.0" promptText="Gata, nummer, lägenhet">
+                  <TextField fx:id="addressText" layoutX="249.0" layoutY="426.0" prefHeight="40.0" prefWidth="236.0" promptText="Gata, nummer, lägenhet">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -325,6 +328,12 @@
                         <Image url="@resources/baseline_check_black_18dp.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="label1" layoutX="501.0" layoutY="270.0" />
+                  <Label fx:id="label3" layoutX="501.0" layoutY="349.0" />
+                  <Label fx:id="label5" layoutX="501.0" layoutY="437.0" />
+                  <Label fx:id="label2" layoutX="1081.0" layoutY="270.0" />
+                  <Label fx:id="label4" layoutX="1081.0" layoutY="349.0" />
+                  <Label fx:id="label6" layoutX="1081.0" layoutY="436.0" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">

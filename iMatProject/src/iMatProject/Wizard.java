@@ -115,6 +115,25 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     Text totalpriceText;
     @FXML
     Button userButton;
+    @FXML
+    Label label1;
+    @FXML
+    Label label2;
+    @FXML
+    Label label3;
+    @FXML
+    Label label4;
+    @FXML
+    Label label5;
+    @FXML
+    Label label6;
+    @FXML
+    Label label7;
+    @FXML
+    Label label8;
+    @FXML
+    Label label9;
+
 
     private WizardListener listener;
     private Model model = Model.getInstance();
@@ -211,7 +230,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (phoneText.getText().isEmpty()){
                     phoneText.setStyle("-fx-border-width: 10px");
                     phoneText.setStyle("-fx-border-color: red");
-                }else phoneText.setStyle("");
+                    label4.setText("Telefonnummret saknas!");
+                }else{
+                    phoneText.setStyle("");
+                    label4.setText("");
+                }
 
 
 
@@ -254,7 +277,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (postCodeText.getText().isEmpty()){
                     postCodeText.setStyle("-fx-border-width: 10px");
                     postCodeText.setStyle("-fx-border-color: red");
-                }else postCodeText.setStyle("");
+                    label6.setText("Postkoden saknas!");
+                }else{
+                    postCodeText.setStyle("");
+                    label6.setText("");
+                }
 
 
             }
@@ -297,7 +324,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (firstNameText.getText().isEmpty()){
                     firstNameText.setStyle("-fx-border-width: 10px");
                     firstNameText.setStyle("-fx-border-color: red");
-                }else firstNameText.setStyle("");
+                    label1.setText("Förnamnet saknas!");
+                }else{
+                    firstNameText.setStyle("");
+                    label1.setText("");
+                }
 
 
             }
@@ -319,7 +350,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (lastNameTExt.getText().isEmpty()){
                     lastNameTExt.setStyle("-fx-border-width: 10px");
                     lastNameTExt.setStyle("-fx-border-color: red");
-                }else lastNameTExt.setStyle("");
+                    label2.setText("Efternamnet saknas!");
+                }else{
+                    lastNameTExt.setStyle("");
+                    label2.setText("");
+                }
 
             }
         });
@@ -337,7 +372,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (eMailText.getText().isEmpty()){
                     eMailText.setStyle("-fx-border-width: 10px");
                     eMailText.setStyle("-fx-border-color: red");
-                }else eMailText.setStyle("");
+                    label3.setText("e-mail saknas!");
+                }else{
+                    eMailText.setStyle("");
+                    label3.setText("");
+                }
 
 
             }
@@ -355,7 +394,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (addressText.getText().isEmpty()){
                     addressText.setStyle("-fx-border-width: 10px");
                     addressText.setStyle("-fx-border-color: red");
-                }else addressText.setStyle("");
+                    label5.setText("Adressen saknas!");
+                }else{
+                    addressText.setStyle("");
+                    label5.setText("");
+                }
 
 
             }
@@ -382,7 +425,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (cardNumberText.getText().isEmpty()){
                     cardNumberText.setStyle("-fx-border-width: 10px");
                     cardNumberText.setStyle("-fx-border-color: red");
-                }else cardNumberText.setStyle("");
+                    label8.setText("Kortnummret saknas!");
+                }else{
+                    cardNumberText.setStyle("");
+                    label8.setText("");
+                }
 
             }
         });
@@ -421,7 +468,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (cardNameText.getText().isEmpty()){
                     cardNameText.setStyle("-fx-border-width: 10px");
                     cardNameText.setStyle("-fx-border-color: red");
-                }else cardNameText.setStyle("");
+                    label7.setText("Kortnamnet saknas!");
+                }else{
+                    cardNameText.setStyle("");
+                    label7.setText("");
+                }
 
             }
         });
@@ -440,7 +491,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                 if (ccvText.getText().isEmpty()){
                     ccvText.setStyle("-fx-border-width: 10px");
                     ccvText.setStyle("-fx-border-color: red");
-                }else ccvText.setStyle("");
+                    label9.setText("CCV koden saknas!");
+                }else{
+                    ccvText.setStyle("");
+                    label9.setText("");
+                }
 
 
             }
