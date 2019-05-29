@@ -14,14 +14,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import org.controlsfx.control.textfield.TextFields;
-import org.controlsfx.control.textfield.CustomTextField;
-import org.controlsfx.validation.ValidationResult;
-import org.controlsfx.validation.ValidationSupport;
-import org.controlsfx.validation.Validator;
-import org.controlsfx.validation.decoration.CompoundValidationDecoration;
-import org.controlsfx.validation.decoration.GraphicValidationDecoration;
-import org.controlsfx.validation.decoration.StyleClassValidationDecoration;
-import org.controlsfx.validation.decoration.ValidationDecoration;
 import se.chalmers.cse.dat216.project.*;
 
 
@@ -134,14 +126,11 @@ ProductPanel productPanel;
         TreeItem<String> root = new TreeItem<>("Alla produkter");
         root.setExpanded(true);
 
-        SearchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER)  {
-                    List<Product> matches = model.findProducts(SearchTextField.getText());
-                    searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
-                    updateProductList(matches);
-                }
+        SearchTextField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER)  {
+                List<Product> matches = model.findProducts(SearchTextField.getText());
+                searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
+                updateProductList(matches);
             }
         });
 
@@ -293,7 +282,6 @@ ProductPanel productPanel;
 
         if (!wizard.homeRadioButton.isSelected() || !wizard.takeRadioButton.isSelected()) {
             wizard.backArrow3.setDisable(true);
-            wizard.userButton.setDisable(true);
         }
 
         wizard.nameText.setText(model.getCustomer().getFirstName() +" "+ model.getCustomer().getLastName());
@@ -500,6 +488,23 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         wizardAnchorPane.toBack();
         cartAnchorPane.toFront();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 String [] names = {"Linser bruna","Linser gröna","Linser röda","Röda bönor","Vita bönor","Gröna ärter","Kikärtor","Fralla","Knäckebröd","Toast","Bröd grovt","Tunnbröd","Vörtlimpa","Björnbär","Blåbär","Hallon","Krusbär", "Röda vinbär","Smultron" , "Svarta vinbär" ,"Apelsin","Citron"        ,"Clementin","Grapefruit","Lime","Fruktsoppa","7Up flaska","Vatten","Apelsinjuice","Cola burk","Cola flaska","Fanta burk","Fanta flaska","7Up burk","Cacao","Earlgrey","Grönt te","Kaffe","Rooibos","Ananas","FIkon","Granatäpple","Kiwi","Mango","Papaya","Rambutan","Tonfisk","Fiskpinnar","Kräftor","Lax","Räkor","Sej","Sill","Aubergine","Avokado","Gurka"   , "Koksnöt","Mandel","Pistagenöt","Valnöt","Pumpakärnor","Solroskärnor","Farfalle","Fettuccine","Fusilli","Lasagne","Penne","Rigatoni","Spaghetti","Potatispuré","Basmati-ris","Fullkornsris","Jasmin-ris","Potatis"

@@ -203,7 +203,6 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
                 if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
                     backArrow3.setDisable(false);
-                    userButton.setDisable(false);
 
                 }else backArrow3.setDisable(true);
 
@@ -544,20 +543,26 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
 
 
-    }
-    public void checkName(){
-        Customer customer =  model.getCustomer();
-        if (!customer.getFirstName().isEmpty() && !customer.getLastName().isEmpty()){
-            userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
-            nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
-            adressTextConfirmation.setText(customer.getPostAddress()+ "   "+ customer.getPostCode());
-        }
-        else {
-            userButton.setText("Ingen registrearad användare");
 
-        }
+
     }
 
+  public void checkName(){
+      CreditCard card = model.getCreditCard();
+      Customer customer =  model.getCustomer();
+      if (!customer.getFirstName().isEmpty() && !customer.getLastName().isEmpty()&& !customer.getEmail().isEmpty() && !customer.getMobilePhoneNumber().isEmpty()&&!customer.getPostAddress().isEmpty() && !customer.getPostCode().isEmpty()&&!card.getHoldersName().isEmpty() && !card.getCardNumber().isEmpty()){
+          userButton.setDisable(false);
+          userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
+          nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
+          adressTextConfirmation.setText(customer.getPostAddress()+ "   "+ customer.getPostCode());
+      }
+      else {
+          userButton.setDisable(true);
+          userButton.setText("Ingen registrearad användare");
+
+
+      }
+  }
 
 
 
