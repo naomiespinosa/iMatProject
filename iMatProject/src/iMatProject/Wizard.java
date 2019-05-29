@@ -23,88 +23,88 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     @FXML
     public AnchorPane deliveryPane;
     @FXML
-     AnchorPane personalInfoPane;
+    AnchorPane personalInfoPane;
     @FXML
-     RadioButton homeRadioButton;
+    RadioButton homeRadioButton;
     @FXML
-      RadioButton takeRadioButton;
+    RadioButton takeRadioButton;
     @FXML
-     ImageView backArrow2;
+    ImageView backArrow2;
     @FXML
-     ImageView backArrow3;
+    ImageView backArrow3;
     @FXML
-     AnchorPane buyMessagePane;
+    AnchorPane buyMessagePane;
     @FXML
-     TextField firstNameText;
+    TextField firstNameText;
 
     @FXML
-     TextField postCodeText;
+    TextField postCodeText;
 
     @FXML
-     TextField phoneText;
+    TextField phoneText;
 
     @FXML
-     TextField lastNameTExt;
+    TextField lastNameTExt;
 
     @FXML
-     TextField addressText;
+    TextField addressText;
 
     @FXML
-     TextField eMailText;
+    TextField eMailText;
 
     @FXML
-     ImageView backArrow32;
+    ImageView backArrow32;
 
     @FXML
-     ImageView backArrow31;
+    ImageView backArrow31;
 
     @FXML
-     AnchorPane payPane;
+    AnchorPane payPane;
 
     @FXML
-     Label cardTypeText;
+    Label cardTypeText;
 
     @FXML
-     TextField cardNameText;
+    TextField cardNameText;
 
     @FXML
-     TextField ccvText;
+    TextField ccvText;
 
     @FXML
-     TextField cardNumberText;
+    TextField cardNumberText;
 
     @FXML
-     ComboBox<String> cardTypeCombo;
+    ComboBox <String> cardTypeCombo;
 
     @FXML
-     ComboBox<String> yearCombo;
+    ComboBox <String> yearCombo;
 
     @FXML
-     ComboBox<String> monthCombo;
+    ComboBox <String> monthCombo;
 
     @FXML
-     ImageView backArrow1;
+    ImageView backArrow1;
 
     @FXML
-     ImageView frontArrow1;
+    ImageView frontArrow1;
 
     @FXML
-     AnchorPane confirmationPane;
+    AnchorPane confirmationPane;
 
     @FXML
-     Button backToMainButton;
+    Button backToMainButton;
 
     @FXML
-     Button confirmButton;
+    Button confirmButton;
 
     @FXML
-     ImageView backArrow;
+    ImageView backArrow;
     @FXML
-     ProgressBar progressBar1;
+    ProgressBar progressBar1;
     @FXML
-     ProgressBar progressBar2;
+    ProgressBar progressBar2;
     @FXML
-     ProgressBar progressBar3;
+    ProgressBar progressBar3;
     @FXML
     Text userText;
     @FXML
@@ -140,9 +140,9 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
     ShoppingCart shoppingCart;
-    public Wizard(){
-        ShoppingCart shoppingCart = model.getShoppingCart();
 
+    public Wizard() {
+        ShoppingCart shoppingCart = model.getShoppingCart();
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Wizard.fxml"));
@@ -157,7 +157,6 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         Customer customer = model.getCustomer();
 
 
-
         deliveryToggleGroup = new ToggleGroup();
         homeRadioButton.setToggleGroup(deliveryToggleGroup);
         takeRadioButton.setToggleGroup(deliveryToggleGroup);
@@ -167,16 +166,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         progressBar2.setStyle("-fx-accent: #4c1036; ");
         progressBar3.setStyle("-fx-accent: #4c1036; ");
 
-        monthCombo.getItems().addAll("1", "2","3", "4", "5", "6","7","8", "9","10", "11", "12");
+        monthCombo.getItems().addAll("1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12");
         monthCombo.getSelectionModel().select("1");
-        yearCombo.getItems().addAll("19", "20", "21", "22", "23", "24", "25","26","27" );
+        yearCombo.getItems().addAll("19", "20", "21", "22", "23", "24", "25", "26", "27");
         yearCombo.getSelectionModel().select("19");
-        cardTypeCombo.getItems().addAll("MasterCard", "Visa" );
+        cardTypeCombo.getItems().addAll("MasterCard", "Visa");
         cardTypeCombo.getSelectionModel().select("Visa");
 
-    //    nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
+        //    nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
         //totalpriceText.setText("Totalt pris: " + String.format("%.2f",shoppingCart.getTotal()) + " kronor");
-      //  adressTextConfirmation.setText(customer.getPostAddress());
+        //  adressTextConfirmation.setText(customer.getPostAddress());
 
 
         userButton.setOnAction(event -> existedUserNavigation());
@@ -184,72 +183,62 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
         if (telephoneNr.matches("^(?=(?:[8-9]){1})(?=[0-9]{8}).*")) {
             System.out.println("Valid phone number!");
-        }
-        else {
+        } else {
             System.out.println("Invalid!");
         }
 
 
-
-
-
-
         deliveryToggleGroup.selectedToggleProperty().addListener(new
 
-                                                                         ChangeListener<Toggle>() {
+                                                                         ChangeListener <Toggle>() {
 
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                                                                             @Override
+                                                                             public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
-                if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
-                    backArrow3.setDisable(false);
+                                                                                 if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
+                                                                                     backArrow3.setDisable(false);
 
-                }else backArrow3.setDisable(true);
+                                                                                 } else backArrow3.setDisable(true);
 
-            }
-        });
-
-
+                                                                             }
+                                                                         });
 
 
-        phoneText.textProperty().addListener(new ChangeListener<String>() {
+        phoneText.textProperty().addListener(new ChangeListener <String>() {
 
 
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\d*")) {
                     phoneText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
-                if (phoneText.getText().isEmpty()){
+                if (phoneText.getText().isEmpty()) {
                     phoneText.setStyle("-fx-border-width: 10px");
                     phoneText.setStyle("-fx-border-color: red");
                     label4.setText("Telefonnummret saknas!");
-                }else{
+                } else {
                     phoneText.setStyle("");
                     label4.setText("");
                 }
 
 
-
-
             }
 
         });
 
-        phoneText.lengthProperty().addListener(new ChangeListener<Number>() {
+        phoneText.lengthProperty().addListener(new ChangeListener <Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable,
+            public void changed(ObservableValue <? extends Number> observable,
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
-                    if (phoneText.getText().length() >=10) {
+                    if (phoneText.getText().length() >= 10) {
 
                         // if it's 11th character then just setText to previous
                         // one
@@ -260,24 +249,22 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-
-        postCodeText.textProperty().addListener(new ChangeListener<String>() {
+        postCodeText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\d*")) {
                     postCodeText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
-                if (postCodeText.getText().isEmpty()){
+                if (postCodeText.getText().isEmpty()) {
                     postCodeText.setStyle("-fx-border-width: 10px");
                     postCodeText.setStyle("-fx-border-color: red");
                     label6.setText("Postkoden saknas!");
-                }else{
+                } else {
                     postCodeText.setStyle("");
                     label6.setText("");
                 }
@@ -287,14 +274,14 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
         });
 
-        postCodeText.lengthProperty().addListener(new ChangeListener<Number>() {
+        postCodeText.lengthProperty().addListener(new ChangeListener <Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable,
+            public void changed(ObservableValue <? extends Number> observable,
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
-                    if (postCodeText.getText().length() >=5) {
+                    if (postCodeText.getText().length() >= 5) {
 
                         // if it's 11th character then just setText to previous
                         // one
@@ -305,26 +292,22 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-
-
-
-        firstNameText.textProperty().addListener(new ChangeListener<String>() {
+        firstNameText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     firstNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
-                if (firstNameText.getText().isEmpty()){
+                if (firstNameText.getText().isEmpty()) {
                     firstNameText.setStyle("-fx-border-width: 10px");
                     firstNameText.setStyle("-fx-border-color: red");
                     label1.setText("Förnamnet saknas!");
-                }else{
+                } else {
                     firstNameText.setStyle("");
                     label1.setText("");
                 }
@@ -334,23 +317,22 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-        lastNameTExt.textProperty().addListener(new ChangeListener<String>() {
+        lastNameTExt.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     lastNameTExt.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
-                if (lastNameTExt.getText().isEmpty()){
+                if (lastNameTExt.getText().isEmpty()) {
                     lastNameTExt.setStyle("-fx-border-width: 10px");
                     lastNameTExt.setStyle("-fx-border-color: red");
                     label2.setText("Efternamnet saknas!");
-                }else{
+                } else {
                     lastNameTExt.setStyle("");
                     label2.setText("");
                 }
@@ -358,21 +340,20 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             }
         });
 
-        eMailText.textProperty().addListener(new ChangeListener<String>() {
+        eMailText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
 
-                if (eMailText.getText().isEmpty()){
+                if (eMailText.getText().isEmpty()) {
                     eMailText.setStyle("-fx-border-width: 10px");
                     eMailText.setStyle("-fx-border-color: red");
                     label3.setText("e-mail saknas!");
-                }else{
+                } else {
                     eMailText.setStyle("");
                     label3.setText("");
                 }
@@ -381,20 +362,19 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             }
         });
 
-        addressText.textProperty().addListener(new ChangeListener<String>() {
+        addressText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
-                if (firstNameText.getText().isEmpty() ||lastNameTExt.getText().isEmpty() ||eMailText.getText().isEmpty() ||phoneText.getText().isEmpty() ||addressText.getText().isEmpty() ||postCodeText.getText().isEmpty() ){
+                if (firstNameText.getText().isEmpty() || lastNameTExt.getText().isEmpty() || eMailText.getText().isEmpty() || phoneText.getText().isEmpty() || addressText.getText().isEmpty() || postCodeText.getText().isEmpty()) {
                     backArrow31.setDisable(true);
-                }
-                else backArrow31.setDisable(false);
+                } else backArrow31.setDisable(false);
 
-                if (addressText.getText().isEmpty()){
+                if (addressText.getText().isEmpty()) {
                     addressText.setStyle("-fx-border-width: 10px");
                     addressText.setStyle("-fx-border-color: red");
                     label5.setText("Adressen saknas!");
-                }else{
+                } else {
                     addressText.setStyle("");
                     label5.setText("");
                 }
@@ -404,28 +384,24 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-
-
-
-        cardNumberText.textProperty().addListener(new ChangeListener<String>() {
+        cardNumberText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\d*")) {
                     cardNumberText.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() || cardNumberText.getText().isEmpty()) {
                     frontArrow1.setDisable(true);
 
-                }
-                else frontArrow1.setDisable(false);
+                } else frontArrow1.setDisable(false);
 
 
-                if (cardNumberText.getText().isEmpty()){
+                if (cardNumberText.getText().isEmpty()) {
                     cardNumberText.setStyle("-fx-border-width: 10px");
                     cardNumberText.setStyle("-fx-border-color: red");
                     label8.setText("Kortnummret saknas!");
-                }else{
+                } else {
                     cardNumberText.setStyle("");
                     label8.setText("");
                 }
@@ -433,14 +409,14 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             }
         });
 
-        cardNumberText.lengthProperty().addListener(new ChangeListener<Number>() {
+        cardNumberText.lengthProperty().addListener(new ChangeListener <Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable,
+            public void changed(ObservableValue <? extends Number> observable,
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
-                    if (cardNumberText.getText().length() >=16) {
+                    if (cardNumberText.getText().length() >= 16) {
 
                         // if it's 11th character then just setText to previous
                         // one
@@ -451,24 +427,23 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-        cardNameText.textProperty().addListener(new ChangeListener<String>() {
+        cardNameText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\sa-zA-Z*")) {
                     cardNameText.setText(newValue.replaceAll("[^\\sa-zA-Z]", ""));
                 }
-                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() || cardNumberText.getText().isEmpty()) {
                     frontArrow1.setDisable(true);
 
-                }
-                else frontArrow1.setDisable(false);
+                } else frontArrow1.setDisable(false);
 
-                if (cardNameText.getText().isEmpty()){
+                if (cardNameText.getText().isEmpty()) {
                     cardNameText.setStyle("-fx-border-width: 10px");
                     cardNameText.setStyle("-fx-border-color: red");
                     label7.setText("Kortnamnet saknas!");
-                }else{
+                } else {
                     cardNameText.setStyle("");
                     label7.setText("");
                 }
@@ -476,22 +451,21 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
             }
         });
 
-        ccvText.textProperty().addListener(new ChangeListener<String>() {
+        ccvText.textProperty().addListener(new ChangeListener <String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
+            public void changed(ObservableValue <? extends String> observable, String oldValue,
                                 String newValue) {
 
-                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() ||  cardNumberText.getText().isEmpty()){
+                if (ccvText.getText().isEmpty() || cardNameText.getText().isEmpty() || cardNumberText.getText().isEmpty()) {
                     frontArrow1.setDisable(true);
 
-                }
-                else frontArrow1.setDisable(false);
+                } else frontArrow1.setDisable(false);
 
-                if (ccvText.getText().isEmpty()){
+                if (ccvText.getText().isEmpty()) {
                     ccvText.setStyle("-fx-border-width: 10px");
                     ccvText.setStyle("-fx-border-color: red");
                     label9.setText("CCV koden saknas!");
-                }else{
+                } else {
                     ccvText.setStyle("");
                     label9.setText("");
                 }
@@ -501,10 +475,10 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
         });
 
-        ccvText.lengthProperty().addListener(new ChangeListener<Number>() {
+        ccvText.lengthProperty().addListener(new ChangeListener <Number>() {
 
             @Override
-            public void changed(ObservableValue<? extends Number> observable,
+            public void changed(ObservableValue <? extends Number> observable,
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
@@ -519,124 +493,115 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         });
 
 
-        cardTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+        cardTypeCombo.getSelectionModel().selectedItemProperty().addListener(new ChangeListener <String>() {
 
             @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-               if (cardTypeCombo.getSelectionModel().selectedIndexProperty().equals(0)){
-                   frontArrow1.setDisable(true);
-               }
-               else frontArrow1.setDisable(false);
+            public void changed(ObservableValue <? extends String> observable, String oldValue, String newValue) {
+                if (cardTypeCombo.getSelectionModel().selectedIndexProperty().equals(0)) {
+                    frontArrow1.setDisable(true);
+                } else frontArrow1.setDisable(false);
             }
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
-  public void checkName(){
-      CreditCard card = model.getCreditCard();
-      Customer customer =  model.getCustomer();
-      if (!customer.getFirstName().isEmpty() && !customer.getLastName().isEmpty()&& !customer.getEmail().isEmpty() && !customer.getMobilePhoneNumber().isEmpty()&&!customer.getPostAddress().isEmpty() && !customer.getPostCode().isEmpty()&&!card.getHoldersName().isEmpty() && !card.getCardNumber().isEmpty()){
-          userButton.setDisable(false);
-          userButton.setText("Förtsätt som: "+customer.getFirstName()+ " " + customer.getLastName());
-          nameText.setText(customer.getFirstName() +" "+ customer.getLastName());
-          adressTextConfirmation.setText(customer.getPostAddress()+ "   "+ customer.getPostCode());
-      }
-      else {
-          userButton.setDisable(true);
-          userButton.setText("Ingen registrearad användare");
+    public void checkName() {
+        CreditCard card = model.getCreditCard();
+        Customer customer = model.getCustomer();
+        if (!customer.getFirstName().isEmpty() && !customer.getLastName().isEmpty() && !customer.getEmail().isEmpty() && !customer.getMobilePhoneNumber().isEmpty() && !customer.getPostAddress().isEmpty() && !customer.getPostCode().isEmpty() && !card.getHoldersName().isEmpty() && !card.getCardNumber().isEmpty()) {
+            userButton.setDisable(false);
+            userButton.setText("Förtsätt som: " + customer.getFirstName() + " " + customer.getLastName());
+            nameText.setText(customer.getFirstName() + " " + customer.getLastName());
+            adressTextConfirmation.setText(customer.getPostAddress() + "   " + customer.getPostCode());
+        } else {
+            userButton.setDisable(true);
+            userButton.setText("Ingen registrearad användare");
 
 
-      }
-  }
-
-
-
-
-
+        }
+    }
 
 
     public void setListener(WizardListener listener) {
         this.listener = listener;
     }
 
-    public void navigateFront1(){
+    public void navigateFront1() {
         progressBar1.setProgress(0.33);
         personalInfoPane.toFront();
     }
-    public void navigateFront2(){
+
+    public void navigateFront2() {
         checkName();
         progressBar2.setProgress(0.66);
         payPane.toFront();
     }
-    public void navigateFront3(){
+
+    public void navigateFront3() {
         progressBar3.setProgress(0.99);
         updateWizardInfo();
         updateWizardPane();
         checkName();
         Customer customer = model.getCustomer();
-        userText.setText("Du genomför köpet som:" );
+        userText.setText("Du genomför köpet som:");
 
         confirmationPane.toFront();
     }
-    public void navigateBack1(){
+
+    public void navigateBack1() {
         updateWizardInfo();
         checkName();
         deliveryPane.toFront();
     }
-    public void navigateBack2(){
+
+    public void navigateBack2() {
         progressBar1.setProgress(0.33);
         personalInfoPane.toFront();
     }
-    public void navigateBack3(){
+
+    public void navigateBack3() {
         progressBar2.setProgress(0.66);
 
         payPane.toFront();
     }
-    public void navigateToMessage(){
+
+    public void navigateToMessage() {
 
         buyMessagePane.toFront();
     }
-    public void navigateToMain(){
+
+    public void navigateToMain() {
 
 
         listener.onWizardFinish();
     }
-    public void backToCartNavigation(){
+
+    public void backToCartNavigation() {
         listener.backToCart();
 
     }
-    public void existedUserNavigation(){
+
+    public void existedUserNavigation() {
         updateWizardPane();
         updateWizardInfo();
         checkName();
         Customer customer = model.getCustomer();
-        userText.setText("Du genomför köpet som: " );
+        userText.setText("Du genomför köpet som: ");
         confirmationPane.toFront();
     }
+
     @FXML
     private void navigateFront1Action(MouseEvent event) {
         navigateFront1();
     }
+
     @FXML
 
     private void navigateFront2Action(MouseEvent event) {
         navigateFront2();
     }
+
     @FXML
     private void navigateFront3Action(MouseEvent event) {
 
@@ -647,29 +612,35 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     private void navigateBack1Action(MouseEvent event) {
         navigateBack1();
     }
+
     @FXML
 
     private void navigateBack2Action(MouseEvent event) {
         navigateBack2();
     }
+
     @FXML
     private void navigateBack3Action(MouseEvent event) {
         navigateBack3();
     }
+
     @FXML
 
     private void navigateToMessageAction(ActionEvent event) {
         navigateToMessage();
     }
+
     @FXML
     private void navigateToMainAction(ActionEvent event) {
         navigateToMain();
     }
+
     @FXML
     private void backToCartNavigationAction(MouseEvent event) {
         backToCartNavigation();
     }
-     public void updateWizardInfo() {
+
+    public void updateWizardInfo() {
 
         CreditCard card = model.getCreditCard();
         Customer customer = model.getCustomer();
@@ -696,6 +667,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
 
     }
+
     public void updateWizardPane() {
 
         CreditCard card = model.getCreditCard();
@@ -710,24 +682,24 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         postCodeText.setText(customer.getPostCode());
 
         cardTypeCombo.getSelectionModel().select(card.getCardType());
-        monthCombo.getSelectionModel().select(""+card.getValidMonth());
-        yearCombo.getSelectionModel().select(""+card.getValidYear());
+        monthCombo.getSelectionModel().select("" + card.getValidMonth());
+        yearCombo.getSelectionModel().select("" + card.getValidYear());
 
-        ccvText.setText(""+card.getVerificationCode());
+        ccvText.setText("" + card.getVerificationCode());
 
     }
 
-    public boolean isInt(TextField input, String message){
-try {
-    int number = Integer.parseInt(input.getText());
+    public boolean isInt(TextField input, String message) {
+        try {
+            int number = Integer.parseInt(input.getText());
 
-    return true;
-}
-    catch (NumberFormatException e){
-    System.out.println("ogiltg data");
-    return false;
-}
+            return true;
+        } catch (NumberFormatException e) {
+            System.out.println("ogiltg data");
+            return false;
+        }
     }
+
     @Override
     public void shoppingCartChanged(CartEvent evt) {
         controller.updateShoppingCart();
