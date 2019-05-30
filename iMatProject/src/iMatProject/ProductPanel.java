@@ -6,10 +6,13 @@ import java.io.IOException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingCart;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -83,6 +86,11 @@ private Boolean fave;
 
     @FXML
     private void handleAddAction(ActionEvent event) {
+        ShoppingCart shoppingCart = model.getShoppingCart();
+        if (shoppingCart.getItems().size() == 0){
+            Notifications.create().text("Varan har lagts till varukorgen").darkStyle().hideAfter(Duration.seconds(2)).position(Pos.BOTTOM_CENTER).showInformation();
+        }
+
         System.out.println("Add " + product.getName());
         model.addToShoppingCart(product);
     }

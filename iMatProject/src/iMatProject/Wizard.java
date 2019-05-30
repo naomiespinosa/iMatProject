@@ -6,12 +6,16 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import se.chalmers.cse.dat216.project.*;
 import javafx.scene.control.RadioButton;
 
@@ -567,6 +571,8 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     }
 
     public void navigateToMessage() {
+        Image img= new Image("iMatProject/resources/done.png");
+        Notifications.create().text("    Köpet är klart").darkStyle().hideAfter(Duration.seconds(3)).graphic(new ImageView(img)).position(Pos.BOTTOM_CENTER).show();
 
         buyMessagePane.toFront();
     }
@@ -604,7 +610,6 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
     @FXML
     private void navigateFront3Action(MouseEvent event) {
-
         navigateFront3();
     }
 
