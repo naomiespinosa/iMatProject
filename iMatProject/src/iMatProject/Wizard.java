@@ -192,20 +192,18 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         }
 
 
-        deliveryToggleGroup.selectedToggleProperty().addListener(new
+        deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener <Toggle>() {
 
-                                                                         ChangeListener <Toggle>() {
+                     @Override
+                     public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
-                                                                             @Override
-                                                                             public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                         if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
+                             backArrow3.setDisable(false);
 
-                                                                                 if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
-                                                                                     backArrow3.setDisable(false);
+                         } else backArrow3.setDisable(true);
 
-                                                                                 } else backArrow3.setDisable(true);
-
-                                                                             }
-                                                                         });
+                     }
+                 });
 
 
         phoneText.textProperty().addListener(new ChangeListener <String>() {

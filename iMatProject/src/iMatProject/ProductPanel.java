@@ -108,14 +108,13 @@ private Boolean fave;
         if (!model.isFavorite(product)) {
 
 
-            //favoriteButton.setStyle("-fx-background-color: #4c1036;");
+
             model.addFavorites(product);
             colorChangeControl();
             parentController.updateFavorite(model.getFavorites());
 
         } else {
 
-           // favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
             model.removeFavorites(product);
 
