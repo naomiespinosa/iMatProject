@@ -15,7 +15,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="713.0" prefWidth="1300.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -160,7 +160,7 @@
                         <Tooltip text="en tresiffrig kod som är på kortets baksida" />
                      </tooltip>
                   </Label>
-                  <Label layoutX="719.0" layoutY="431.0" text="/">
+                  <Label layoutX="738.0" layoutY="432.0" text="/">
                      <font>
                         <Font size="27.0" />
                      </font>
@@ -176,8 +176,16 @@
                         <Font size="16.0" />
                      </font>
                   </TextField>
-                  <ComboBox fx:id="monthCombo" layoutX="650.0" layoutY="435.0" prefHeight="35.0" prefWidth="58.0" />
-                  <ComboBox fx:id="yearCombo" layoutX="746.0" layoutY="435.0" prefHeight="35.0" prefWidth="58.0" />
+                  <ComboBox fx:id="monthCombo" layoutX="650.0" layoutY="435.0" prefHeight="35.0" prefWidth="80.0" promptText="månad">
+                     <tooltip>
+                        <Tooltip text="välj månad" />
+                     </tooltip>
+                  </ComboBox>
+                  <ComboBox fx:id="yearCombo" layoutX="763.0" layoutY="435.0" prefHeight="35.0" prefWidth="80.0" promptText="år">
+                     <tooltip>
+                        <Tooltip text="välj år" />
+                     </tooltip>
+                  </ComboBox>
                   <TextField fx:id="ccvText" layoutX="650.0" layoutY="505.0" prefHeight="26.0" prefWidth="79.0">
                      <font>
                         <Font size="16.0" />
@@ -213,16 +221,28 @@
                         <Image url="@resources/baseline_check_black_18dp.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="label7" layoutX="909.0" layoutY="236.0" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="label8" layoutX="909.0" layoutY="375.0" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
+                  <Label fx:id="label9" layoutX="754.0" layoutY="515.0" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font></Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">
+            <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="1250.0" style="-fx-background-color: #ffffff;">
                <children>
                   <ProgressBar fx:id="progressBar1" layoutX="35.0" layoutY="54.0" prefHeight="18.0" prefWidth="1170.0" progress="0.0" style="-fx-background-color: #802277;" />
                   <Circle fill="WHITE" layoutX="60.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="1212.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="WHITE" layoutX="823.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fill="#4c1036" layoutX="428.0" layoutY="63.0" radius="38.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Label layoutX="281.0" layoutY="340.0" text="E-mail:">
+                  <Label layoutX="150.0" layoutY="340.0" text="E-mail:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -242,17 +262,17 @@
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="274.0" layoutY="424.0" text="Adress:">
+                  <Label layoutX="143.0" layoutY="424.0" text="Adress:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="255.0" layoutY="256.0" text="Förnamn:">
+                  <Label layoutX="124.0" layoutY="256.0" text="Förnamn:">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="firstNameText" layoutX="383.0" layoutY="259.0" prefHeight="40.0" prefWidth="236.0" promptText="Ditt Förnamn">
+                  <TextField fx:id="firstNameText" layoutX="252.0" layoutY="259.0" prefHeight="40.0" prefWidth="236.0" promptText="Ditt Förnamn">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -262,7 +282,7 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="eMailText" layoutX="380.0" layoutY="337.0" prefHeight="40.0" prefWidth="236.0" promptText="Alex@imat.se">
+                  <TextField fx:id="eMailText" layoutX="249.0" layoutY="337.0" prefHeight="40.0" prefWidth="236.0" promptText="Alex@imat.se">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -272,7 +292,7 @@
                         <Font size="15.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="addressText" layoutX="380.0" layoutY="426.0" prefHeight="40.0" prefWidth="236.0" promptText="Gata, nummer, lägenhet">
+                  <TextField fx:id="addressText" layoutX="249.0" layoutY="426.0" prefHeight="40.0" prefWidth="236.0" promptText="Gata, nummer, lägenhet">
                      <font>
                         <Font size="15.0" />
                      </font>
@@ -317,6 +337,36 @@
                         <Image url="@resources/baseline_check_black_18dp.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="label1" layoutX="501.0" layoutY="270.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label3" layoutX="501.0" layoutY="349.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label5" layoutX="501.0" layoutY="437.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label2" layoutX="1081.0" layoutY="266.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label4" layoutX="1081.0" layoutY="345.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="label6" layoutX="1081.0" layoutY="432.0" textFill="#f20404" underline="true">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane fx:id="deliveryPane" prefHeight="649.0" prefWidth="910.0" style="-fx-background-color: #ffffff;">

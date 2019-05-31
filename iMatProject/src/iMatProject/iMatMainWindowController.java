@@ -1,18 +1,22 @@
 package iMatProject;
 
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
+import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.TextFields;
 import se.chalmers.cse.dat216.project.*;
 
@@ -23,7 +27,7 @@ import java.util.*;
 
 import static se.chalmers.cse.dat216.project.ProductCategory.*;
 
-public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener{
+public class iMatMainWindowController implements Initializable, ShoppingCartListener, WizardListener {
 
     private final Model model = Model.getInstance();
     ShoppingCart shoppingCart;
@@ -48,41 +52,41 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     Product product;
     @FXML
 
-     Label priceLabel;   // Main View
+    Label priceLabel;   // Main View
     @FXML
 
-     Label ItemCountLabel;  // Main View
+    Label ItemCountLabel;  // Main View
     @FXML
 
-     Label previousShopLabel;  //Cart view
+    Label previousShopLabel;  //Cart view
     @FXML
 
-     Label productCountLabel;  //Cart view
+    Label productCountLabel;  //Cart view
     @FXML
 
-     Label totalPriceLabel;    //Cart view
+    Label totalPriceLabel;    //Cart view
     @FXML
     Button payButton;
     @FXML
-     Button helpButton;
+    Button helpButton;
     @FXML
-     Button logoButton;
+    Button logoButton;
     @FXML
     Button clearButton;  // Main View
     @FXML
     Button clearButton1;  // Cart View
     @FXML
-     Button toCartButton;
+    Button toCartButton;
     @FXML
-     Button favoritsButton;
+    Button favoritsButton;
     @FXML
-     Button historyButton;
+    Button historyButton;
     @FXML
-     AnchorPane sortimentPane;
+    AnchorPane sortimentPane;
     @FXML
-     AnchorPane shoppingCartPane;
+    AnchorPane shoppingCartPane;
     @FXML
-     TreeView<String> catTreeView;
+    TreeView <String> catTreeView;
     @FXML
     ScrollPane favoritesScrollPane;
     @FXML
@@ -97,11 +101,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     Label searchResults;
 
 
-
     private Wizard wizard;
-ProductPanel productPanel;
-
-
+    ProductPanel productPanel;
 
 
     //  @FXML
@@ -110,11 +111,11 @@ ProductPanel productPanel;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        model.getShoppingCart().addShoppingCartListener(this);
 
 
         wizard = new Wizard();
         wizard.setListener(this);
-
 
 
         SearchTextField.setVisible(false);
@@ -122,35 +123,27 @@ ProductPanel productPanel;
         product = new Product();
 
         model.getShoppingCart().addShoppingCartListener(this);
-        TreeItem<String> root = new TreeItem<>("Alla produkter");
+        TreeItem <String> root = new TreeItem <>("Alla produkter");
         root.setExpanded(true);
 
-        SearchTextField.setOnKeyPressed(new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent keyEvent) {
-                if (keyEvent.getCode() == KeyCode.ENTER)  {
-                    List<Product> matches = model.findProducts(SearchTextField.getText());
-                    searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
-                    updateProductList(matches);
-                }
+        SearchTextField.setOnKeyPressed(keyEvent -> {
+            if (keyEvent.getCode() == KeyCode.ENTER) {
+                List <Product> matches = model.findProducts(SearchTextField.getText());
+                searchResults.setText("Visar resultat för : " + SearchTextField.getText());
+                updateProductList(matches);
             }
         });
 
 
-
-
-
-
-
-
-        TreeItem<String> dryck = new TreeItem("Dryck");
-        TreeItem<String> frukt = new TreeItem("Frukt");
-        TreeItem<String> gronssaker = new TreeItem("Grönsaker");
-        TreeItem<String> kott = new TreeItem("Kött & Fisk");
-        TreeItem<String> mejeri = new TreeItem("Mejeri");
-        TreeItem<String> notter = new TreeItem("Nötter & Bönor");
-        TreeItem<String> skafferi = new TreeItem("Skafferi");
-        TreeItem<String> sotsaker = new TreeItem("Sötsaker");
+        //final Node rootIcon =  new ImageView(new Image(getClass().getResourceAsStream("resources/sweet.jpg")));
+        TreeItem <String> dryck = new TreeItem("Dryck");
+        TreeItem <String> frukt = new TreeItem("Frukt");
+        TreeItem <String> gronssaker = new TreeItem("Grönsaker");
+        TreeItem <String> kott = new TreeItem("Kött & Fisk");
+        TreeItem <String> mejeri = new TreeItem("Mejeri");
+        TreeItem <String> notter = new TreeItem("Nötter & Bönor");
+        TreeItem <String> skafferi = new TreeItem("Skafferi");
+        TreeItem <String> sotsaker = new TreeItem("Sötsaker");
         catTreeView.setFixedCellSize(72.2);
 
         catTreeView.setRoot(root);
@@ -164,7 +157,6 @@ ProductPanel productPanel;
         historyButton.setOnAction(event -> historyUpdate(model.getOrders()));
 
 
-
         updateFavorite(model.getFavorites());
         System.out.println(model.getFavorites());
         updateProductList(model.getProducts());
@@ -173,9 +165,7 @@ ProductPanel productPanel;
 
         updateShoppingCart();
 
-        TextFields.bindAutoCompletion(SearchTextField,names);
-
-
+        TextFields.bindAutoCompletion(SearchTextField, names);
 
 
     }
@@ -189,36 +179,35 @@ ProductPanel productPanel;
     }
 
 
-     void updateProductList(List<Product> products) {
+    void updateProductList(List <Product> products) {
         productFlowPane.getChildren().clear();
 
         for (Product product : products) {
 
-            productFlowPane.getChildren().add( new ProductPanel(product, this,false));
+            productFlowPane.getChildren().add(new ProductPanel(product, this, false));
         }
 
     }
 
-    public void updateFavorite(List<Product> favorites) {
+    public void updateFavorite(List <Product> favorites) {
         favoritesFlowPane.getChildren().clear();
 
         for (Product product : favorites) {
 
-            favoritesFlowPane.getChildren().add( new ProductPanel(product, this, true));
+            favoritesFlowPane.getChildren().add(new ProductPanel(product, this, true));
         }
 
     }
-    public void cartUpdate(List<ShoppingItem> items) {
+
+    public void cartUpdate(List <ShoppingItem> items) {
 
         cartView.getChildren().clear();
         sideCartFlowPane.getChildren().clear();
-        if (model.getShoppingCart().getTotal() == 0){
+        if (model.getShoppingCart().getTotal() == 0) {
             payButton.setDisable(true);
-        }
-        else payButton.setDisable(false);
+        } else payButton.setDisable(false);
 
         for (ShoppingItem item : items) {
-
 
 
             cartView.getChildren().add(new ItemPanel(item, this));
@@ -226,7 +215,7 @@ ProductPanel productPanel;
         }
     }
 
-    public void historyUpdate(List<Order> orders) {
+    public void historyUpdate(List <Order> orders) {
         searchButton.setVisible(false);
         searchResults.setText("");
         SearchTextField.setVisible(false);
@@ -236,7 +225,7 @@ ProductPanel productPanel;
         for (Order order : orders) {
 
 
-            historyView.getChildren().add(new HistoryPanel(order,this));
+            historyView.getChildren().add(new HistoryPanel(order, this));
 
         }
     }
@@ -247,20 +236,19 @@ ProductPanel productPanel;
         ShoppingCart shoppingCart = model.getShoppingCart();
 
         ItemCountLabel.setText("Antal varor: " + shoppingCart.getItems().size());
-        priceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+        priceLabel.setText("Kostnad: " + String.format("%.2f", shoppingCart.getTotal()));
         productCountLabel.setText("Antal varor: " + shoppingCart.getItems().size());
-        totalPriceLabel.setText("Kostnad: " + String.format("%.2f",shoppingCart.getTotal()));
+        totalPriceLabel.setText("Kostnad: " + String.format("%.2f", shoppingCart.getTotal()));
         previousShopLabel.setText("Antal tidigare köp: " + model.getNumberOfOrders());
 
     }
 
 
-    private void toCartNavigation(){
-        if (model.getShoppingCart().getTotal() == 0){
+    private void toCartNavigation() {
+        if (model.getShoppingCart().getTotal() == 0) {
 
             payButton.setDisable(true);
-        }
-        else
+        } else
             payButton.setDisable(false);
         updateFavorite(model.getFavorites());
         searchResults.setText("");
@@ -270,7 +258,7 @@ ProductPanel productPanel;
     }
 
 
-    private void toFavoritesNavigation(){
+    private void toFavoritesNavigation() {
         updateFavorite(model.getFavorites());
         searchResults.setText("");
         SearchTextField.setVisible(false);
@@ -280,16 +268,18 @@ ProductPanel productPanel;
         favoritesScrollPane.toFront();
 
     }
-    private void wizardHandler(){
+
+    private void wizardHandler() {
         wizard.homeRadioButton.setSelected(false);
         wizard.takeRadioButton.setSelected(false);
 
         if (!wizard.homeRadioButton.isSelected() || !wizard.takeRadioButton.isSelected()) {
             wizard.backArrow3.setDisable(true);
-            wizard.userButton.setDisable(true);
         }
-        wizard.nameText.setText(model.getCustomer().getFirstName() +" "+ model.getCustomer().getLastName());
-        wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f",model.getShoppingCart().getTotal()) + " kronor");
+
+
+        wizard.nameText.setText(model.getCustomer().getFirstName() + " " + model.getCustomer().getLastName());
+        wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f", model.getShoppingCart().getTotal()) + " kronor");
         wizard.adressTextConfirmation.setText(model.getCustomer().getPostAddress());
         wizard.updateWizardPane();
         wizard.updateWizardInfo();
@@ -304,8 +294,9 @@ ProductPanel productPanel;
         wizard.deliveryPane.toFront();
 
     }
-    private void helpNavigation(){
-       SearchTextField.setVisible(false);
+
+    private void helpNavigation() {
+        SearchTextField.setVisible(false);
         searchButton.setVisible(false);
         searchResults.setText("");
         helpAnchorPane.getChildren().add(new HelpView(this));
@@ -315,8 +306,7 @@ ProductPanel productPanel;
     }
 
 
-
-    public  void logoButtonNavigation(){
+    public void logoButtonNavigation() {
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         helpAnchorPane.toBack();
@@ -326,7 +316,7 @@ ProductPanel productPanel;
         prodcutScrollPane.toFront();
     }
 
-    public void startShoppingNavigation(){
+    public void startShoppingNavigation() {
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         searchResults.setText("");
@@ -339,87 +329,97 @@ ProductPanel productPanel;
     private void handleSearchAction(ActionEvent event) {
         wizardAnchorPane.toBack();
         productFlowPane.toFront();
-        List<Product> matches = model.findProducts(SearchTextField.getText());
+        List <Product> matches = model.findProducts(SearchTextField.getText());
         updateProductList(matches);
-        searchResults.setText("Visar resultat för : "+ SearchTextField.getText());
+        searchResults.setText("Visar resultat för : " + SearchTextField.getText());
         System.out.println("# matching products: " + matches.size());
 
     }
+
     @FXML
-    public void logoButtonNavigationAction(ActionEvent event){
+    public void logoButtonNavigationAction(ActionEvent event) {
         logoButtonNavigation();
     }
 
     @FXML
-public void showCategoryOnClick(MouseEvent mouseEvent){
-        TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
-}
+    public void showCategoryOnClick(MouseEvent mouseEvent) {
+        TreeItem <String> item = catTreeView.getSelectionModel().getSelectedItem();
+    }
 
     @FXML
-    public void onCategoryClick(MouseEvent mouseEvent){
+    public void onCategoryClick(MouseEvent mouseEvent) {
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         searchResults.setText("");
         prodcutScrollPane.toFront();
-       TreeItem<String> item = catTreeView.getSelectionModel().getSelectedItem();
-       String category = item.toString();
-        List<Product> products = new ArrayList<>();
-       switch (category){
-           case "TreeItem [ value: Alla produkter ]":
-               products.addAll(model.getProductsByCat(COLD_DRINKS));
-               products.addAll(model.getProductsByCat(HOT_DRINKS));
-               products.addAll(model.getProductsByCat(CABBAGE));
-               products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
-               products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
-               products.addAll(model.getProductsByCat(HERB));
-               products.addAll(model.getProductsByCat(MEAT));
-               products.addAll(model.getProductsByCat(FISH));
-               products.addAll(model.getProductsByCat(DAIRIES));
-               products.addAll(model.getProductsByCat(BERRY));
-               products.addAll(model.getProductsByCat(CITRUS_FRUIT));
-               products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
-               products.addAll(model.getProductsByCat(FRUIT));
-               products.addAll(model.getProductsByCat(MELONS));
-               products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
-               products.addAll(model.getProductsByCat(POD));
-               products.addAll(model.getProductsByCat(BREAD));
-               products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
-               products.addAll(model.getProductsByCat(PASTA));
-               products.addAll(model.getProductsByCat(POTATO_RICE));
-               products.addAll(model.getProductsByCat(SWEET));break;
-
-
-           case "TreeItem [ value: Dryck ]":
+        TreeItem <String> item = catTreeView.getSelectionModel().getSelectedItem();
+        String category = item.toString();
+        List <Product> products = new ArrayList <>();
+        switch (category) {
+            case "TreeItem [ value: Alla produkter ]":
                 products.addAll(model.getProductsByCat(COLD_DRINKS));
-                products.addAll(model.getProductsByCat(HOT_DRINKS));break;
+                products.addAll(model.getProductsByCat(HOT_DRINKS));
+                products.addAll(model.getProductsByCat(CABBAGE));
+                products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
+                products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
+                products.addAll(model.getProductsByCat(HERB));
+                products.addAll(model.getProductsByCat(MEAT));
+                products.addAll(model.getProductsByCat(FISH));
+                products.addAll(model.getProductsByCat(DAIRIES));
+                products.addAll(model.getProductsByCat(BERRY));
+                products.addAll(model.getProductsByCat(CITRUS_FRUIT));
+                products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
+                products.addAll(model.getProductsByCat(FRUIT));
+                products.addAll(model.getProductsByCat(MELONS));
+                products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
+                products.addAll(model.getProductsByCat(POD));
+                products.addAll(model.getProductsByCat(BREAD));
+                products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
+                products.addAll(model.getProductsByCat(PASTA));
+                products.addAll(model.getProductsByCat(POTATO_RICE));
+                products.addAll(model.getProductsByCat(SWEET));
+                break;
+
+
+            case "TreeItem [ value: Dryck ]":
+                products.addAll(model.getProductsByCat(COLD_DRINKS));
+                products.addAll(model.getProductsByCat(HOT_DRINKS));
+                break;
             case "TreeItem [ value: Grönsaker ]":
                 products.addAll(model.getProductsByCat(CABBAGE));
                 products.addAll(model.getProductsByCat(ROOT_VEGETABLE));
                 products.addAll(model.getProductsByCat(VEGETABLE_FRUIT));
-                products.addAll(model.getProductsByCat(HERB));break;
+                products.addAll(model.getProductsByCat(HERB));
+                break;
             case "TreeItem [ value: Kött & Fisk ]":
                 products.addAll(model.getProductsByCat(MEAT));
-                products.addAll(model.getProductsByCat(FISH));break;
+                products.addAll(model.getProductsByCat(FISH));
+                break;
 
             case "TreeItem [ value: Mejeri ]":
-                products.addAll(model.getProductsByCat(DAIRIES));break;
+                products.addAll(model.getProductsByCat(DAIRIES));
+                break;
             case "TreeItem [ value: Frukt ]":
                 products.addAll(model.getProductsByCat(BERRY));
                 products.addAll(model.getProductsByCat(CITRUS_FRUIT));
                 products.addAll(model.getProductsByCat(EXOTIC_FRUIT));
                 products.addAll(model.getProductsByCat(FRUIT));
-                products.addAll(model.getProductsByCat(MELONS));break;
-           case "TreeItem [ value: Nötter & Bönor ]":
-               products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
-               products.addAll(model.getProductsByCat(POD));break;
-           case "TreeItem [ value: Skafferi ]":
-               products.addAll(model.getProductsByCat(BREAD));
-               products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
-               products.addAll(model.getProductsByCat(PASTA));
-               products.addAll(model.getProductsByCat(POTATO_RICE));break;
+                products.addAll(model.getProductsByCat(MELONS));
+                break;
+            case "TreeItem [ value: Nötter & Bönor ]":
+                products.addAll(model.getProductsByCat(NUTS_AND_SEEDS));
+                products.addAll(model.getProductsByCat(POD));
+                break;
+            case "TreeItem [ value: Skafferi ]":
+                products.addAll(model.getProductsByCat(BREAD));
+                products.addAll(model.getProductsByCat(FLOUR_SUGAR_SALT));
+                products.addAll(model.getProductsByCat(PASTA));
+                products.addAll(model.getProductsByCat(POTATO_RICE));
+                break;
 
-           case "TreeItem [ value: Sötsaker ]":
-               products.addAll(model.getProductsByCat(SWEET));break;
+            case "TreeItem [ value: Sötsaker ]":
+                products.addAll(model.getProductsByCat(SWEET));
+                break;
 
         }
 
@@ -427,39 +427,41 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     }
 
 
-
     @FXML
-    public void toPaymentAction(ActionEvent event){
+    public void toPaymentAction(ActionEvent event) {
         wizardHandler();
-}
+    }
 
 
     @FXML
-    public void toCartNavigationAction(ActionEvent event){
+    public void toCartNavigationAction(ActionEvent event) {
         toCartNavigation();
     }
+
     @FXML
-    public void toFavoritesNavigationAction(ActionEvent event){
+    public void toFavoritesNavigationAction(ActionEvent event) {
         toFavoritesNavigation();
     }
 
     @FXML
-    public void helpNavigationAction(ActionEvent event){
+    public void helpNavigationAction(ActionEvent event) {
         helpNavigation();
     }
+
     @FXML
-    public void startShoppingNavigationAction (ActionEvent event){
+    public void startShoppingNavigationAction(ActionEvent event) {
         startShoppingNavigation();
     }
+
     @FXML
     private void clearCartAction(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-       // alert.setTitle("");
+        // alert.setTitle("");
         alert.setHeaderText("Vill du Tömma varukorgen?");
-      //  alert.setContentText("");
+        //  alert.setContentText("");
 
-        Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        Optional <ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
 
             model.clearShoppingCart();
             payButton.setDisable(true);
@@ -484,7 +486,7 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
         productFlowPane.toFront();
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
-        
+
     }
 
     @Override
@@ -494,8 +496,10 @@ public void showCategoryOnClick(MouseEvent mouseEvent){
     }
 
 
-String [] names = {"Linser bruna","Linser gröna","Linser röda","Röda bönor","Vita bönor","Gröna ärter","Kikärtor","Fralla","Knäckebröd","Toast","Bröd grovt","Tunnbröd","Vörtlimpa","Björnbär","Blåbär","Hallon","Krusbär", "Röda vinbär","Smultron" , "Svarta vinbär" ,"Apelsin","Citron"        ,"Clementin","Grapefruit","Lime","Fruktsoppa","7Up flaska","Vatten","Apelsinjuice","Cola burk","Cola flaska","Fanta burk","Fanta flaska","7Up burk","Cacao","Earlgrey","Grönt te","Kaffe","Rooibos","Ananas","FIkon","Granatäpple","Kiwi","Mango","Papaya","Rambutan","Tonfisk","Fiskpinnar","Kräftor","Lax","Räkor","Sej","Sill","Aubergine","Avokado","Gurka"   , "Koksnöt","Mandel","Pistagenöt","Valnöt","Pumpakärnor","Solroskärnor","Farfalle","Fettuccine","Fusilli","Lasagne","Penne","Rigatoni","Spaghetti","Potatispuré","Basmati ris","Fullkornsris","Jasmin ris","Potatis"
-        ,"Chips","Choklad","Kanelbullar","Kokosbollar","Basilika","Citronmeliss","Dill","Koriander","Oregano","Persilja","Rosmarin","Timjan","Oliver","Okra","Paprika","Pumpa","Squash","Blomkål","Broccoli","Bryssel"  ,"Kinakål","Romanesco","Rödkål","Vitkål", "Grytbitar nött","Högrev","Kycklingbröstfilé","Kycklingklubbor","Kyckling hel","Köttfärs nöt","Ägg","Brie","Fillmjölk","Färskost","Mjölk","Mozzarella","Västerbotten",        "Yoghurt laktosfri","Yoghurt turkisk","Charentaismelon","Galiamelon","Honungsmelon","Nätmelon","Vattenmelon","Farinsocker","Graham mjöl","Rågmjöl","Salt","Socker","Vetemjöl 2kg","Cashewnöt","Hasselnöt","Jordnöt"            ,    "Röda vinbär","Smultron","Svarta vinbär","Apelsin","Citron","Clementin","Grapefruit","Lime","Fruktsoppa","7Up flaska","Vatten","Apelsinjuice","Cola burk","Cola flaska","Fanta burk","Fanta flaska","7Up burk","Potatis röd","Potatis sött","Råris","Kålrot","Majrova","Morot","Palsternacka","Pepparrot","Rädisa", "Rödbeta","Rotselleri","Aprikos","Körsbär","Nektarin","Persika","Plommon","Kex","Praliner","Glass"       , "Cacao","Earlgrey","Grönt te","Kaffe","Rooibos","Ananas","FIkon", "Granatäpple","Kiwi", "Mango", "Papaya", "Rambutan", "Tonfisk", "Fiskpinnar", "Kräftor","Lax","Räkor", "Sej","Sill",  "Aubergine", "Avokado", "Gurka",   "Oliver", "Okra", "Paprika", "Pumpa", "Squash", "Blomkål", "Broccoli", "Bryssel", "Kinakål", "Romanesco", "Rödkål", "Vitkål", "Savoykål", "Grytbitar nött", "Högrev",  "Kycklingbröstfilé", "Kycklingklubbor", "Kyckling hel",  "Köttfärs nöt",  "Ägg", "Brie",  "Fillmjölk",  "Färskost",  "Mjölk", "Mozzarella", "Västerbotten", "Yoghurt laktosfri", "Yoghurt turkisk", "Charentaismelon",  "Honungsmelon", "Nätmelon", "Vattenmelon", "Farinsocker", "Graham mjöl", "Rågmjöl","Salt", "Socker", "Vetemjöl 2kg", "Cashewnöt",  "Hasselnöt",  "Jordnöt", "Koksnöt", "Mandel","Pistagenöt", "Valnöt",  "Pumpakärnor", "Solroskärnor", "Farfalle", "Fettuccine", "Fusilli",  "Lasagne",  "Penne", "Rigatoni",  "Spaghetti",  "Potatispuré",  "Basmati ris",  "Fullkornsris",  "Jasmin ris","Potatis","Potatis röd", "Potatis sött", "Råris", "Kålrot", "Majrova", "Morot","Palsternacka", "Pepparrot", "Rädisa", "Rödbeta", "Rotselleri", "Aprikos","Körsbär","Nektarin", "Persika","Plommon","Kex","Praliner","Glass","Chips","Choklad","Kanelbullar","Kokosbollar","Basilika","Citronmeliss","Dill","Koriander","Oregano","Persilja","Rosmarin","Timjan" };
+    String[] names = {"Linser bruna", "Linser gröna", "Linser röda", "Röda bönor", "Vita bönor", "Gröna ärter", "Kikärtor", "Fralla", "Knäckebröd", "Toast", "Bröd grovt", "Tunnbröd", "Vörtlimpa", "Björnbär", "Blåbär", "Hallon", "Krusbär", "Röda vinbär", "Smultron", "Svarta vinbär", "Apelsin", "Citron", "Clementin", "Grapefruit", "Lime", "Fruktsoppa", "7Up flaska", "Vatten", "Apelsinjuice", "Cola burk", "Cola flaska", "Fanta burk", "Fanta flaska", "7Up burk", "Cacao", "Earlgrey", "Grönt te", "Kaffe", "Rooibos", "Ananas", "FIkon", "Granatäpple", "Kiwi", "Mango", "Papaya", "Rambutan", "Tonfisk", "Fiskpinnar", "Kräftor", "Lax", "Räkor", "Sej", "Sill", "Aubergine", "Avokado", "Gurka", "Koksnöt", "Mandel", "Pistagenöt", "Valnöt", "Pumpakärnor", "Solroskärnor", "Farfalle", "Fettuccine", "Fusilli", "Lasagne", "Penne", "Rigatoni", "Spaghetti", "Potatispuré", "Basmati-ris", "Fullkornsris", "Jasmin-ris", "Potatis"
+            , "Chips", "Choklad", "Kanelbullar", "Kokosbollar", "Basilika", "Citronmeliss", "Dill", "Koriander", "Oregano", "Persilja", "Rosmarin", "Timjan", "Oliver", "Okra", "Paprika", "Pumpa", "Squash", "Blomkål", "Broccoli", "Bryssel", "Kinakål", "Romanesco", "Rödkål", "Vitkål", "Grytbitar nött", "Högrev", "Kycklingbröstfilé", "Kycklingklubbor", "Kyckling hel", "Köttfärs nöt", "Ägg", "Brie", "Fillmjölk", "Färskost", "Mjölk", "Mozzarella", "Västerbotten", "Yoghurt laktosfri", "Yoghurt turkisk", "Charentaismelon", "Galiamelon", "Honungsmelon", "Nätmelon", "Vattenmelon", "Farinsocker", "Graham mjöl", "Rågmjöl", "Salt", "Socker", "Vetemjöl 2kg", "Cashewnöt", "Hasselnöt", "Jordnöt"};
+
+
 
 }
 

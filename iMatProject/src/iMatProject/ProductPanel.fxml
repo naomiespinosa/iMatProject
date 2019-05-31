@@ -9,7 +9,7 @@
 
 <fx:root id="productPane" prefHeight="218.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="imageView" fitHeight="121.0" fitWidth="199.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="121.0" fitWidth="145.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nameLabel" layoutX="9.0" layoutY="126.0" text="name">
          <font>
             <Font size="14.0" />

@@ -6,11 +6,13 @@ import java.util.*;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import se.chalmers.cse.dat216.project.IMatDataHandler;
+import javafx.util.Duration;
+import org.controlsfx.control.Notifications;
 import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
@@ -63,8 +65,14 @@ iMatMainWindowController parentController;
         orderNumber.setText("Beställningsnummer : "+String.valueOf(order.getOrderNumber()));
         orderItems.setText("Antal varor : "+ String.valueOf(order.getItems().size()));
         orderDate.setText("Beställningsdatum : "+ String.valueOf(order.getDate().toString().replace("Mon","Mån / ").replace("Tue", "Tis / ").replace("Wed","Ons / ").replace("Thu", "Tors / ").replace("Fri","Fre / ").replace("Sat","Lör / ").replace("Sun", "Sön / ").replace("January","Januari / ").replace("February", "Februari / ").replace("Marsh","Mars / ").replace("May","Maj / ").replace("June", "Juni / ").replace("July","Juli / ").replace("August", "Augusti / ").replace("October","Oktober").replace("CEST","")));
-        close.setOnAction(event -> historyAnchor.toBack());
-        buy.setOnAction(event -> addToCart());
+        close.setOnAction(event -> {
+            historyAnchor.toBack();
+            historyFlow.getChildren().clear();
+        });
+        buy.setOnAction(event -> {
+            addToCart();
+            Notifications.create().text("Listan har lagts till varukorgen").darkStyle().hideAfter(Duration.seconds(2)).position(Pos.BOTTOM_CENTER).showInformation();
+        });
 
 
     }
@@ -89,6 +97,7 @@ iMatMainWindowController parentController;
         }
     @FXML
     public void onClickNavigation(){
+
 
             onClick(order.getItems());
 
