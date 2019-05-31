@@ -484,11 +484,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
-                    if (ccvText.getText().length() >= 4) {
+                    if (ccvText.getText().length() >= 3) {
 
                         // if it's 11th character then just setText to previous
                         // one
-                        ccvText.setText(ccvText.getText().substring(0, 4));
+                        ccvText.setText(ccvText.getText().substring(0, 3));
                     }
                 }
             }
