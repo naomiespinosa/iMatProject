@@ -67,6 +67,7 @@ iMatMainWindowController paretnCOntroller;
     private void handleAddAction(ActionEvent event) {
         System.out.println("Add " + item.getProduct().getName());
         model.addToShoppingCart(item.getProduct());
+
     }
 
     @FXML

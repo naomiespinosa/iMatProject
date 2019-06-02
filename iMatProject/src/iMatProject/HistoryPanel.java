@@ -67,7 +67,16 @@ iMatMainWindowController parentController;
         this.parentController = controller;
         orderNumber.setText("Beställningsnummer : "+String.valueOf(order.getOrderNumber()));
         orderItems.setText("Antal varor : "+ String.valueOf(order.getItems().size()));
-        orderDate.setText("Beställningsdatum : "+ String.valueOf(order.getDate().toString().replace("Mon","Mån / ").replace("Tue", "Tis / ").replace("Wed","Ons / ").replace("Thu", "Tors / ").replace("Fri","Fre / ").replace("Sat","Lör / ").replace("Sun", "Sön / ").replace("January","Januari / ").replace("February", "Februari / ").replace("Marsh","Mars / ").replace("May","Maj / ").replace("June", "Juni / ").replace("July","Juli / ").replace("August", "Augusti / ").replace("October","Oktober").replace("CEST","")));
+        orderDate.setText("Beställningsdatum : "+ String.valueOf(order.getDate().toString().replace(
+                "Mon","Mån / ").replace("Tue", "Tis / ").replace(
+                        "Wed","Ons / ").replace("Thu", "Tors / ").replace(
+                                "Fri","Fre / ").replace("Sat","Lör / ").replace(
+                                        "Sun", "Sön / ").replace("January",
+                "Januari / ").replace("February", "Februari / ").replace(
+                        "Marsh","Mars / ").replace("May","Maj / ").replace(
+                                "June", "Juni / ").replace("July","Juli / ")
+                .replace("August", "Augusti / ").replace("October","Oktober")
+                .replace("CEST","")));
         close.setOnAction(event -> {
             historyAnchor.toBack();
             historyFlow.getChildren().clear();

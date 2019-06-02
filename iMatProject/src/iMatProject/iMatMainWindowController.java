@@ -210,8 +210,6 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         } else payButton.setDisable(false);
 
         for (ShoppingItem item : items) {
-
-
             cartView.getChildren().add(new ItemPanel(item, this));
             sideCartFlowPane.getChildren().add(new SideItemPanel(item, this));
         }
@@ -333,7 +331,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         productFlowPane.toFront();
         List <Product> matches = model.findProducts(SearchTextField.getText());
         updateProductList(matches);
-        searchResults.setText("Visar resultat för : " + SearchTextField.getText());
+        searchResults.setText("Visar resultat för: " + SearchTextField.getText());
         System.out.println("# matching products: " + matches.size());
 
     }
@@ -459,7 +457,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     private void clearCartAction(ActionEvent event) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         // alert.setTitle("");
-        alert.setHeaderText("Vill du Tömma varukorgen?");
+        alert.setHeaderText("Vill du tömma varukorgen?");
         //  alert.setContentText("");
 
         Optional <ButtonType> result = alert.showAndWait();

@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<fx:root prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: white;" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: white;" type="AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ScrollPane prefHeight="800.0" prefWidth="1301.0" style="-fx-background-color: white;">
         <content>
@@ -84,7 +84,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="25.0" layoutY="732.0" text="Hur lägger jag till en vara i varukorgen?">
+                  <Label layoutX="25.0" layoutY="732.0" text="Hur tar jag bort en vara från varukorgen?">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
@@ -123,10 +123,10 @@
                   </Label>
                   <ImageView fitHeight="164.0" fitWidth="337.0" layoutX="26.0" layoutY="1285.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@resources/favoriter2.PNG" />
+                        <Image url="@resources/favorit3.PNG" />
                      </image>
                   </ImageView>
-                  <BorderPane layoutX="255.0" layoutY="1385.0" prefHeight="47.0" prefWidth="84.0" style="-fx-border-color: red; -fx-border-width: 3;" />
+                  <BorderPane layoutX="255.0" layoutY="1333.0" prefHeight="47.0" prefWidth="84.0" style="-fx-border-color: red; -fx-border-width: 3;" />
                   <Label layoutX="375.0" layoutY="1284.0" prefHeight="86.0" prefWidth="358.0" text="Klicka på knappen Favoriter längst ner till vänster så får du upp en sida med dina favortimarkerade varor." wrapText="true">
                      <font>
                         <Font size="18.0" />
