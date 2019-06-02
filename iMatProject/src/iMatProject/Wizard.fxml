@@ -186,7 +186,7 @@
                         <Tooltip text="välj år" />
                      </tooltip>
                   </ComboBox>
-                  <TextField fx:id="ccvText" layoutX="650.0" layoutY="505.0" prefHeight="26.0" prefWidth="79.0">
+                  <TextField fx:id="ccvText" layoutX="650.0" layoutY="505.0" prefHeight="26.0" prefWidth="79.0" promptText="XXX">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -237,6 +237,7 @@
                      </font>
                   </Label>
                   <Label layoutX="650.0" layoutY="399.0" text="16-siffrignummer på kortetsfarmsida" textFill="GREY" />
+                  <Label layoutX="650.0" layoutY="543.0" text="en tresiffrig kod på kortets baksida" textFill="GREY" />
                </children>
             </AnchorPane>
             <AnchorPane fx:id="personalInfoPane" prefHeight="649.0" prefWidth="1250.0" style="-fx-background-color: #ffffff;">
@@ -415,7 +416,7 @@
                         <Image url="@resources/baseline_home_white_18dp.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="402.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" style="-fx-blend-mode: 2;">
+                  <ImageView fitHeight="52.0" fitWidth="57.0" layoutX="402.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@resources/baseline_person_black_18dp.png" />
                      </image>

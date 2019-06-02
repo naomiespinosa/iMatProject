@@ -2,6 +2,8 @@
 package iMatProject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -13,16 +15,13 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import org.controlsfx.control.Notifications;
-import se.chalmers.cse.dat216.project.Product;
-import se.chalmers.cse.dat216.project.ShoppingCart;
-import se.chalmers.cse.dat216.project.ShoppingItem;
+import se.chalmers.cse.dat216.project.*;
 
 
-public class ProductPanel extends AnchorPane  {
-    private final static double kImageWidth = 75;
-    private final static double kImageRatio = 0.75;
-iMatMainWindowController parentController;
-private Boolean fave;
+public class ProductPanel extends AnchorPane   {
+
+    iMatMainWindowController parentController;
+    private Boolean fave;
     @FXML
     ImageView imageView;
     @FXML
@@ -39,8 +38,8 @@ private Boolean fave;
     private Product product;
 
 
-    public ProductPanel(Product product, iMatMainWindowController controller, Boolean fave) {
 
+    public ProductPanel(Product product, iMatMainWindowController controller, Boolean fave) {
 
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ProductPanel.fxml"));
@@ -64,32 +63,26 @@ private Boolean fave;
         }
 
         this.fave = fave;
-        if (fave){
+        if (fave) {
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
 
-        }
-        else favoriteButton.setStyle("-fx-background-color: #ffffff;");
+        } else favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
 
     }
-    public void colorChangeControl(){
 
-        if (model.isFavorite(product)){
+    public void colorChangeControl() {
+
+        if (model.isFavorite(product)) {
             favoriteButton.setStyle("-fx-background-color: #4c1036;");
-        }
-        else favoriteButton.setStyle("-fx-background-color: #ffffff;");
+        } else favoriteButton.setStyle("-fx-background-color: #ffffff;");
 
     }
-
-
 
 
     @FXML
     private void handleAddAction(ActionEvent event) {
         ShoppingCart shoppingCart = model.getShoppingCart();
-        if (shoppingCart.getItems().size() == 0){
-            Notifications.create().text("Varan har lagts till varukorgen").darkStyle().hideAfter(Duration.seconds(2)).position(Pos.BOTTOM_CENTER).showInformation();
-        }
 
         System.out.println("Add " + product.getName());
         model.addToShoppingCart(product);
@@ -106,7 +99,6 @@ private Boolean fave;
     public void addFavoritesAction() {
 
         if (!model.isFavorite(product)) {
-
 
 
             model.addFavorites(product);
@@ -127,7 +119,8 @@ private Boolean fave;
             System.out.println("Remove fav:  " + product.getProductId());
         }
     }
-
-
-
 }
+
+
+
+

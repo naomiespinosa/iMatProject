@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root id="productPane" prefHeight="218.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root id="productPane" prefHeight="218.0" prefWidth="190.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="imageView" fitHeight="121.0" fitWidth="145.0" layoutX="4.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="nameLabel" layoutX="9.0" layoutY="126.0" text="name">
@@ -22,9 +22,9 @@
          <font>
             <Font name="System Bold" size="14.0" />
          </font></Label>
-      <Button layoutX="143.0" layoutY="126.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="39.0" prefWidth="39.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Button layoutX="122.0" layoutY="149.0" mnemonicParsing="false" onAction="#handleAddAction" prefHeight="50.0" prefWidth="50.0" style="-fx-background-radius: 25; -fx-background-color: #4C1036;" text="+" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
-            <Font name="System Bold Italic" size="18.0" />
+            <Font name="System Bold Italic" size="24.0" />
          </font>
          <tooltip>
             <Tooltip text="Lägg ett stycke i varukorgen" />

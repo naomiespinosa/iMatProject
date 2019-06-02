@@ -16,8 +16,6 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class SideItemPanel extends AnchorPane  {
-    private final static double kImageWidth = 75;
-    private final static double kImageRatio = 0.75;
 iMatMainWindowController paretnCOntroller;
     @FXML
     ImageView imageView;

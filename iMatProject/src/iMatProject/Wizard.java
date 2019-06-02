@@ -10,7 +10,6 @@ import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
@@ -143,11 +142,6 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     private Model model = Model.getInstance();
     private ToggleGroup deliveryToggleGroup;
     private iMatMainWindowController controller;
-
-    public ShoppingCart getShoppingCart() {
-        return shoppingCart;
-    }
-
     ShoppingCart shoppingCart;
 
     public Wizard() {
@@ -199,16 +193,16 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
         deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener <Toggle>() {
 
-                     @Override
-                     public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+            @Override
+            public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
-                         if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
-                             backArrow3.setDisable(false);
+                if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
+                    backArrow3.setDisable(false);
 
-                         } else backArrow3.setDisable(true);
+                } else backArrow3.setDisable(true);
 
-                     }
-                 });
+            }
+        });
 
 
         phoneText.textProperty().addListener(new ChangeListener <String>() {
@@ -547,8 +541,8 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
     public void navigateFront3() {
         progressBar3.setProgress(0.99);
-        updateWizardInfo();
-        updateWizardPane();
+        saveWizardInfo();
+        getWizardInfo();
         checkName();
         Customer customer = model.getCustomer();
         userText.setText("Du genomför köpet som:");
@@ -557,7 +551,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     }
 
     public void navigateBack1() {
-        updateWizardInfo();
+        saveWizardInfo();
         checkName();
         deliveryPane.toFront();
     }
@@ -592,8 +586,8 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
     }
 
     public void existedUserNavigation() {
-        updateWizardPane();
-        updateWizardInfo();
+        getWizardInfo();
+        saveWizardInfo();
         checkName();
         Customer customer = model.getCustomer();
         userText.setText("Du genomför köpet som: ");
@@ -648,7 +642,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         backToCartNavigation();
     }
 
-    public void updateWizardInfo() {
+    public void saveWizardInfo() {
 
         CreditCard card = model.getCreditCard();
         Customer customer = model.getCustomer();
@@ -676,7 +670,7 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
 
     }
 
-    public void updateWizardPane() {
+    public void getWizardInfo() {
 
         CreditCard card = model.getCreditCard();
         Customer customer = model.getCustomer();

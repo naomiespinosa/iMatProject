@@ -5,7 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
-import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,7 +15,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
-import org.controlsfx.control.Notifications;
 import org.controlsfx.control.textfield.TextFields;
 import se.chalmers.cse.dat216.project.*;
 
@@ -167,6 +165,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
         TextFields.bindAutoCompletion(SearchTextField, names);
 
+        logoButton.setDisable(true);
+
 
 
 
@@ -184,6 +184,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     void updateProductList(List <Product> products) {
         productFlowPane.getChildren().clear();
 
+
         for (Product product : products) {
 
             productFlowPane.getChildren().add(new ProductPanel(product, this, false));
@@ -194,9 +195,10 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     public void updateFavorite(List <Product> favorites) {
         favoritesFlowPane.getChildren().clear();
 
+
         for (Product product : favorites) {
 
-            favoritesFlowPane.getChildren().add(new ProductPanel(product, this, true));
+            favoritesFlowPane.getChildren().add(0,new ProductPanel(product, this, true));
         }
 
     }
@@ -210,8 +212,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         } else payButton.setDisable(false);
 
         for (ShoppingItem item : items) {
-            cartView.getChildren().add(new ItemPanel(item, this));
-            sideCartFlowPane.getChildren().add(new SideItemPanel(item, this));
+            cartView.getChildren().add(0,new ItemPanel(item, this));
+            sideCartFlowPane.getChildren().add(0,new SideItemPanel(item, this));
         }
     }
 
@@ -225,7 +227,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         for (Order order : orders) {
 
 
-            historyView.getChildren().add(new HistoryPanel(order, this));
+            historyView.getChildren().add(0,new HistoryPanel(order, this));
 
         }
     }
@@ -281,8 +283,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         wizard.nameText.setText(model.getCustomer().getFirstName() + " " + model.getCustomer().getLastName());
         wizard.totalpriceText.setText("Totalt pris: " + String.format("%.2f", model.getShoppingCart().getTotal()) + " kronor");
         wizard.adressTextConfirmation.setText(model.getCustomer().getPostAddress());
-        wizard.updateWizardPane();
-        wizard.updateWizardInfo();
+        wizard.getWizardInfo();
+        wizard.saveWizardInfo();
         wizard.checkName();
         SearchTextField.setVisible(false);
         searchButton.setVisible(false);
@@ -307,6 +309,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
 
 
     public void logoButtonNavigation() {
+
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         helpAnchorPane.toBack();
@@ -317,6 +320,7 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
     }
 
     public void startShoppingNavigation() {
+        logoButton.setDisable(false);
         SearchTextField.setVisible(true);
         searchButton.setVisible(true);
         searchResults.setText("");

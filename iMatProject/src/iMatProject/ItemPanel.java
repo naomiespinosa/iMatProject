@@ -15,8 +15,7 @@ import se.chalmers.cse.dat216.project.ShoppingItem;
 
 
 public class ItemPanel extends AnchorPane  {
-    private final static double kImageWidth = 75;
-    private final static double kImageRatio = 0.75;
+
 iMatMainWindowController parentController;
 
 
@@ -51,7 +50,7 @@ iMatMainWindowController parentController;
         this.parentController = controller;
         nameLabel.setText(item.getProduct().getName());
         prizeLabel.setText(String.format("%.2f", item.getProduct().getPrice()) + " " + item.getProduct().getUnit() + "");
-        imageView.setImage(model.getImage(item.getProduct(), kImageWidth, kImageWidth * kImageRatio));
+        imageView.setImage(model.getImage(item.getProduct()));
         if (!item.getProduct().isEcological()) {
             ecoLabel.setText("");
         }
@@ -59,18 +58,6 @@ iMatMainWindowController parentController;
 
 
     }
-    public void colorChangeControl(){
-
-        if (model.isFavorite(item.getProduct())){
-            favoriteButton.setStyle("-fx-background-color: #4c1036;");
-        }
-        else favoriteButton.setStyle("-fx-background-color: #ffffff;");
-
-
-    }
-
-
-
 
     @FXML
     private void handleAddAction(ActionEvent event) {

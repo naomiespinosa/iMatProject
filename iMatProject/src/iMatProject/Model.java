@@ -15,11 +15,9 @@ public class Model {
     private static Model instance = null;
     private IMatDataHandler iMatDataHandler;
     private Customer customer;
-    private Product product;
+
     private Order order;
-    private List<Order> orders;
-    ShoppingCart shoppingCart;
-    Date date;
+
 
 
 
@@ -44,15 +42,6 @@ public class Model {
 
     }
 
-    public Date getDate(){
-        return  order.getDate();
-    }
-    public int getItems(){
-        return order.getItems().size();
-    }
-    public int getOrderNumber() {
-        return order.getOrderNumber();
-    }
 
 
 
@@ -97,11 +86,6 @@ public class Model {
             }
 
         }
-
-        /*  ShoppingCart shoppingCart = iMatDataHandler.getShoppingCart();
-
-        ShoppingItem item = new ShoppingItem(p);
-        Model.getInstance().getShoppingCart().removeItem(item);*/
 
        System.out.println(getShoppingCart().getItems().size());
 
