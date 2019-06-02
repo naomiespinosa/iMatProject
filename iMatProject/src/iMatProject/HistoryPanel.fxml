@@ -14,7 +14,7 @@
    <children>
       <AnchorPane id="history" fx:id="historyAnchor" prefHeight="218.0" prefWidth="1227.0" style="-fx-background-color: EADCFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ScrollPane prefHeight="216.0" prefWidth="1162.0">
+            <ScrollPane fx:id="scroll" prefHeight="216.0" prefWidth="1162.0">
                <content>
                   <FlowPane fx:id="historyFlow" hgap="10.0" prefHeight="215.0" prefWidth="1162.0" style="-fx-background-color: #ffdbfa;" vgap="10.0">
                      <padding>

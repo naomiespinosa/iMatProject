@@ -168,6 +168,8 @@ public class iMatMainWindowController implements Initializable, ShoppingCartList
         TextFields.bindAutoCompletion(SearchTextField, names);
 
 
+
+
     }
 
     @Override
