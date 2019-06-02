@@ -28,7 +28,7 @@
                      </children></AnchorPane>
               </content>
             </ScrollPane>
-            <Button id="logo" fx:id="payButton" layoutX="1089.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
+            <Button id="logo" fx:id="payButton" layoutX="1086.0" layoutY="610.0" mnemonicParsing="false" onAction="#toPaymentAction" prefHeight="90.0" prefWidth="203.0" text="Till Betalning">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
@@ -58,7 +58,7 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="historyAnchorPane" layoutY="61.0" prefHeight="713.0" prefWidth="1300.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="historyAnchorPane" layoutY="61.0" prefHeight="719.0" prefWidth="1300.0" style="-fx-background-color: white;">
          <children>
             <ScrollPane layoutX="1.0" layoutY="-3.0" prefHeight="718.0" prefWidth="1298.0">
                <content>
@@ -186,7 +186,7 @@
                </children></AnchorPane>
             </center>
         </BorderPane>
-      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1303.0" style="-fx-background-color: white;">
+      <AnchorPane fx:id="startAnchorPane" layoutY="61.0" prefHeight="722.0" prefWidth="1300.0" style="-fx-background-color: white;">
          <children>
             <Button id="logo" layoutX="530.0" layoutY="324.0" mnemonicParsing="false" onAction="#startShoppingNavigationAction" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 500;" text="Börja Handla!">
                <font>

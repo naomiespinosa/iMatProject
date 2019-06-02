@@ -197,20 +197,18 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
         }
 
 
-        deliveryToggleGroup.selectedToggleProperty().addListener(new
+        deliveryToggleGroup.selectedToggleProperty().addListener(new ChangeListener <Toggle>() {
 
-                                                                         ChangeListener <Toggle>() {
+                     @Override
+                     public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
-                                                                             @Override
-                                                                             public void changed(ObservableValue <? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                         if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
+                             backArrow3.setDisable(false);
 
-                                                                                 if (!homeRadioButton.isSelected() || !takeRadioButton.isSelected()) {
-                                                                                     backArrow3.setDisable(false);
+                         } else backArrow3.setDisable(true);
 
-                                                                                 } else backArrow3.setDisable(true);
-
-                                                                             }
-                                                                         });
+                     }
+                 });
 
 
         phoneText.textProperty().addListener(new ChangeListener <String>() {
@@ -491,11 +489,11 @@ public class Wizard extends AnchorPane implements ShoppingCartListener {
                                 Number oldValue, Number newValue) {
                 if (newValue.intValue() > oldValue.intValue()) {
                     // Check if the new character is greater than LIMIT
-                    if (ccvText.getText().length() >= 4) {
+                    if (ccvText.getText().length() >= 3) {
 
                         // if it's 11th character then just setText to previous
                         // one
-                        ccvText.setText(ccvText.getText().substring(0, 4));
+                        ccvText.setText(ccvText.getText().substring(0, 3));
                     }
                 }
             }

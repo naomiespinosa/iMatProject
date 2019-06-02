@@ -22,6 +22,7 @@ public class Model {
     Date date;
 
 
+
     protected Model() {
 
 
@@ -85,7 +86,7 @@ public class Model {
         ShoppingItem item = new ShoppingItem(p);
         Model.getInstance().getShoppingCart().addItem(item);
         System.out.println(shoppingCart.getItems().size());
-       // shoppingCart.addProduct(p);
+
     }
     public void removeFromShoppingCart(Product p) {
 

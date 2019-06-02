@@ -61,6 +61,8 @@
 
 .button:focused {
     -fx-border-color: #4C1036;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
 }
 
 
@@ -212,4 +214,6 @@
     -fx-effect: innershadow(gaussian, black, 15, 0, 0, 0);
 
 }
+
+
 

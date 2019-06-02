@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.util.Duration;
@@ -39,6 +40,8 @@ iMatMainWindowController parentController;
     Button close;
     @FXML
     Button buy;
+    @FXML
+    ScrollPane scroll;
 
     private Product product;
     Order order;
@@ -73,6 +76,7 @@ iMatMainWindowController parentController;
             addToCart();
             Notifications.create().text("Listan har lagts till varukorgen").darkStyle().hideAfter(Duration.seconds(2)).position(Pos.BOTTOM_CENTER).showInformation();
         });
+
 
 
     }
